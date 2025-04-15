@@ -39,7 +39,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context) => Container(
                 color: Colors.transparent,
                 child: Image.asset(
-                  'assets/images/VanGuard_Splash.png',
+                  'assets/images/VanGuard_(Phone_Wallpaper).png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -54,7 +54,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   builder: (context) => Container(
                     color: Colors.transparent,
                     child: Image.asset(
-                      'assets/images/VanGuard_Splash.png',
+                      'assets/images/VanGuard_(Phone_Wallpaper).png',
                       fit: BoxFit.cover,
                     ),
                   ),
