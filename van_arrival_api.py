@@ -2,9 +2,9 @@ import pandas as pd
 import joblib
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
+from datetime import datetime
 from fastapi import FastAPI
 from pydantic import BaseModel
-from datetime import datetime
 
 # Load and preprocess dataset
 df = pd.read_csv("van_times.csv")
@@ -43,6 +43,7 @@ joblib.dump(le_plate, "le_plate.pkl")
 
 # Define prediction logic
 def predict_arrival(route: str, plate_number: str, departure_time: str) -> str:
+    # Load trained components
     rf = joblib.load("rf_model.pkl")
     le_route = joblib.load("le_route.pkl")
     le_plate = joblib.load("le_plate.pkl")
@@ -65,11 +66,12 @@ def predict_arrival(route: str, plate_number: str, departure_time: str) -> str:
     input_vector = [[route_encoded, plate_encoded, departure_mins]]
     predicted_arrival_mins = rf.predict(input_vector)[0]
 
+    # Convert minutes back to HH:MM
     arrival_hour = int(predicted_arrival_mins) // 60
     arrival_minute = int(predicted_arrival_mins) % 60
     return f"{arrival_hour:02d}:{arrival_minute:02d}"
 
-# FastAPI app
+# Set up FastAPI app
 app = FastAPI()
 
 class PredictionInput(BaseModel):
