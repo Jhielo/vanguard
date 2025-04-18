@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+
+import 'auth/supabase_auth/supabase_user_provider.dart';
+import 'auth/supabase_auth/auth_util.dart';
+
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
@@ -49,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           .map((e) => getRoute(e))
           .toList();
 
-  bool displaySplashImage = true;
+  late Stream<BaseAuthUser> userStream;
 
   @override
   void initState() {
@@ -57,9 +61,15 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-
-    Future.delayed(Duration(milliseconds: 300),
-        () => safeSetState(() => _appStateNotifier.stopShowingSplashImage()));
+    userStream = vanGuardFinalSupabaseUserStream()
+      ..listen((user) {
+        _appStateNotifier.update(user);
+      });
+    jwtTokenStream.listen((_) {});
+    Future.delayed(
+      Duration(milliseconds: 300),
+      () => _appStateNotifier.stopShowingSplashImage(),
+    );
   }
 
   void setLocale(String language) {
@@ -93,12 +103,12 @@ class _MyAppState extends State<MyApp> {
         scrollbarTheme: ScrollbarThemeData(
           thumbColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.dragged)) {
-              return Color(4283120111);
+              return Color(4279775346);
             }
             if (states.contains(WidgetState.hovered)) {
-              return Color(4283120111);
+              return Color(4279775346);
             }
-            return Color(4283120111);
+            return Color(4279775346);
           }),
         ),
         useMaterial3: false,
