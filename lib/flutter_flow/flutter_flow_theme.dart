@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const kThemeModeKey = '__theme_mode__';
+
 SharedPreferences? _prefs;
 
 enum DeviceSize {
@@ -19,6 +20,7 @@ abstract class FlutterFlowTheme {
 
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
+
   static ThemeMode get themeMode {
     final darkMode = _prefs?.getBool(kThemeModeKey);
     return darkMode == null
@@ -205,107 +207,107 @@ class MobileTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Google Sans';
+  String get displayLargeFamily => 'Google';
   TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Google Sans';
+  String get displayMediumFamily => 'Google';
   TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Google Sans';
+  String get displaySmallFamily => 'Google';
   TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Google Sans';
+  String get headlineLargeFamily => 'Google';
   TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Google Sans';
+  String get headlineMediumFamily => 'Google';
   TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
-  String get headlineSmallFamily => 'Google Sans';
+  String get headlineSmallFamily => 'Google';
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Google Sans';
+  String get titleLargeFamily => 'Google';
   TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
-  String get titleMediumFamily => 'Google Sans';
+  String get titleMediumFamily => 'Google';
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Google Sans';
+  String get titleSmallFamily => 'Google';
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Google Sans';
+  String get labelLargeFamily => 'Google';
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Google Sans';
+  String get labelMediumFamily => 'Google';
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Google Sans';
+  String get labelSmallFamily => 'Google';
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Google Sans';
+  String get bodyLargeFamily => 'Google';
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Google Sans';
+  String get bodyMediumFamily => 'Google';
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Google Sans';
+  String get bodySmallFamily => 'Google';
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -317,107 +319,107 @@ class TabletTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Google Sans';
+  String get displayLargeFamily => 'Google';
   TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Google Sans';
+  String get displayMediumFamily => 'Google';
   TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Google Sans';
+  String get displaySmallFamily => 'Google';
   TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Google Sans';
+  String get headlineLargeFamily => 'Google';
   TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Google Sans';
+  String get headlineMediumFamily => 'Google';
   TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
-  String get headlineSmallFamily => 'Google Sans';
+  String get headlineSmallFamily => 'Google';
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Google Sans';
+  String get titleLargeFamily => 'Google';
   TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
-  String get titleMediumFamily => 'Google Sans';
+  String get titleMediumFamily => 'Google';
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Google Sans';
+  String get titleSmallFamily => 'Google';
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Google Sans';
+  String get labelLargeFamily => 'Google';
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Google Sans';
+  String get labelMediumFamily => 'Google';
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Google Sans';
+  String get labelSmallFamily => 'Google';
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Google Sans';
+  String get bodyLargeFamily => 'Google';
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Google Sans';
+  String get bodyMediumFamily => 'Google';
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Google Sans';
+  String get bodySmallFamily => 'Google';
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
@@ -429,107 +431,107 @@ class DesktopTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Google Sans';
+  String get displayLargeFamily => 'Google';
   TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 64.0,
       );
-  String get displayMediumFamily => 'Google Sans';
+  String get displayMediumFamily => 'Google';
   TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 44.0,
       );
-  String get displaySmallFamily => 'Google Sans';
+  String get displaySmallFamily => 'Google';
   TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Google Sans';
+  String get headlineLargeFamily => 'Google';
   TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Google Sans';
+  String get headlineMediumFamily => 'Google';
   TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
       );
-  String get headlineSmallFamily => 'Google Sans';
+  String get headlineSmallFamily => 'Google';
   TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Google Sans';
+  String get titleLargeFamily => 'Google';
   TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
       );
-  String get titleMediumFamily => 'Google Sans';
+  String get titleMediumFamily => 'Google';
   TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Google Sans';
+  String get titleSmallFamily => 'Google';
   TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Google Sans';
+  String get labelLargeFamily => 'Google';
   TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Google Sans';
+  String get labelMediumFamily => 'Google';
   TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Google Sans';
+  String get labelSmallFamily => 'Google';
   TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Google Sans';
+  String get bodyLargeFamily => 'Google';
   TextStyle get bodyLarge => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Google Sans';
+  String get bodyMediumFamily => 'Google';
   TextStyle get bodyMedium => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Google Sans';
+  String get bodySmallFamily => 'Google';
   TextStyle get bodySmall => TextStyle(
-        fontFamily: 'Google Sans',
+        fontFamily: 'Google',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 12.0,

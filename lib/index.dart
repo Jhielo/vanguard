@@ -1,7 +1,58 @@
 // Export pages
-export '/developer_side/developers/developers_widget.dart'
-    show DevelopersWidget;
-export '/developer_side/developercontent/developercontent_widget.dart'
-    show DevelopercontentWidget;
+export '/developer_side/developer_first_page/developer_first_page_widget.dart'
+    show DeveloperFirstPageWidget;
+export '/developer_side/developer_content/developer_content_widget.dart'
+    show DeveloperContentWidget;
 export '/home/home_page/home_page_widget.dart' show HomePageWidget;
-export '/about/about_widget.dart' show AboutWidget;
+export '/about_side/about_first_page/about_first_page_widget.dart'
+    show AboutFirstPageWidget;
+export '/about_side/about_team_jhielo/about_team_jhielo_widget.dart'
+    show AboutTeamJhieloWidget;
+export '/about_side/about_team_clyde/about_team_clyde_widget.dart'
+    show AboutTeamClydeWidget;
+export '/about_side/about_team_joselito/about_team_joselito_widget.dart'
+    show AboutTeamJoselitoWidget;
+export '/driver_side/driver_account/driver_first_page/driver_first_page_widget.dart'
+    show DriverFirstPageWidget;
+export '/passenger_side/passenger_account/passenger_first_page/passenger_first_page_widget.dart'
+    show PassengerFirstPageWidget;
+export '/driver_side/driver_account/driver_login/driver_login_widget.dart'
+    show DriverLoginWidget;
+export '/driver_side/driver_account/driver_signup/driver_signup_widget.dart'
+    show DriverSignupWidget;
+export '/driver_side/driver_dashboard/driver_edit_profile/driver_edit_profile_widget.dart'
+    show DriverEditProfileWidget;
+export '/driver_side/driver_dashboard/driver_dashboard/driver_dashboard_widget.dart'
+    show DriverDashboardWidget;
+export '/driver_side/driver_dashboard/driver_record/driver_record_widget.dart'
+    show DriverRecordWidget;
+export '/driver_side/driver_dashboard/driver_record_success/driver_record_success_widget.dart'
+    show DriverRecordSuccessWidget;
+export '/driver_side/driver_dashboard/driver_saved_records/driver_saved_records_widget.dart'
+    show DriverSavedRecordsWidget;
+export '/driver_side/driver_dashboard/driver_saved_records_display/driver_saved_records_display_widget.dart'
+    show DriverSavedRecordsDisplayWidget;
+export '/passenger_side/passenger_account/passenger_login/passenger_login_widget.dart'
+    show PassengerLoginWidget;
+export '/passenger_side/passenger_account/passenger_signup/passenger_signup_widget.dart'
+    show PassengerSignupWidget;
+export '/passenger_side/passenger_dashboard/passenger_dashboard/passenger_dashboard_widget.dart'
+    show PassengerDashboardWidget;
+export '/passenger_side/passenger_dashboard/passenger_schedule_screen/passenger_schedule_screen_widget.dart'
+    show PassengerScheduleScreenWidget;
+export '/passenger_side/passenger_dashboard/passenger_settings/passenger_settings_widget.dart'
+    show PassengerSettingsWidget;
+export '/driver_side/driver_dashboard/driver_settings/driver_settings_widget.dart'
+    show DriverSettingsWidget;
+export '/driver_side/driver_account/driver_forgotten_password/driver_forgotten_password_widget.dart'
+    show DriverForgottenPasswordWidget;
+export '/passenger_side/passenger_account/passenger_forgotten_password/passenger_forgotten_password_widget.dart'
+    show PassengerForgottenPasswordWidget;
+export '/passenger_side/passenger_dashboard/passenger_announcement/passenger_announcement_widget.dart'
+    show PassengerAnnouncementWidget;
+export '/passenger_side/passenger_dashboard/passenger_announcement_prio/passenger_announcement_prio_widget.dart'
+    show PassengerAnnouncementPrioWidget;
+export '/passenger_side/passenger_dashboard/passenger_announcement_non_prio/passenger_announcement_non_prio_widget.dart'
+    show PassengerAnnouncementNonPrioWidget;
+export '/passenger_side/passenger_dashboard/passenger_edit_profile/passenger_edit_profile_widget.dart'
+    show PassengerEditProfileWidget;

@@ -76,25 +76,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? DevelopercontentWidget()
-          : DevelopersWidget(),
+          ? DeveloperFirstPageWidget()
+          : HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? DevelopercontentWidget()
-              : DevelopersWidget(),
+              ? DeveloperFirstPageWidget()
+              : HomePageWidget(),
         ),
         FFRoute(
-          name: DevelopersWidget.routeName,
-          path: DevelopersWidget.routePath,
-          builder: (context, params) => DevelopersWidget(),
+          name: DeveloperFirstPageWidget.routeName,
+          path: DeveloperFirstPageWidget.routePath,
+          builder: (context, params) => DeveloperFirstPageWidget(),
         ),
         FFRoute(
-          name: DevelopercontentWidget.routeName,
-          path: DevelopercontentWidget.routePath,
-          builder: (context, params) => DevelopercontentWidget(),
+          name: DeveloperContentWidget.routeName,
+          path: DeveloperContentWidget.routePath,
+          builder: (context, params) => DeveloperContentWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -102,9 +102,134 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: AboutWidget.routeName,
-          path: AboutWidget.routePath,
-          builder: (context, params) => AboutWidget(),
+          name: AboutFirstPageWidget.routeName,
+          path: AboutFirstPageWidget.routePath,
+          builder: (context, params) => AboutFirstPageWidget(),
+        ),
+        FFRoute(
+          name: AboutTeamJhieloWidget.routeName,
+          path: AboutTeamJhieloWidget.routePath,
+          builder: (context, params) => AboutTeamJhieloWidget(),
+        ),
+        FFRoute(
+          name: AboutTeamClydeWidget.routeName,
+          path: AboutTeamClydeWidget.routePath,
+          builder: (context, params) => AboutTeamClydeWidget(),
+        ),
+        FFRoute(
+          name: AboutTeamJoselitoWidget.routeName,
+          path: AboutTeamJoselitoWidget.routePath,
+          builder: (context, params) => AboutTeamJoselitoWidget(),
+        ),
+        FFRoute(
+          name: DriverFirstPageWidget.routeName,
+          path: DriverFirstPageWidget.routePath,
+          builder: (context, params) => DriverFirstPageWidget(),
+        ),
+        FFRoute(
+          name: PassengerFirstPageWidget.routeName,
+          path: PassengerFirstPageWidget.routePath,
+          builder: (context, params) => PassengerFirstPageWidget(),
+        ),
+        FFRoute(
+          name: DriverLoginWidget.routeName,
+          path: DriverLoginWidget.routePath,
+          builder: (context, params) => DriverLoginWidget(),
+        ),
+        FFRoute(
+          name: DriverSignupWidget.routeName,
+          path: DriverSignupWidget.routePath,
+          builder: (context, params) => DriverSignupWidget(),
+        ),
+        FFRoute(
+          name: DriverEditProfileWidget.routeName,
+          path: DriverEditProfileWidget.routePath,
+          builder: (context, params) => DriverEditProfileWidget(),
+        ),
+        FFRoute(
+          name: DriverDashboardWidget.routeName,
+          path: DriverDashboardWidget.routePath,
+          builder: (context, params) => DriverDashboardWidget(),
+        ),
+        FFRoute(
+          name: DriverRecordWidget.routeName,
+          path: DriverRecordWidget.routePath,
+          builder: (context, params) => DriverRecordWidget(),
+        ),
+        FFRoute(
+          name: DriverRecordSuccessWidget.routeName,
+          path: DriverRecordSuccessWidget.routePath,
+          builder: (context, params) => DriverRecordSuccessWidget(),
+        ),
+        FFRoute(
+          name: DriverSavedRecordsWidget.routeName,
+          path: DriverSavedRecordsWidget.routePath,
+          builder: (context, params) => DriverSavedRecordsWidget(),
+        ),
+        FFRoute(
+          name: DriverSavedRecordsDisplayWidget.routeName,
+          path: DriverSavedRecordsDisplayWidget.routePath,
+          builder: (context, params) => DriverSavedRecordsDisplayWidget(),
+        ),
+        FFRoute(
+          name: PassengerLoginWidget.routeName,
+          path: PassengerLoginWidget.routePath,
+          builder: (context, params) => PassengerLoginWidget(),
+        ),
+        FFRoute(
+          name: PassengerSignupWidget.routeName,
+          path: PassengerSignupWidget.routePath,
+          builder: (context, params) => PassengerSignupWidget(),
+        ),
+        FFRoute(
+          name: PassengerDashboardWidget.routeName,
+          path: PassengerDashboardWidget.routePath,
+          builder: (context, params) => PassengerDashboardWidget(),
+        ),
+        FFRoute(
+          name: PassengerScheduleScreenWidget.routeName,
+          path: PassengerScheduleScreenWidget.routePath,
+          builder: (context, params) => PassengerScheduleScreenWidget(),
+        ),
+        FFRoute(
+          name: PassengerSettingsWidget.routeName,
+          path: PassengerSettingsWidget.routePath,
+          builder: (context, params) => PassengerSettingsWidget(),
+        ),
+        FFRoute(
+          name: DriverSettingsWidget.routeName,
+          path: DriverSettingsWidget.routePath,
+          builder: (context, params) => DriverSettingsWidget(),
+        ),
+        FFRoute(
+          name: DriverForgottenPasswordWidget.routeName,
+          path: DriverForgottenPasswordWidget.routePath,
+          builder: (context, params) => DriverForgottenPasswordWidget(),
+        ),
+        FFRoute(
+          name: PassengerForgottenPasswordWidget.routeName,
+          path: PassengerForgottenPasswordWidget.routePath,
+          builder: (context, params) => PassengerForgottenPasswordWidget(),
+        ),
+        FFRoute(
+          name: PassengerAnnouncementWidget.routeName,
+          path: PassengerAnnouncementWidget.routePath,
+          builder: (context, params) => PassengerAnnouncementWidget(),
+        ),
+        FFRoute(
+          name: PassengerAnnouncementPrioWidget.routeName,
+          path: PassengerAnnouncementPrioWidget.routePath,
+          builder: (context, params) => PassengerAnnouncementPrioWidget(),
+        ),
+        FFRoute(
+          name: PassengerAnnouncementNonPrioWidget.routeName,
+          path: PassengerAnnouncementNonPrioWidget.routePath,
+          builder: (context, params) => PassengerAnnouncementNonPrioWidget(),
+        ),
+        FFRoute(
+          name: PassengerEditProfileWidget.routeName,
+          path: PassengerEditProfileWidget.routePath,
+          builder: (context, params) => PassengerEditProfileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -273,7 +398,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/developers';
+            return '/homePage';
           }
           return null;
         },
