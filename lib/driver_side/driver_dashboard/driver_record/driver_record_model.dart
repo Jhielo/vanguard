@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'driver_record_widget.dart' show DriverRecordWidget;
@@ -15,6 +16,9 @@ class DriverRecordModel extends FlutterFlowModel<DriverRecordWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
 
   @override
   void initState(BuildContext context) {}

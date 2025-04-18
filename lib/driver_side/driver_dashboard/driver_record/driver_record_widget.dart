@@ -1,12 +1,12 @@
 import '/driver_side/driver_components/driver_confirmation/driver_confirmation_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'driver_record_model.dart';
@@ -49,6 +49,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
@@ -181,13 +182,24 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          child: Container(
-                            width: 360.0,
-                            height: 250.0,
-                            child: custom_widgets.LiveTrackingMap(
-                              width: 360.0,
-                              height: 250.0,
-                            ),
+                          child: FlutterFlowGoogleMap(
+                            controller: _model.googleMapsController,
+                            onCameraIdle: (latLng) =>
+                                _model.googleMapsCenter = latLng,
+                            initialLocation: _model.googleMapsCenter ??=
+                                LatLng(13.106061, -59.613158),
+                            markerColor: GoogleMarkerColor.violet,
+                            mapType: MapType.normal,
+                            style: GoogleMapStyle.standard,
+                            initialZoom: 14.0,
+                            allowInteraction: true,
+                            allowZoom: true,
+                            showZoomControls: true,
+                            showLocation: true,
+                            showCompass: false,
+                            showMapToolbar: false,
+                            showTraffic: false,
+                            centerMapOnMarkerTap: true,
                           ),
                         ),
                       ],

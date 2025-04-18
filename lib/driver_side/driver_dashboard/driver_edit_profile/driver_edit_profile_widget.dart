@@ -35,6 +35,31 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       safeSetState(() {});
+      // Inserts in supabase
+      await VehicleTrackingTable().insert({
+        'id': '',
+        'name': '',
+        'vehicle_plate': '',
+        'departure_time': supaSerialize<DateTime>(getCurrentTimestamp),
+        'arrival_time': supaSerialize<DateTime>(getCurrentTimestamp),
+        'route': '',
+        'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
+      });
+      // Updates the SupaBase
+      await VehicleTrackingTable().update(
+        data: {
+          'id': '',
+          'name': '',
+          'vehicle_plate': '',
+          'departure_time': supaSerialize<DateTime>(getCurrentTimestamp),
+          'route': '',
+          'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
+          'arrival_time': supaSerialize<DateTime>(getCurrentTimestamp),
+        },
+        matchingRows: (rows) => rows,
+      );
+
+      safeSetState(() {});
     });
 
     _model.nameTextController ??= TextEditingController();
@@ -615,39 +640,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         );
                                       },
                                     );
-
-                                    // Inserts in supabase
-                                    await VehicleTrackingTable().insert({
-                                      'id': '',
-                                      'name': '',
-                                      'vehicle_plate': '',
-                                      'departure_time': supaSerialize<DateTime>(
-                                          getCurrentTimestamp),
-                                      'arrival_time': supaSerialize<DateTime>(
-                                          getCurrentTimestamp),
-                                      'route': '',
-                                      'created_at': supaSerialize<DateTime>(
-                                          getCurrentTimestamp),
-                                    });
-                                    // Updates the SupaBase
-                                    await VehicleTrackingTable().update(
-                                      data: {
-                                        'id': '',
-                                        'name': '',
-                                        'vehicle_plate': '',
-                                        'departure_time':
-                                            supaSerialize<DateTime>(
-                                                getCurrentTimestamp),
-                                        'route': '',
-                                        'created_at': supaSerialize<DateTime>(
-                                            getCurrentTimestamp),
-                                        'arrival_time': supaSerialize<DateTime>(
-                                            getCurrentTimestamp),
-                                      },
-                                      matchingRows: (rows) => rows,
-                                    );
-
-                                    safeSetState(() {});
                                   },
                                   text: 'Save Changes',
                                   options: FFButtonOptions(
