@@ -4,6 +4,12 @@ import 'driver_record_widget.dart' show DriverRecordWidget;
 import 'package:flutter/material.dart';
 
 class DriverRecordModel extends FlutterFlowModel<DriverRecordWidget> {
+  ///  Local state fields for this page.
+
+  bool isPaused = false;
+
+  bool? isStarted;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for DropDown widget.

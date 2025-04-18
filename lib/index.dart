@@ -28,7 +28,7 @@ export '/driver_side/driver_dashboard/driver_record/driver_record_widget.dart'
     show DriverRecordWidget;
 export '/driver_side/driver_dashboard/driver_record_success/driver_record_success_widget.dart'
     show DriverRecordSuccessWidget;
-export '/driver_side/driver_dashboard/driver_saved_records/driver_saved_records_widget.dart'
+export '/driver_side/driver_saved_records/driver_saved_records_widget.dart'
     show DriverSavedRecordsWidget;
 export '/driver_side/driver_dashboard/driver_saved_records_display/driver_saved_records_display_widget.dart'
     show DriverSavedRecordsDisplayWidget;

@@ -3,6 +3,12 @@ import 'driver_edit_profile_widget.dart' show DriverEditProfileWidget;
 import 'package:flutter/material.dart';
 
 class DriverEditProfileModel extends FlutterFlowModel<DriverEditProfileWidget> {
+  ///  Local state fields for this page.
+
+  String? name;
+
+  String? vehiclePlate;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Name widget.

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -186,8 +187,6 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             child: custom_widgets.LiveTrackingMap(
                               width: 360.0,
                               height: 250.0,
-                              sourceLocation: LatLng(13.092, 123.7661),
-                              destinationLocation: LatLng(14.6760, 121.0437),
                             ),
                           ),
                         ),
@@ -377,8 +376,12 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
+                                onPressed: () async {
+                                  await actions.startTrip(
+                                    '',
+                                    '',
+                                    '',
+                                  );
                                 },
                                 text: 'Start',
                                 icon: Icon(
@@ -467,6 +470,12 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           ),
                                         );
                                       },
+                                    );
+
+                                    await actions.endTrip(
+                                      '',
+                                      '',
+                                      '',
                                     );
                                   },
                                   text: 'Stop',
