@@ -186,6 +186,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             child: custom_widgets.LiveTrackingMap(
                               width: 360.0,
                               height: 250.0,
+                              sourceLocation: LatLng(13.092, 123.7661),
+                              destinationLocation: LatLng(14.6760, 121.0437),
                             ),
                           ),
                         ),
