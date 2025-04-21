@@ -1,4 +1,4 @@
-# VanGuard Final
+# Van Guard
 
 A new Flutter project.
 

@@ -202,11 +202,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DriverSettingsWidget(),
         ),
         FFRoute(
-          name: DriverForgottenPasswordWidget.routeName,
-          path: DriverForgottenPasswordWidget.routePath,
-          builder: (context, params) => DriverForgottenPasswordWidget(),
-        ),
-        FFRoute(
           name: PassengerForgottenPasswordWidget.routeName,
           path: PassengerForgottenPasswordWidget.routePath,
           builder: (context, params) => PassengerForgottenPasswordWidget(),
@@ -415,7 +410,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/VanGuard_(Phone_Wallpaper).png',
+                    'assets/images/VanGuardlong.png',
                     fit: BoxFit.cover,
                   ),
                 )

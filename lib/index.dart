@@ -44,8 +44,6 @@ export '/passenger_side/passenger_dashboard/passenger_settings/passenger_setting
     show PassengerSettingsWidget;
 export '/driver_side/driver_dashboard/driver_settings/driver_settings_widget.dart'
     show DriverSettingsWidget;
-export '/driver_side/driver_account/driver_forgotten_password/driver_forgotten_password_widget.dart'
-    show DriverForgottenPasswordWidget;
 export '/passenger_side/passenger_account/passenger_forgotten_password/passenger_forgotten_password_widget.dart'
     show PassengerForgottenPasswordWidget;
 export '/passenger_side/passenger_dashboard/passenger_announcement/passenger_announcement_widget.dart'

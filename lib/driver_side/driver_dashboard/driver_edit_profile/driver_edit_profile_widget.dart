@@ -155,7 +155,7 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/VanGuard_(Phone_Wallpaper)_(2).png',
+                      'assets/images/Vanguardlogofinal.png',
                       width: 200.0,
                       height: 200.0,
                       fit: BoxFit.cover,

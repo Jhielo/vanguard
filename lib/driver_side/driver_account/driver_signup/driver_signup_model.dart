@@ -22,18 +22,11 @@ class DriverSignupModel extends FlutterFlowModel<DriverSignupWidget> {
   FocusNode? plateNumberFocusNode;
   TextEditingController? plateNumberTextController;
   String? Function(BuildContext, String?)? plateNumberTextControllerValidator;
-  // State field(s) for Password widget.
-  FocusNode? passwordFocusNode;
-  TextEditingController? passwordTextController;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
 
   @override
-  void initState(BuildContext context) {
-    passwordVisibility = false;
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
@@ -48,8 +41,5 @@ class DriverSignupModel extends FlutterFlowModel<DriverSignupWidget> {
 
     plateNumberFocusNode?.dispose();
     plateNumberTextController?.dispose();
-
-    passwordFocusNode?.dispose();
-    passwordTextController?.dispose();
   }
 }

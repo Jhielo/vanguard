@@ -6,8 +6,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'driver_record_model.dart';
 export 'driver_record_model.dart';
@@ -26,11 +26,15 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
   late DriverRecordModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DriverRecordModel());
+
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -42,6 +46,22 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (currentUserLocationValue == null) {
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: SpinKitDoubleBounce(
+              color: FlutterFlowTheme.of(context).accent1,
+              size: 50.0,
+            ),
+          ),
+        ),
+      );
+    }
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -187,7 +207,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             onCameraIdle: (latLng) =>
                                 _model.googleMapsCenter = latLng,
                             initialLocation: _model.googleMapsCenter ??=
-                                LatLng(13.106061, -59.613158),
+                                currentUserLocationValue!,
                             markerColor: GoogleMarkerColor.violet,
                             mapType: MapType.normal,
                             style: GoogleMapStyle.standard,
@@ -197,7 +217,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             showZoomControls: true,
                             showLocation: true,
                             showCompass: false,
-                            showMapToolbar: false,
+                            showMapToolbar: true,
                             showTraffic: false,
                             centerMapOnMarkerTap: true,
                           ),
@@ -247,43 +267,58 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Distance',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
-                                        ),
-                                  ),
-                                  Text(
-                                    '0.0 km',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineSmallFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineSmallFamily),
-                                        ),
-                                  ),
-                                ],
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  currentUserLocationValue =
+                                      await getCurrentUserLocation(
+                                          defaultLocation: LatLng(0.0, 0.0));
+                                  await launchMap(
+                                    location: currentUserLocationValue,
+                                    title: '',
+                                  );
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Distance',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
+                                    ),
+                                    Text(
+                                      '0.0 km',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmallFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmallFamily),
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -388,12 +423,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               FFButtonWidget(
-                                onPressed: () async {
-                                  await actions.startTrip(
-                                    '',
-                                    '',
-                                    '',
-                                  );
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: 'Start',
                                 icon: Icon(
@@ -482,12 +513,6 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           ),
                                         );
                                       },
-                                    );
-
-                                    await actions.endTrip(
-                                      '',
-                                      '',
-                                      '',
                                     );
                                   },
                                   text: 'Stop',

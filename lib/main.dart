@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
-    userStream = vanGuardFinalSupabaseUserStream()
+    userStream = vanGuardSupabaseUserStream()
       ..listen((user) {
         _appStateNotifier.update(user);
       });
@@ -85,7 +85,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'VanGuard Final',
+      title: 'Van Guard',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

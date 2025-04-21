@@ -19,6 +19,7 @@ class DriverRecordModel extends FlutterFlowModel<DriverRecordWidget> {
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
+  DateTime? datePicked;
 
   @override
   void initState(BuildContext context) {}

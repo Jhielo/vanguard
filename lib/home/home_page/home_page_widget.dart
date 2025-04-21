@@ -64,10 +64,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
-                        'assets/images/VanGuard_(Phone_Wallpaper)_(2).png',
+                        'assets/images/Vanguardlogofinal.png',
                         width: 200.0,
                         height: 200.0,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),
@@ -92,20 +92,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                       ),
                     ].divide(SizedBox(height: 8.0)),
-                  ),
-                  Text(
-                    'I am a...',
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyLargeFamily,
-                          color: Color(0xFF9E9E9E),
-                          fontSize: 18.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyLargeFamily),
-                        ),
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,

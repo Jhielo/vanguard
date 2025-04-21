@@ -102,13 +102,18 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(0.0, -0.8),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/VanGuard_(Phone_Wallpaper)_(2).png',
-                                        width: 200.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 40.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/Vanguardlogofinal.png',
+                                          width: 200.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),

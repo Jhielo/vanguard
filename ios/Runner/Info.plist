@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>VanGuard Final</string>
+	<string>Van Guard</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 
@@ -29,7 +29,7 @@
         <string>vanguardapp.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>vanguardfinal</string>
+        <string>vanguard</string>
         </array>
         </dict>
     </array>
@@ -42,18 +42,33 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
-
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>In order to search nearby, this app requires access to your current location.</string>
 	<key>NSFaceIDUsageDescription</key>
     <string>Allow the app to use biometric authentication for secure access and identity verification?</string>
 	<key>NSCalendarsUsageDescription</key>
     <string>Would you like to grant this app access to your calendar to add, view, or manage events?</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>Enable the application to record this session's location?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>Do you permit this app to access your photo library to upload or share images?</string>
 	<key>PermissionGroupNotification</key>
     <string>Would you like to enable notifications to receive alerts and updates from the app?</string>
 
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>comgooglemaps</string>
+      <string>baidumap</string>
+      <string>iosamap</string>
+      <string>waze</string>
+      <string>yandexmaps</string>
+      <string>yandexnavi</string>
+      <string>citymapper</string>
+      <string>mapswithme</string>
+      <string>osmandmaps</string>
+      <string>dgis</string>
+      <string>qqmap</string>
+      <string>here-location</string>
+
+    </array>
 
 
 	<key>UILaunchStoryboardName</key>
