@@ -133,8 +133,12 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                               DriverRecordWidget.routeName);
                                         },
                                         text: 'Record New Data',
+                                        icon: Icon(
+                                          Icons.fiber_manual_record_sharp,
+                                          size: 15.0,
+                                        ),
                                         options: FFButtonOptions(
-                                          width: 370.0,
+                                          width: 240.0,
                                           height: 50.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -176,8 +180,12 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                   .routeName);
                                         },
                                         text: 'Check Previous Records',
+                                        icon: Icon(
+                                          Icons.fiber_smart_record_rounded,
+                                          size: 15.0,
+                                        ),
                                         options: FFButtonOptions(
-                                          width: 370.0,
+                                          width: 240.0,
                                           height: 50.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -220,8 +228,12 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                   .routeName);
                                         },
                                         text: 'Settings',
+                                        icon: Icon(
+                                          Icons.settings_sharp,
+                                          size: 15.0,
+                                        ),
                                         options: FFButtonOptions(
-                                          width: 370.0,
+                                          width: 240.0,
                                           height: 50.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -291,8 +303,12 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                             );
                                           },
                                           text: 'Exit Application',
+                                          icon: Icon(
+                                            Icons.exit_to_app,
+                                            size: 15.0,
+                                          ),
                                           options: FFButtonOptions(
-                                            width: 370.0,
+                                            width: 240.0,
                                             height: 50.0,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -301,7 +317,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .tertiary,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .titleSmall

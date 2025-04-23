@@ -27,16 +27,9 @@ class DriverEditProfileModel extends FlutterFlowModel<DriverEditProfileWidget> {
   FocusNode? plateNumberFocusNode;
   TextEditingController? plateNumberTextController;
   String? Function(BuildContext, String?)? plateNumberTextControllerValidator;
-  // State field(s) for Password widget.
-  FocusNode? passwordFocusNode;
-  TextEditingController? passwordTextController;
-  late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordTextControllerValidator;
 
   @override
-  void initState(BuildContext context) {
-    passwordVisibility = false;
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
@@ -51,8 +44,5 @@ class DriverEditProfileModel extends FlutterFlowModel<DriverEditProfileWidget> {
 
     plateNumberFocusNode?.dispose();
     plateNumberTextController?.dispose();
-
-    passwordFocusNode?.dispose();
-    passwordTextController?.dispose();
   }
 }

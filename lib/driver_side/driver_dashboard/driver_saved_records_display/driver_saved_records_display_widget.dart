@@ -94,8 +94,8 @@ class _DriverSavedRecordsDisplayWidgetState
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
                             'assets/images/Vanguardlogofinal.png',
-                            width: 200.0,
-                            height: 200.0,
+                            width: 150.0,
+                            height: 150.0,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -429,52 +429,41 @@ class _DriverSavedRecordsDisplayWidgetState
                           ),
                         ),
                       ),
-                    ].divide(SizedBox(height: 24.0)),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                              },
-                              text: 'Delete Record',
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 50.0,
-                                padding: EdgeInsets.all(8.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).error,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: FlutterFlowTheme.of(context)
-                                          .titleSmall,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                            ),
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Delete Record',
+                          icon: Icon(
+                            Icons.delete_sharp,
+                            size: 15.0,
                           ),
-                        ].divide(SizedBox(width: 16.0)),
+                          options: FFButtonOptions(
+                            width: 240.0,
+                            height: 50.0,
+                            padding: EdgeInsets.all(8.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).error,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
                       ),
-                    ].divide(SizedBox(height: 16.0)),
+                    ].divide(SizedBox(height: 24.0)),
                   ),
                 ),
               ],

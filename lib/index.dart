@@ -54,7 +54,7 @@ export '/passenger_side/passenger_dashboard/passenger_announcement_non_prio/pass
     show PassengerAnnouncementNonPrioWidget;
 export '/passenger_side/passenger_dashboard/passenger_edit_profile/passenger_edit_profile_widget.dart'
     show PassengerEditProfileWidget;
-export '/driver_side/driver_dashboard/driver_first_page_f/driver_first_page_f_widget.dart'
+export '/driver_side/driver_first_page_f/driver_first_page_f_widget.dart'
     show DriverFirstPageFWidget;
 export '/passenger_side/passenger_dashboard/passenger_first_page_f/passenger_first_page_f_widget.dart'
     show PassengerFirstPageFWidget;

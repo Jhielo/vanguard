@@ -207,6 +207,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           context.pushNamed(AboutFirstPageWidget.routeName);
                         },
                         text: 'About',
+                        icon: Icon(
+                          Icons.info_outline,
+                          size: 15.0,
+                        ),
                         options: FFButtonOptions(
                           width: 240.0,
                           height: 40.0,
@@ -236,13 +240,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           await actions.exitApp();
                         },
                         text: 'Exit Application',
+                        icon: Icon(
+                          Icons.exit_to_app,
+                          size: 15.0,
+                        ),
                         options: FFButtonOptions(
                           width: 240.0,
                           height: 40.0,
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(

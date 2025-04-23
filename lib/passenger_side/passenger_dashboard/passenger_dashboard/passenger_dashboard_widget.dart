@@ -130,7 +130,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                 size: 15.0,
                               ),
                               options: FFButtonOptions(
-                                width: 300.0,
+                                width: 240.0,
                                 height: 50.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
@@ -170,7 +170,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                 size: 15.0,
                               ),
                               options: FFButtonOptions(
-                                width: 300.0,
+                                width: 240.0,
                                 height: 50.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
@@ -211,7 +211,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                 size: 15.0,
                               ),
                               options: FFButtonOptions(
-                                width: 300.0,
+                                width: 240.0,
                                 height: 50.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
@@ -275,13 +275,13 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 300.0,
+                                  width: 240.0,
                                   height: 50.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: FlutterFlowTheme.of(context).tertiary,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(

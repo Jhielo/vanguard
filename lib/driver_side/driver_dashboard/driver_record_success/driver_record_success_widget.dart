@@ -421,7 +421,7 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                           size: 20.0,
                         ),
                         options: FFButtonOptions(
-                          width: 300.0,
+                          width: 240.0,
                           height: 50.0,
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -452,6 +452,10 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                 print('Button pressed ...');
                               },
                               text: 'Save Record',
+                              icon: Icon(
+                                Icons.save,
+                                size: 15.0,
+                              ),
                               options: FFButtonOptions(
                                 width: 80.0,
                                 height: 50.0,
@@ -483,6 +487,10 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                 print('Button pressed ...');
                               },
                               text: 'Delete Record',
+                              icon: Icon(
+                                Icons.delete,
+                                size: 15.0,
+                              ),
                               options: FFButtonOptions(
                                 width: 80.0,
                                 height: 50.0,

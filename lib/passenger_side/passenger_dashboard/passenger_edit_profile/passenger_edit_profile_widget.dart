@@ -561,8 +561,12 @@ class _PassengerEditProfileWidgetState
                                         );
                                       },
                                       text: 'Save Changes',
+                                      icon: Icon(
+                                        Icons.save,
+                                        size: 15.0,
+                                      ),
                                       options: FFButtonOptions(
-                                        width: 300.0,
+                                        width: 240.0,
                                         height: 44.0,
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),

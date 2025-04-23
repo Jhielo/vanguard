@@ -417,14 +417,18 @@ class _PassengerForgottenPasswordWidgetState
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 40.0, 24.0, 40.0),
+                              0.0, 40.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
                             },
                             text: 'Reset Password',
+                            icon: Icon(
+                              Icons.lock_reset,
+                              size: 15.0,
+                            ),
                             options: FFButtonOptions(
-                              width: double.infinity,
+                              width: 240.0,
                               height: 50.0,
                               padding: EdgeInsets.all(8.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -438,6 +442,7 @@ class _PassengerForgottenPasswordWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
                                   ),
                               elevation: 0.0,
                               borderSide: BorderSide(

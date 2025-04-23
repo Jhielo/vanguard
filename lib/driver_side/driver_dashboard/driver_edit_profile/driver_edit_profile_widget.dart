@@ -72,9 +72,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
 
     _model.plateNumberTextController ??= TextEditingController();
     _model.plateNumberFocusNode ??= FocusNode();
-
-    _model.passwordTextController ??= TextEditingController();
-    _model.passwordFocusNode ??= FocusNode();
   }
 
   @override
@@ -479,102 +476,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 16.0),
-                              child: Container(
-                                width: 300.0,
-                                child: TextFormField(
-                                  controller: _model.passwordTextController,
-                                  focusNode: _model.passwordFocusNode,
-                                  onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.passwordTextController',
-                                    Duration(milliseconds: 2000),
-                                    () async {
-                                      safeSetState(() {
-                                        _model.passwordTextController?.text =
-                                            _model.passwordTextController.text;
-                                      });
-                                    },
-                                  ),
-                                  autofocus: true,
-                                  autofillHints: [AutofillHints.name],
-                                  obscureText: !_model.passwordVisibility,
-                                  decoration: InputDecoration(
-                                    labelText: 'Create Password',
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Google',
-                                          letterSpacing: 0.0,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    suffixIcon: InkWell(
-                                      onTap: () => safeSetState(
-                                        () => _model.passwordVisibility =
-                                            !_model.passwordVisibility,
-                                      ),
-                                      focusNode: FocusNode(skipTraversal: true),
-                                      child: Icon(
-                                        _model.passwordVisibility
-                                            ? Icons.visibility_outlined
-                                            : Icons.visibility_off_outlined,
-                                        color: Color(0xFF757575),
-                                        size: 22.0,
-                                      ),
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  keyboardType: TextInputType.emailAddress,
-                                  validator: _model
-                                      .passwordTextControllerValidator
-                                      .asValidator(context),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Align(
                             alignment: AlignmentDirectional(0.0, 0.74),
                             child: Builder(
                               builder: (context) => Padding(
@@ -608,8 +509,12 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                     );
                                   },
                                   text: 'Save Changes',
+                                  icon: Icon(
+                                    Icons.save,
+                                    size: 15.0,
+                                  ),
                                   options: FFButtonOptions(
-                                    width: 370.0,
+                                    width: 240.0,
                                     height: 44.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),

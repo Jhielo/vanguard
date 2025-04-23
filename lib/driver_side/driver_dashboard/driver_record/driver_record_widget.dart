@@ -1,4 +1,3 @@
-import '/driver_side/driver_components/driver_confirmation/driver_confirmation_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'driver_record_model.dart';
@@ -372,12 +370,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               FFButtonWidget(
-                                onPressed: () async {
-                                  await actions.startTrip(
-                                    '',
-                                    '',
-                                    '',
-                                  );
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: 'Start',
                                 icon: Icon(
@@ -398,7 +392,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         font: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         color: Colors.white,
-                                        fontSize: 18.0,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                       ),
                                   borderRadius: BorderRadius.circular(24.0),
@@ -427,63 +421,39 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         font: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                         color: Colors.white,
-                                        fontSize: 18.0,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
                                       ),
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ),
-                              Builder(
-                                builder: (context) => FFButtonWidget(
-                                  onPressed: () async {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (dialogContext) {
-                                        return Dialog(
-                                          elevation: 0,
-                                          insetPadding: EdgeInsets.zero,
-                                          backgroundColor: Colors.transparent,
-                                          alignment: AlignmentDirectional(
-                                                  0.0, 0.0)
-                                              .resolve(
-                                                  Directionality.of(context)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(dialogContext)
-                                                  .unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: DriverConfirmationWidget(),
-                                          ),
-                                        );
-                                      },
-                                    );
-                                  },
-                                  text: 'Stop',
-                                  icon: Icon(
-                                    Icons.stop_rounded,
-                                    color: Colors.white,
-                                    size: 20.0,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 100.0,
-                                    height: 48.0,
-                                    padding: EdgeInsets.all(8.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).error,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          color: Colors.white,
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    borderRadius: BorderRadius.circular(24.0),
-                                  ),
+                              FFButtonWidget(
+                                onPressed: () {
+                                  print('Button pressed ...');
+                                },
+                                text: 'Stop',
+                                icon: Icon(
+                                  Icons.stop_rounded,
+                                  color: Colors.white,
+                                  size: 20.0,
+                                ),
+                                options: FFButtonOptions(
+                                  width: 100.0,
+                                  height: 48.0,
+                                  padding: EdgeInsets.all(8.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).error,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        color: Colors.white,
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ),
                             ],
