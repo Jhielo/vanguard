@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'developer_confirmation_model.dart';
 export 'developer_confirmation_model.dart';
 
@@ -73,11 +72,8 @@ class _DeveloperConfirmationWidgetState
                     'Confirm Submission',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).headlineSmallFamily,
+                          font: FlutterFlowTheme.of(context).headlineSmall,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).headlineSmallFamily),
                         ),
                   ),
                 ),
@@ -87,12 +83,9 @@ class _DeveloperConfirmationWidgetState
                     'Please review your information before submitting. Are you sure you want to continue?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          font: FlutterFlowTheme.of(context).bodyMedium,
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -117,14 +110,10 @@ class _DeveloperConfirmationWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
+                                font: FlutterFlowTheme.of(context).titleSmall,
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -149,14 +138,10 @@ class _DeveloperConfirmationWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
+                                font: FlutterFlowTheme.of(context).titleSmall,
                                 color: FlutterFlowTheme.of(context).info,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

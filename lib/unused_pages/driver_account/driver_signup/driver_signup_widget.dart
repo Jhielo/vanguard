@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_signup_model.dart';
 export 'driver_signup_model.dart';
 
@@ -66,7 +65,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -88,8 +86,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                           fontFamily: 'Google',
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
-                          useGoogleFonts:
-                              GoogleFonts.asMap().containsKey('Google'),
                         ),
                   ),
                   Padding(
@@ -100,8 +96,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Google',
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -131,8 +125,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -173,8 +165,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                     .override(
                                       fontFamily: 'Google',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model.nameTextControllerValidator
@@ -200,8 +190,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   hintText: '09123456789',
                                   enabledBorder: OutlineInputBorder(
@@ -241,13 +229,9 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -274,8 +258,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -314,13 +296,9 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -347,8 +325,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -387,13 +363,9 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -416,7 +388,8 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                 alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
@@ -428,16 +401,9 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -486,11 +452,10 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 16.0),
+                                0.0, 40.0, 0.0, 16.0),
                             child: FFButtonWidget(
-                              onPressed: () async {
-                                context
-                                    .pushNamed(DriverFirstPageWidget.routeName);
+                              onPressed: () {
+                                print('Button pressed ...');
                               },
                               text: 'Done',
                               options: FFButtonOptions(
@@ -509,8 +474,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
@@ -529,7 +492,7 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   context.pushNamed(
-                                      DriverFirstPageWidget.routeName);
+                                      DriverFirstPageCWidget.routeName);
                                 },
                                 text: 'Return',
                                 options: FFButtonOptions(
@@ -548,8 +511,6 @@ class _DriverSignupWidgetState extends State<DriverSignupWidget> {
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(

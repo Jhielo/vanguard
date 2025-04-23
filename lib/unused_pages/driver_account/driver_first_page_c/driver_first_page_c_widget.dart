@@ -4,29 +4,28 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'driver_first_page_model.dart';
-export 'driver_first_page_model.dart';
+import 'driver_first_page_c_model.dart';
+export 'driver_first_page_c_model.dart';
 
-class DriverFirstPageWidget extends StatefulWidget {
-  const DriverFirstPageWidget({super.key});
+class DriverFirstPageCWidget extends StatefulWidget {
+  const DriverFirstPageCWidget({super.key});
 
-  static String routeName = 'DriverFirstPage';
-  static String routePath = '/driverFirstPage';
+  static String routeName = 'DriverFirstPageC';
+  static String routePath = '/driverFirstPageC';
 
   @override
-  State<DriverFirstPageWidget> createState() => _DriverFirstPageWidgetState();
+  State<DriverFirstPageCWidget> createState() => _DriverFirstPageCWidgetState();
 }
 
-class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
-  late DriverFirstPageModel _model;
+class _DriverFirstPageCWidgetState extends State<DriverFirstPageCWidget> {
+  late DriverFirstPageCModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DriverFirstPageModel());
+    _model = createModel(context, () => DriverFirstPageCModel());
   }
 
   @override
@@ -55,7 +54,6 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -94,18 +92,15 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
                       Text(
                         'Driver\'s Information',
                         textAlign: TextAlign.center,
-                        style:
-                            FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .headlineLargeFamily,
-                                  color: Colors.white,
-                                  fontSize: 36.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .headlineLargeFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .headlineLarge
+                            .override(
+                              font: FlutterFlowTheme.of(context).headlineLarge,
+                              color: Colors.white,
+                              fontSize: 36.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                     ].divide(SizedBox(height: 8.0)),
                   ),
@@ -116,14 +111,11 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
                       'Are you entering a new or an existing account?',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyLargeFamily,
+                            font: FlutterFlowTheme.of(context).bodyLarge,
                             color: Color(0xFF9E9E9E),
                             fontSize: 14.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyLargeFamily),
                           ),
                     ),
                   ),
@@ -145,15 +137,11 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -178,15 +166,11 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -232,16 +216,12 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .titleMediumFamily,
+                                    font: FlutterFlowTheme.of(context)
+                                        .titleMedium,
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .titleMediumFamily),
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

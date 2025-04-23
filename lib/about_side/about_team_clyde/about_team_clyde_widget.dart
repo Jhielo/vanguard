@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'about_team_clyde_model.dart';
 export 'about_team_clyde_model.dart';
 
@@ -65,11 +64,9 @@ class _AboutTeamClydeWidgetState extends State<AboutTeamClydeWidget> {
           title: Text(
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  font: FlutterFlowTheme.of(context).headlineMedium,
                   color: Colors.white,
                   letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: [],
@@ -160,8 +157,6 @@ class _AboutTeamClydeWidgetState extends State<AboutTeamClydeWidget> {
                             fontFamily: 'Google',
                             fontSize: 24.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -177,8 +172,6 @@ class _AboutTeamClydeWidgetState extends State<AboutTeamClydeWidget> {
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Google',
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -204,8 +197,6 @@ class _AboutTeamClydeWidgetState extends State<AboutTeamClydeWidget> {
                             fontFamily: 'Google',
                             fontSize: 24.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -227,8 +218,6 @@ class _AboutTeamClydeWidgetState extends State<AboutTeamClydeWidget> {
                             fontFamily: 'Google',
                             fontSize: 16.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'about_first_page_model.dart';
 export 'about_first_page_model.dart';
 
@@ -65,11 +64,9 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
           title: Text(
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  font: FlutterFlowTheme.of(context).headlineMedium,
                   color: Colors.white,
                   letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: [],
@@ -104,13 +101,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         'This application is an Advanced Predictive Model for Van Schedules on the Legazpi City - Sorsogon City Route: Integrating GPS Data with Random Forest and KNN Algorithms',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              font: FlutterFlowTheme.of(context).bodyLarge,
                               color: Colors.white,
                               fontSize: 12.0,
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyLargeFamily),
                             ),
                       ),
                     ),
@@ -121,14 +115,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         'Application called VanGuard, as a requirement for Thesis Special Problem and 2 this SY 2024–2025.',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              font: FlutterFlowTheme.of(context).bodyMedium,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               fontSize: 12.0,
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
                             ),
                       ),
                     ),
@@ -152,14 +142,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              fontFamily: FlutterFlowTheme.of(context)
-                                  .headlineMediumFamily,
+                              font: FlutterFlowTheme.of(context).headlineMedium,
                               color: Colors.white,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .headlineMediumFamily),
                             ),
                       ),
                     ),
@@ -222,14 +208,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         color: Colors.white,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -287,14 +269,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         color: Colors.white,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -352,14 +330,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         color: Colors.white,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                       ),
                                 ),
                               ),
@@ -375,12 +349,9 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         'Click each profile photo for specific contributions!',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodySmallFamily,
+                              font: FlutterFlowTheme.of(context).bodySmall,
                               color: FlutterFlowTheme.of(context).secondaryText,
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodySmallFamily),
                             ),
                       ),
                     ),
@@ -419,14 +390,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
                                   color: Colors.white,
                                   fontSize: 10.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
                                 ),
                           ),
                           Align(
@@ -435,8 +402,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: Container(
-                                width: 35.0,
-                                height: 35.0,
+                                width: 40.0,
+                                height: 40.0,
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'about_team_jhielo_model.dart';
 export 'about_team_jhielo_model.dart';
 
@@ -65,11 +64,9 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
           title: Text(
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  font: FlutterFlowTheme.of(context).headlineMedium,
                   color: Colors.white,
                   letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: [],
@@ -170,8 +167,6 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                   fontFamily: 'Google',
                                   fontSize: 24.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                           ),
                         ),
@@ -189,8 +184,6 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                 .override(
                                   fontFamily: 'Google',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                           ),
                         ),
@@ -219,8 +212,6 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                   fontFamily: 'Google',
                                   fontSize: 24.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                           ),
                         ),
@@ -241,13 +232,9 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodySmallFamily,
+                                  font: FlutterFlowTheme.of(context).bodySmall,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodySmallFamily),
                                 ),
                           ),
                         ),

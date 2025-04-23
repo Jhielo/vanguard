@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_edit_profile_model.dart';
 export 'passenger_edit_profile_model.dart';
 
@@ -84,7 +83,6 @@ class _PassengerEditProfileWidgetState
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -131,8 +129,6 @@ class _PassengerEditProfileWidgetState
                                 .override(
                                   fontFamily: 'Google',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                           ),
                         ),
@@ -175,9 +171,6 @@ class _PassengerEditProfileWidgetState
                                             .override(
                                               fontFamily: 'Google',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Google'),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -224,8 +217,6 @@ class _PassengerEditProfileWidgetState
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
@@ -271,9 +262,6 @@ class _PassengerEditProfileWidgetState
                                             .override(
                                               fontFamily: 'Google',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Google'),
                                             ),
                                         hintText: '@gmail.com',
                                         enabledBorder: OutlineInputBorder(
@@ -321,8 +309,6 @@ class _PassengerEditProfileWidgetState
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
@@ -365,9 +351,6 @@ class _PassengerEditProfileWidgetState
                                             .override(
                                               fontFamily: 'Google',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Google'),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -429,8 +412,6 @@ class _PassengerEditProfileWidgetState
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
@@ -473,9 +454,6 @@ class _PassengerEditProfileWidgetState
                                             .override(
                                               fontFamily: 'Google',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Google'),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -537,8 +515,6 @@ class _PassengerEditProfileWidgetState
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
@@ -602,9 +578,6 @@ class _PassengerEditProfileWidgetState
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey('Google'),
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(

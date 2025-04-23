@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/passenger_side/passenger_components/passenger_logout_dialogue/passenger_logout_dialogue_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_dashboard_model.dart';
 export 'passenger_dashboard_model.dart';
 
@@ -56,7 +55,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -84,8 +82,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                           fontFamily: 'Google',
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
-                          useGoogleFonts:
-                              GoogleFonts.asMap().containsKey('Google'),
                         ),
                   ),
                 ),
@@ -129,6 +125,10 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                 context.pushNamed(DriverRecordWidget.routeName);
                               },
                               text: 'Check Announcements',
+                              icon: Icon(
+                                Icons.announcement_outlined,
+                                size: 15.0,
+                              ),
                               options: FFButtonOptions(
                                 width: 300.0,
                                 height: 50.0,
@@ -145,8 +145,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -167,6 +165,10 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                     PassengerScheduleScreenWidget.routeName);
                               },
                               text: 'Predict Schedule',
+                              icon: Icon(
+                                Icons.schedule_sharp,
+                                size: 15.0,
+                              ),
                               options: FFButtonOptions(
                                 width: 300.0,
                                 height: 50.0,
@@ -184,8 +186,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -206,6 +206,10 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                     PassengerSettingsWidget.routeName);
                               },
                               text: 'Settings',
+                              icon: Icon(
+                                Icons.settings_sharp,
+                                size: 15.0,
+                              ),
                               options: FFButtonOptions(
                                 width: 300.0,
                                 height: 50.0,
@@ -223,8 +227,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -268,6 +270,10 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                   );
                                 },
                                 text: 'Exit Application',
+                                icon: Icon(
+                                  Icons.exit_to_app,
+                                  size: 15.0,
+                                ),
                                 options: FFButtonOptions(
                                   width: 300.0,
                                   height: 50.0,
@@ -284,8 +290,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   elevation: 0.0,
                                   borderRadius: BorderRadius.circular(8.0),

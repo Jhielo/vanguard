@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_settings_model.dart';
 export 'passenger_settings_model.dart';
 
@@ -67,11 +66,9 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
           title: Text(
             'Passenger Settings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  font: FlutterFlowTheme.of(context).headlineMedium,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: [],
@@ -106,12 +103,9 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).titleSmallFamily,
+                          font: FlutterFlowTheme.of(context).titleSmall,
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
                     elevation: 0.0,
                     borderSide: BorderSide(
@@ -140,12 +134,9 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).titleSmallFamily,
+                          font: FlutterFlowTheme.of(context).titleSmall,
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
                     elevation: 0.0,
                     borderSide: BorderSide(
@@ -179,12 +170,9 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).tertiary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).titleSmallFamily,
+                          font: FlutterFlowTheme.of(context).titleSmall,
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
                     elevation: 0.0,
                     borderSide: BorderSide(

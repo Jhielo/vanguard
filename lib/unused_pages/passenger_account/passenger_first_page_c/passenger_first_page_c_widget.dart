@@ -4,30 +4,29 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/passenger_side/passenger_components/passenger_logout_dialogue/passenger_logout_dialogue_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'passenger_first_page_model.dart';
-export 'passenger_first_page_model.dart';
+import 'passenger_first_page_c_model.dart';
+export 'passenger_first_page_c_model.dart';
 
-class PassengerFirstPageWidget extends StatefulWidget {
-  const PassengerFirstPageWidget({super.key});
+class PassengerFirstPageCWidget extends StatefulWidget {
+  const PassengerFirstPageCWidget({super.key});
 
-  static String routeName = 'PassengerFirstPage';
-  static String routePath = '/passengerFirstPage';
+  static String routeName = 'PassengerFirstPageC';
+  static String routePath = '/passengerFirstPageC';
 
   @override
-  State<PassengerFirstPageWidget> createState() =>
-      _PassengerFirstPageWidgetState();
+  State<PassengerFirstPageCWidget> createState() =>
+      _PassengerFirstPageCWidgetState();
 }
 
-class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
-  late PassengerFirstPageModel _model;
+class _PassengerFirstPageCWidgetState extends State<PassengerFirstPageCWidget> {
+  late PassengerFirstPageCModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PassengerFirstPageModel());
+    _model = createModel(context, () => PassengerFirstPageCModel());
   }
 
   @override
@@ -56,7 +55,6 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -95,18 +93,15 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
                       Text(
                         'Account Information',
                         textAlign: TextAlign.center,
-                        style:
-                            FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .headlineLargeFamily,
-                                  color: Colors.white,
-                                  fontSize: 28.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .headlineLargeFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .headlineLarge
+                            .override(
+                              font: FlutterFlowTheme.of(context).headlineLarge,
+                              color: Colors.white,
+                              fontSize: 28.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                     ].divide(SizedBox(height: 8.0)),
                   ),
@@ -114,14 +109,11 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
                     'Are you entering a new or an existing account?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                          font: FlutterFlowTheme.of(context).bodyLarge,
                           color: Color(0xFF9E9E9E),
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyLargeFamily),
                         ),
                   ),
                   Opacity(
@@ -152,15 +144,11 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -185,15 +173,11 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -249,15 +233,12 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
+                                  font:
+                                      FlutterFlowTheme.of(context).titleMedium,
                                   color: Colors.white,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

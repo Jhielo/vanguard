@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'developer_first_page_model.dart';
 export 'developer_first_page_model.dart';
 
@@ -59,12 +58,10 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
           title: Text(
             'VanGuard',
             style: FlutterFlowTheme.of(context).titleMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).titleMediumFamily,
+                  font: FlutterFlowTheme.of(context).titleMedium,
                   fontSize: 28.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).titleMediumFamily),
                 ),
           ),
           actions: [],
@@ -125,15 +122,10 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .displaySmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .displaySmallFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .displaySmall,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .displaySmallFamily),
                                           ),
                                     ),
                                   ),
@@ -148,16 +140,9 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily,
+                                              font: FlutterFlowTheme.of(context)
+                                                  .labelMedium,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -183,17 +168,10 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumFamily,
+                                                      font: FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium,
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: GoogleFonts
-                                                              .asMap()
-                                                          .containsKey(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily),
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -244,16 +222,10 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                        .bodyMedium,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
                                               ),
                                           keyboardType:
                                               TextInputType.emailAddress,
@@ -287,17 +259,10 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMediumFamily,
+                                                      font: FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium,
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: GoogleFonts
-                                                              .asMap()
-                                                          .containsKey(
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily),
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
@@ -367,16 +332,10 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                        .bodyMedium,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
                                               ),
                                           validator: _model
                                               .passwordTextControllerValidator
@@ -426,18 +385,12 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                                   context)
                                               .titleSmall
                                               .override(
-                                                fontFamily:
+                                                font:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily,
+                                                        .titleSmall,
                                                 color: Colors.white,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmallFamily),
                                               ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -472,18 +425,16 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Google',
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Google'),
-                                              ),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Google',
+                                                    color: Colors.white,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,

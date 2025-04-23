@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'about_team_joselito_model.dart';
 export 'about_team_joselito_model.dart';
 
@@ -66,11 +65,9 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
           title: Text(
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  font: FlutterFlowTheme.of(context).headlineMedium,
                   color: Colors.white,
                   letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: [],
@@ -161,8 +158,6 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
                             fontFamily: 'Google',
                             fontSize: 24.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -178,8 +173,6 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Google',
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -205,8 +198,6 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
                             fontFamily: 'Google',
                             fontSize: 24.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -225,12 +216,9 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
                       'I\'m Joselito O. Velasco, a 4th-year Computer Science student and CHED scholar. I help our research team by gathering and cleaning data, and I also assist in development. I enjoy working on projects that turn ideas into something real.',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodySmallFamily,
+                            font: FlutterFlowTheme.of(context).bodySmall,
                             fontSize: 16.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodySmallFamily),
                           ),
                     ),
                   ),

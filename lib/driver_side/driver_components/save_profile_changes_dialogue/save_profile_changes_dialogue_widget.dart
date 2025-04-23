@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'save_profile_changes_dialogue_model.dart';
 export 'save_profile_changes_dialogue_model.dart';
 
@@ -75,13 +74,10 @@ class _SaveProfileChangesDialogueWidgetState
                     'Save Changes?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).headlineSmallFamily,
+                          font: FlutterFlowTheme.of(context).headlineSmall,
                           color: Colors.white,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).headlineSmallFamily),
                         ),
                   ),
                 ),
@@ -91,12 +87,9 @@ class _SaveProfileChangesDialogueWidgetState
                     'Do you want to save the changes you made to your profile?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          font: FlutterFlowTheme.of(context).bodyMedium,
                           color: Color(0xFF9E9E9E),
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -121,15 +114,11 @@ class _SaveProfileChangesDialogueWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
+                                font: FlutterFlowTheme.of(context).titleSmall,
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -154,15 +143,11 @@ class _SaveProfileChangesDialogueWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
+                                font: FlutterFlowTheme.of(context).titleSmall,
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

@@ -1,9 +1,9 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_logout_dialogue_model.dart';
 export 'driver_logout_dialogue_model.dart';
 
@@ -68,24 +68,19 @@ class _DriverLogoutDialogueWidgetState
                 'Confirm Log Out?',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).headlineMediumFamily,
+                      font: FlutterFlowTheme.of(context).headlineMedium,
                       color: Colors.white,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
               ),
               Text(
                 'Do you want to log out of your driver account?',
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                      font: FlutterFlowTheme.of(context).bodyMedium,
                       color: Color(0xFF9E9E9E),
                       letterSpacing: 0.0,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
               Row(
@@ -104,18 +99,14 @@ class _DriverLogoutDialogueWidgetState
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: Colors.black,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.normal,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).titleSmallFamily),
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: FlutterFlowTheme.of(context).titleSmall,
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
@@ -126,7 +117,12 @@ class _DriverLogoutDialogueWidgetState
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed(HomePageWidget.routeName);
+                      GoRouter.of(context).prepareAuthEvent();
+                      await authManager.signOut();
+                      GoRouter.of(context).clearRedirectLocation();
+
+                      context.pushNamedAuth(
+                          HomePageWidget.routeName, context.mounted);
                     },
                     text: 'Log Out',
                     options: FFButtonOptions(
@@ -136,18 +132,14 @@ class _DriverLogoutDialogueWidgetState
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).tertiary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.normal,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).titleSmallFamily),
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: FlutterFlowTheme.of(context).titleSmall,
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,

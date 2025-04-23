@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'full_team_clyde_model.dart';
 export 'full_team_clyde_model.dart';
 
@@ -93,12 +92,9 @@ class _FullTeamClydeWidgetState extends State<FullTeamClydeWidget> {
                       'Click outside to close',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodySmallFamily,
+                            font: FlutterFlowTheme.of(context).bodySmall,
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodySmallFamily),
                           ),
                     ),
                   ].divide(SizedBox(height: 16.0)),

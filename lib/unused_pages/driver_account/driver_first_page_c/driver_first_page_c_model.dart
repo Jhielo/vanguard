@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'driver_first_page_widget.dart' show DriverFirstPageWidget;
+import 'driver_first_page_c_widget.dart' show DriverFirstPageCWidget;
 import 'package:flutter/material.dart';
 
-class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
+class DriverFirstPageCModel extends FlutterFlowModel<DriverFirstPageCWidget> {
   @override
   void initState(BuildContext context) {}
 

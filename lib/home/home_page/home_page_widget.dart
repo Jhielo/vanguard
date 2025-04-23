@@ -1,10 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/home/exit_confirm_dialogue/exit_confirm_dialogue_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
 
@@ -45,7 +44,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         body: SafeArea(
           top: true,
           child: Container(
@@ -76,20 +75,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Welcome to VanGuard',
+                        'Welcome to VanGuard!',
                         textAlign: TextAlign.center,
-                        style:
-                            FlutterFlowTheme.of(context).headlineLarge.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .headlineLargeFamily,
-                                  color: Colors.white,
-                                  fontSize: 28.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.bold,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .headlineLargeFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .headlineLarge
+                            .override(
+                              font: FlutterFlowTheme.of(context).headlineLarge,
+                              color: Colors.white,
+                              fontSize: 28.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                       ),
                     ].divide(SizedBox(height: 8.0)),
                   ),
@@ -98,11 +94,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(DriverFirstPageWidget.routeName);
+                          context.pushNamed(DriverFirstPageFWidget.routeName);
                         },
                         text: 'Driver',
+                        icon: Icon(
+                          Icons.drive_eta,
+                          size: 20.0,
+                        ),
                         options: FFButtonOptions(
-                          width: 300.0,
+                          width: 240.0,
                           height: 40.0,
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -111,15 +111,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -131,27 +127,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(PassengerFirstPageWidget.routeName);
+                          context
+                              .pushNamed(PassengerFirstPageFWidget.routeName);
                         },
                         text: 'Passenger',
+                        icon: Icon(
+                          Icons.person,
+                          size: 20.0,
+                        ),
                         options: FFButtonOptions(
-                          width: 300.0,
+                          width: 240.0,
                           height: 40.0,
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleMedium
-                              .override(
-                                fontFamily: 'Google',
-                                color: Colors.white,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                                useGoogleFonts:
-                                    GoogleFonts.asMap().containsKey('Google'),
-                              ),
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleMedium.override(
+                                    fontFamily: 'Google',
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                           elevation: 2.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,
@@ -165,8 +163,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           context.pushNamed(DeveloperFirstPageWidget.routeName);
                         },
                         text: 'Developer',
+                        icon: Icon(
+                          Icons.logo_dev_outlined,
+                          size: 20.0,
+                        ),
                         options: FFButtonOptions(
-                          width: 300.0,
+                          width: 240.0,
                           height: 40.0,
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -175,15 +177,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -210,7 +208,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         },
                         text: 'About',
                         options: FFButtonOptions(
-                          width: 300.0,
+                          width: 240.0,
                           height: 40.0,
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -219,15 +217,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .titleMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleMediumFamily,
+                                font: FlutterFlowTheme.of(context).titleMedium,
                                 color: Colors.white,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleMediumFamily),
                               ),
                           elevation: 2.0,
                           borderSide: BorderSide(
@@ -237,58 +231,33 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                      Builder(
-                        builder: (context) => FFButtonWidget(
-                          onPressed: () async {
-                            await showDialog(
-                              context: context,
-                              builder: (dialogContext) {
-                                return Dialog(
-                                  elevation: 0,
-                                  insetPadding: EdgeInsets.zero,
-                                  backgroundColor: Colors.transparent,
-                                  alignment: AlignmentDirectional(0.0, 0.0)
-                                      .resolve(Directionality.of(context)),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      FocusScope.of(dialogContext).unfocus();
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                    },
-                                    child: ExitConfirmDialogueWidget(),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          text: 'Exit Application',
-                          options: FFButtonOptions(
-                            width: 300.0,
-                            height: 40.0,
-                            padding: EdgeInsets.all(8.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
-                                ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          await actions.exitApp();
+                        },
+                        text: 'Exit Application',
+                        options: FFButtonOptions(
+                          width: 240.0,
+                          height: 40.0,
+                          padding: EdgeInsets.all(8.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                font: FlutterFlowTheme.of(context).titleMedium,
+                                color: Colors.white,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          elevation: 2.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
                           ),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
                     ].divide(SizedBox(height: 16.0)),

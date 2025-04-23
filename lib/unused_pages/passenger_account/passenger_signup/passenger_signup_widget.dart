@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_signup_model.dart';
 export 'passenger_signup_model.dart';
 
@@ -82,7 +81,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -108,8 +106,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                             fontFamily: 'Google',
                             fontSize: 28.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                     Padding(
@@ -121,8 +117,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Google',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                       ),
                     ),
@@ -164,8 +158,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -212,8 +204,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
@@ -258,8 +248,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       hintText: '@gmail.com',
                                       enabledBorder: OutlineInputBorder(
@@ -307,8 +295,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
@@ -349,8 +335,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -412,8 +396,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
@@ -454,8 +436,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -517,8 +497,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
@@ -534,9 +512,8 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
-                                  onPressed: () async {
-                                    context.pushNamed(
-                                        PassengerFirstPageWidget.routeName);
+                                  onPressed: () {
+                                    print('Button pressed ...');
                                   },
                                   text: 'Done',
                                   options: FFButtonOptions(
@@ -554,8 +531,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
@@ -575,7 +550,7 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     context.pushNamed(
-                                        PassengerFirstPageWidget.routeName);
+                                        PassengerFirstPageCWidget.routeName);
                                   },
                                   text: 'Return',
                                   options: FFButtonOptions(
@@ -593,8 +568,6 @@ class _PassengerSignupWidgetState extends State<PassengerSignupWidget> {
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

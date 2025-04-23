@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_settings_model.dart';
 export 'driver_settings_model.dart';
 
@@ -45,7 +44,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -66,11 +65,9 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
           title: Text(
             'Driver Settings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
+                  font: FlutterFlowTheme.of(context).headlineMedium,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: [],
@@ -111,13 +108,9 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
                             .override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).titleSmallFamily,
+                              font: FlutterFlowTheme.of(context).titleSmall,
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .titleSmallFamily),
                             ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -146,16 +139,12 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).titleSmallFamily),
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: FlutterFlowTheme.of(context).titleSmall,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).alternate,
@@ -187,16 +176,12 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).tertiary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).titleSmallFamily,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).titleSmallFamily),
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                font: FlutterFlowTheme.of(context).titleSmall,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).alternate,

@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_edit_profile_model.dart';
 export 'driver_edit_profile_model.dart';
 
@@ -118,7 +117,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -144,8 +142,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Google',
                             letterSpacing: 0.0,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -200,8 +196,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -240,13 +234,9 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model.nameTextControllerValidator
@@ -283,8 +273,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   hintText: '09123456789',
                                   enabledBorder: OutlineInputBorder(
@@ -324,13 +312,9 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -368,8 +352,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -408,13 +390,9 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -451,8 +429,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -491,13 +467,9 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -536,8 +508,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -592,13 +562,9 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
                                       ),
                                   keyboardType: TextInputType.emailAddress,
                                   validator: _model
@@ -657,8 +623,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

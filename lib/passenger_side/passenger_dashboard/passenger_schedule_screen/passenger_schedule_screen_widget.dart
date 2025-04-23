@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_schedule_screen_model.dart';
 export 'passenger_schedule_screen_model.dart';
 
@@ -70,13 +69,11 @@ class _PassengerScheduleScreenWidgetState
           title: Text(
             'Schedules',
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
+                  font: FlutterFlowTheme.of(context).titleLarge,
                   color: Colors.white,
                   fontSize: 28.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).titleLargeFamily),
                 ),
           ),
           actions: [],
@@ -98,17 +95,14 @@ class _PassengerScheduleScreenWidgetState
                     children: [
                       Text(
                         'Departing Location',
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              font: FlutterFlowTheme.of(context).titleMedium,
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                            ),
                       ),
                       Container(
                         width: double.infinity,
@@ -133,13 +127,9 @@ class _PassengerScheduleScreenWidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
                                   color: Colors.white,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
                                 ),
                             hintText: 'Select departing location',
                             icon: Icon(
@@ -171,17 +161,14 @@ class _PassengerScheduleScreenWidgetState
                     children: [
                       Text(
                         'Arrival Location',
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              font: FlutterFlowTheme.of(context).titleMedium,
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                            ),
                       ),
                       Container(
                         width: double.infinity,
@@ -207,13 +194,9 @@ class _PassengerScheduleScreenWidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
                                   color: Colors.white,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
                                 ),
                             hintText: 'Select arrival location',
                             icon: Icon(
@@ -250,48 +233,30 @@ class _PassengerScheduleScreenWidgetState
                       safeSetState(
                           () => _model.calendarSelectedDay = newSelectedDate);
                     },
-                    titleStyle: FlutterFlowTheme.of(context)
-                        .titleLarge
-                        .override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).titleLargeFamily,
-                          letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).titleLargeFamily),
-                        ),
+                    titleStyle:
+                        FlutterFlowTheme.of(context).titleLarge.override(
+                              font: FlutterFlowTheme.of(context).titleLarge,
+                              letterSpacing: 0.0,
+                            ),
                     dayOfWeekStyle:
                         FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyLargeFamily,
+                              font: FlutterFlowTheme.of(context).bodyLarge,
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context).bodyLargeFamily),
                             ),
                     dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          font: FlutterFlowTheme.of(context).bodyMedium,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
-                    selectedDateStyle: FlutterFlowTheme.of(context)
-                        .titleSmall
-                        .override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).titleSmallFamily,
-                          letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).titleSmallFamily),
-                        ),
-                    inactiveDateStyle: FlutterFlowTheme.of(context)
-                        .labelMedium
-                        .override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).labelMediumFamily,
-                          letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).labelMediumFamily),
-                        ),
+                    selectedDateStyle:
+                        FlutterFlowTheme.of(context).titleSmall.override(
+                              font: FlutterFlowTheme.of(context).titleSmall,
+                              letterSpacing: 0.0,
+                            ),
+                    inactiveDateStyle:
+                        FlutterFlowTheme.of(context).labelMedium.override(
+                              font: FlutterFlowTheme.of(context).labelMedium,
+                              letterSpacing: 0.0,
+                            ),
                     locale: FFLocalizations.of(context).languageCode,
                   ),
                   Column(
@@ -300,28 +265,21 @@ class _PassengerScheduleScreenWidgetState
                     children: [
                       Text(
                         'Preferred Travel Date and Time',
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              font: FlutterFlowTheme.of(context).titleMedium,
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                            ),
                       ),
                       Text(
                         'Pick a preferred date/time for your travel (Optional)',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              font: FlutterFlowTheme.of(context).bodyMedium,
                               color: Color(0xFFB0B0B0),
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
                             ),
                       ),
                       Container(
@@ -355,14 +313,10 @@ class _PassengerScheduleScreenWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                       color: Colors.white,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
                                     ),
                               ),
                             ],
@@ -385,17 +339,14 @@ class _PassengerScheduleScreenWidgetState
                     children: [
                       Text(
                         'Predicted Result',
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .titleMediumFamily,
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .titleMediumFamily),
-                                ),
+                        style: FlutterFlowTheme.of(context)
+                            .titleMedium
+                            .override(
+                              font: FlutterFlowTheme.of(context).titleMedium,
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                            ),
                       ),
                       Container(
                         width: double.infinity,
@@ -424,15 +375,10 @@ class _PassengerScheduleScreenWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .labelMedium,
                                           color: Color(0xFFB0B0B0),
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily),
                                         ),
                                   ),
                                   Text(
@@ -440,16 +386,11 @@ class _PassengerScheduleScreenWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineSmallFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .headlineSmall,
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineSmallFamily),
                                         ),
                                   ),
                                 ],
@@ -463,15 +404,10 @@ class _PassengerScheduleScreenWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .labelMedium,
                                           color: Color(0xFFB0B0B0),
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelMediumFamily),
                                         ),
                                   ),
                                   Text(
@@ -479,16 +415,11 @@ class _PassengerScheduleScreenWidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineSmallFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .headlineSmall,
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineSmallFamily),
                                         ),
                                   ),
                                 ],
@@ -517,14 +448,10 @@ class _PassengerScheduleScreenWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .titleSmallFamily,
+                                font: FlutterFlowTheme.of(context).titleSmall,
                                 color: Colors.white,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .titleSmallFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -553,15 +480,11 @@ class _PassengerScheduleScreenWidgetState
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .titleSmall,
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily),
                                     ),
                                 elevation: 0.0,
                                 borderSide: BorderSide(
@@ -587,15 +510,11 @@ class _PassengerScheduleScreenWidgetState
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
+                                      font: FlutterFlowTheme.of(context)
+                                          .titleSmall,
                                       color: Colors.white,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily),
                                     ),
                                 elevation: 0.0,
                                 borderSide: BorderSide(

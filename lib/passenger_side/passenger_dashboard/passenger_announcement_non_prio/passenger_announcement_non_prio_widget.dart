@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_announcement_non_prio_model.dart';
 export 'passenger_announcement_non_prio_model.dart';
 
@@ -66,12 +65,10 @@ class _PassengerAnnouncementNonPrioWidgetState
           title: Text(
             'Announcements',
             style: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
+                  font: FlutterFlowTheme.of(context).titleLarge,
                   color: FlutterFlowTheme.of(context).primaryText,
                   fontSize: 28.0,
                   letterSpacing: 0.0,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey(
-                      FlutterFlowTheme.of(context).titleLargeFamily),
                 ),
           ),
           actions: [],
@@ -147,16 +144,12 @@ class _PassengerAnnouncementNonPrioWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleLargeFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .titleLarge,
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLargeFamily),
                                       ),
                                 ),
                               ),
@@ -227,16 +220,12 @@ class _PassengerAnnouncementNonPrioWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleLargeFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .titleLarge,
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLargeFamily),
                                       ),
                                 ),
                               ),
@@ -307,16 +296,12 @@ class _PassengerAnnouncementNonPrioWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleLargeFamily,
+                                        font: FlutterFlowTheme.of(context)
+                                            .titleLarge,
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLargeFamily),
                                       ),
                                 ),
                               ),

@@ -12,13 +12,13 @@ export '/about_side/about_team_clyde/about_team_clyde_widget.dart'
     show AboutTeamClydeWidget;
 export '/about_side/about_team_joselito/about_team_joselito_widget.dart'
     show AboutTeamJoselitoWidget;
-export '/driver_side/driver_account/driver_first_page/driver_first_page_widget.dart'
-    show DriverFirstPageWidget;
-export '/passenger_side/passenger_account/passenger_first_page/passenger_first_page_widget.dart'
-    show PassengerFirstPageWidget;
-export '/driver_side/driver_account/driver_login/driver_login_widget.dart'
+export '/unused_pages/driver_account/driver_first_page_c/driver_first_page_c_widget.dart'
+    show DriverFirstPageCWidget;
+export '/unused_pages/passenger_account/passenger_first_page_c/passenger_first_page_c_widget.dart'
+    show PassengerFirstPageCWidget;
+export '/unused_pages/driver_account/driver_login/driver_login_widget.dart'
     show DriverLoginWidget;
-export '/driver_side/driver_account/driver_signup/driver_signup_widget.dart'
+export '/unused_pages/driver_account/driver_signup/driver_signup_widget.dart'
     show DriverSignupWidget;
 export '/driver_side/driver_dashboard/driver_edit_profile/driver_edit_profile_widget.dart'
     show DriverEditProfileWidget;
@@ -28,13 +28,13 @@ export '/driver_side/driver_dashboard/driver_record/driver_record_widget.dart'
     show DriverRecordWidget;
 export '/driver_side/driver_dashboard/driver_record_success/driver_record_success_widget.dart'
     show DriverRecordSuccessWidget;
-export '/driver_side/driver_saved_records/driver_saved_records_widget.dart'
+export '/driver_side/driver_dashboard/driver_saved_records/driver_saved_records_widget.dart'
     show DriverSavedRecordsWidget;
 export '/driver_side/driver_dashboard/driver_saved_records_display/driver_saved_records_display_widget.dart'
     show DriverSavedRecordsDisplayWidget;
-export '/passenger_side/passenger_account/passenger_login/passenger_login_widget.dart'
+export '/unused_pages/passenger_account/passenger_login/passenger_login_widget.dart'
     show PassengerLoginWidget;
-export '/passenger_side/passenger_account/passenger_signup/passenger_signup_widget.dart'
+export '/unused_pages/passenger_account/passenger_signup/passenger_signup_widget.dart'
     show PassengerSignupWidget;
 export '/passenger_side/passenger_dashboard/passenger_dashboard/passenger_dashboard_widget.dart'
     show PassengerDashboardWidget;
@@ -44,7 +44,7 @@ export '/passenger_side/passenger_dashboard/passenger_settings/passenger_setting
     show PassengerSettingsWidget;
 export '/driver_side/driver_dashboard/driver_settings/driver_settings_widget.dart'
     show DriverSettingsWidget;
-export '/passenger_side/passenger_account/passenger_forgotten_password/passenger_forgotten_password_widget.dart'
+export '/passenger_side/passenger_dashboard/passenger_forgotten_password/passenger_forgotten_password_widget.dart'
     show PassengerForgottenPasswordWidget;
 export '/passenger_side/passenger_dashboard/passenger_announcement/passenger_announcement_widget.dart'
     show PassengerAnnouncementWidget;
@@ -54,3 +54,7 @@ export '/passenger_side/passenger_dashboard/passenger_announcement_non_prio/pass
     show PassengerAnnouncementNonPrioWidget;
 export '/passenger_side/passenger_dashboard/passenger_edit_profile/passenger_edit_profile_widget.dart'
     show PassengerEditProfileWidget;
+export '/driver_side/driver_dashboard/driver_first_page_f/driver_first_page_f_widget.dart'
+    show DriverFirstPageFWidget;
+export '/passenger_side/passenger_dashboard/passenger_first_page_f/passenger_first_page_f_widget.dart'
+    show PassengerFirstPageFWidget;

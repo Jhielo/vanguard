@@ -2,9 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_login_model.dart';
 export 'passenger_login_model.dart';
 
@@ -28,17 +26,17 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
     super.initState();
     _model = createModel(context, () => PassengerLoginModel());
 
-    _model.plateNumberTextController ??= TextEditingController();
-    _model.plateNumberFocusNode ??= FocusNode();
+    _model.usernameTextController ??= TextEditingController();
+    _model.usernameFocusNode ??= FocusNode();
 
-    _model.licenseNumberTextController ??= TextEditingController();
-    _model.licenseNumberFocusNode ??= FocusNode();
+    _model.passengerEmailTextController ??= TextEditingController();
+    _model.passengerEmailFocusNode ??= FocusNode();
 
-    _model.passwordTextController ??= TextEditingController();
-    _model.passwordFocusNode ??= FocusNode();
+    _model.passengerPasswordTextController ??= TextEditingController();
+    _model.passengerPasswordFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.licenseNumberTextController?.text = '@gmail.com';
+          _model.passengerEmailTextController?.text = '@gmail.com';
         }));
   }
 
@@ -82,7 +80,6 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -111,8 +108,6 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                   fontFamily: 'Google',
                                   fontSize: 28.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                       ),
                     ),
@@ -123,14 +118,11 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                             0.0, 12.0, 0.0, 24.0),
                         child: Text(
                           'Enter the correct information in the form below',
-                          style: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .override(
-                                fontFamily: 'Google',
-                                letterSpacing: 0.0,
-                                useGoogleFonts:
-                                    GoogleFonts.asMap().containsKey('Google'),
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Google',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ),
@@ -150,9 +142,8 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                 child: Container(
                                   width: 300.0,
                                   child: TextFormField(
-                                    controller:
-                                        _model.plateNumberTextController,
-                                    focusNode: _model.plateNumberFocusNode,
+                                    controller: _model.usernameTextController,
+                                    focusNode: _model.usernameFocusNode,
                                     autofocus: true,
                                     autofillHints: [AutofillHints.name],
                                     obscureText: false,
@@ -163,8 +154,6 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -211,12 +200,10 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
-                                        .plateNumberTextControllerValidator
+                                        .usernameTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -231,8 +218,8 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                   width: 300.0,
                                   child: TextFormField(
                                     controller:
-                                        _model.licenseNumberTextController,
-                                    focusNode: _model.licenseNumberFocusNode,
+                                        _model.passengerEmailTextController,
+                                    focusNode: _model.passengerEmailFocusNode,
                                     autofocus: true,
                                     autofillHints: [AutofillHints.name],
                                     obscureText: false,
@@ -243,8 +230,6 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                           .override(
                                             fontFamily: 'Google',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Google'),
                                           ),
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -291,12 +276,10 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                         .override(
                                           fontFamily: 'Google',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
-                                        .licenseNumberTextControllerValidator
+                                        .passengerEmailTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -310,24 +293,22 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                 child: Container(
                                   width: 300.0,
                                   child: TextFormField(
-                                    controller: _model.passwordTextController,
-                                    focusNode: _model.passwordFocusNode,
+                                    controller:
+                                        _model.passengerPasswordTextController,
+                                    focusNode:
+                                        _model.passengerPasswordFocusNode,
                                     autofocus: true,
                                     autofillHints: [AutofillHints.name],
-                                    obscureText: !_model.passwordVisibility,
+                                    obscureText:
+                                        !_model.passengerPasswordVisibility,
                                     decoration: InputDecoration(
                                       labelText: 'Password',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMediumFamily,
+                                            font: FlutterFlowTheme.of(context)
+                                                .labelMedium,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMediumFamily),
                                           ),
                                       hintText: '***************',
                                       enabledBorder: OutlineInputBorder(
@@ -371,13 +352,15 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                           .primaryBackground,
                                       suffixIcon: InkWell(
                                         onTap: () => safeSetState(
-                                          () => _model.passwordVisibility =
-                                              !_model.passwordVisibility,
+                                          () => _model
+                                                  .passengerPasswordVisibility =
+                                              !_model
+                                                  .passengerPasswordVisibility,
                                         ),
                                         focusNode:
                                             FocusNode(skipTraversal: true),
                                         child: Icon(
-                                          _model.passwordVisibility
+                                          _model.passengerPasswordVisibility
                                               ? Icons.visibility_outlined
                                               : Icons.visibility_off_outlined,
                                           color: Color(0xFF757575),
@@ -388,18 +371,13 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          font: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
                                         ),
                                     keyboardType: TextInputType.emailAddress,
                                     validator: _model
-                                        .passwordTextControllerValidator
+                                        .passengerPasswordTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -417,8 +395,6 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                 ),
                               ),
@@ -433,9 +409,8 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
-                                  onPressed: () async {
-                                    context.pushNamed(
-                                        PassengerDashboardWidget.routeName);
+                                  onPressed: () {
+                                    print('Button pressed ...');
                                   },
                                   text: 'Done',
                                   options: FFButtonOptions(
@@ -453,8 +428,6 @@ class _PassengerLoginWidgetState extends State<PassengerLoginWidget> {
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Google'),
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

@@ -1,0 +1,87 @@
+import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
+import 'passenger_first_page_f_widget.dart' show PassengerFirstPageFWidget;
+import 'package:flutter/material.dart';
+
+class PassengerFirstPageFModel
+    extends FlutterFlowModel<PassengerFirstPageFWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
+
+  // State field(s) for passenger_name widget.
+  FocusNode? passengerNameFocusNode1;
+  TextEditingController? passengerNameTextController1;
+  String? Function(BuildContext, String?)?
+      passengerNameTextController1Validator;
+  // State field(s) for passenger_email_address widget.
+  FocusNode? passengerEmailAddressFocusNode1;
+  TextEditingController? passengerEmailAddressTextController1;
+  String? Function(BuildContext, String?)?
+      passengerEmailAddressTextController1Validator;
+  // State field(s) for passenger_password widget.
+  FocusNode? passengerPasswordFocusNode;
+  TextEditingController? passengerPasswordTextController;
+  late bool passengerPasswordVisibility;
+  String? Function(BuildContext, String?)?
+      passengerPasswordTextControllerValidator;
+  // State field(s) for passenger_name widget.
+  FocusNode? passengerNameFocusNode2;
+  TextEditingController? passengerNameTextController2;
+  String? Function(BuildContext, String?)?
+      passengerNameTextController2Validator;
+  // State field(s) for passenger_email_address widget.
+  FocusNode? passengerEmailAddressFocusNode2;
+  TextEditingController? passengerEmailAddressTextController2;
+  String? Function(BuildContext, String?)?
+      passengerEmailAddressTextController2Validator;
+  // State field(s) for create_password widget.
+  FocusNode? createPasswordFocusNode;
+  TextEditingController? createPasswordTextController;
+  late bool createPasswordVisibility;
+  String? Function(BuildContext, String?)?
+      createPasswordTextControllerValidator;
+  // State field(s) for confirm_password widget.
+  FocusNode? confirmPasswordFocusNode;
+  TextEditingController? confirmPasswordTextController;
+  late bool confirmPasswordVisibility;
+  String? Function(BuildContext, String?)?
+      confirmPasswordTextControllerValidator;
+
+  @override
+  void initState(BuildContext context) {
+    passengerPasswordVisibility = false;
+    createPasswordVisibility = false;
+    confirmPasswordVisibility = false;
+  }
+
+  @override
+  void dispose() {
+    tabBarController?.dispose();
+    passengerNameFocusNode1?.dispose();
+    passengerNameTextController1?.dispose();
+
+    passengerEmailAddressFocusNode1?.dispose();
+    passengerEmailAddressTextController1?.dispose();
+
+    passengerPasswordFocusNode?.dispose();
+    passengerPasswordTextController?.dispose();
+
+    passengerNameFocusNode2?.dispose();
+    passengerNameTextController2?.dispose();
+
+    passengerEmailAddressFocusNode2?.dispose();
+    passengerEmailAddressTextController2?.dispose();
+
+    createPasswordFocusNode?.dispose();
+    createPasswordTextController?.dispose();
+
+    confirmPasswordFocusNode?.dispose();
+    confirmPasswordTextController?.dispose();
+  }
+}

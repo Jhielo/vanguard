@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_logout_dialogue_model.dart';
 export 'passenger_logout_dialogue_model.dart';
 
@@ -77,13 +76,10 @@ class _PassengerLogoutDialogueWidgetState
                     'Confirm Log Out?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).headlineSmallFamily,
+                          font: FlutterFlowTheme.of(context).headlineSmall,
                           color: Colors.white,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).headlineSmallFamily),
                         ),
                   ),
                 ),
@@ -93,12 +89,9 @@ class _PassengerLogoutDialogueWidgetState
                     'Do you want to log out of your passenger account?',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          font: FlutterFlowTheme.of(context).bodyMedium,
                           color: Color(0xFF9E9E9E),
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -123,15 +116,11 @@ class _PassengerLogoutDialogueWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
+                                font: FlutterFlowTheme.of(context).bodyMedium,
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -156,15 +145,11 @@ class _PassengerLogoutDialogueWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
+                                font: FlutterFlowTheme.of(context).bodyMedium,
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

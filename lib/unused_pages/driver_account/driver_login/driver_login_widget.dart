@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_login_model.dart';
 export 'driver_login_model.dart';
 
@@ -30,11 +29,11 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
     _model.licenseNumberTextController ??= TextEditingController();
     _model.licenseNumberFocusNode ??= FocusNode();
 
-    _model.plateNumberTextController ??= TextEditingController();
-    _model.plateNumberFocusNode ??= FocusNode();
+    _model.plateNumberPasswordTextController ??= TextEditingController();
+    _model.plateNumberPasswordFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.plateNumberTextController?.text = 'LLL-DDDD';
+          _model.plateNumberPasswordTextController?.text = 'LLL-DDDD';
         }));
   }
 
@@ -64,7 +63,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -88,8 +86,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                             fontFamily: 'Google',
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
-                            useGoogleFonts:
-                                GoogleFonts.asMap().containsKey('Google'),
                           ),
                     ),
                   ),
@@ -104,8 +100,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Google',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Google'),
                                 ),
                       ),
                     ),
@@ -136,8 +130,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -178,8 +170,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                                     .override(
                                       fontFamily: 'Google',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
@@ -194,8 +184,9 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                             child: Container(
                               width: 370.0,
                               child: TextFormField(
-                                controller: _model.plateNumberTextController,
-                                focusNode: _model.plateNumberFocusNode,
+                                controller:
+                                    _model.plateNumberPasswordTextController,
+                                focusNode: _model.plateNumberPasswordFocusNode,
                                 autofocus: true,
                                 autofillHints: [AutofillHints.name],
                                 obscureText: false,
@@ -206,8 +197,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                                       .override(
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -248,12 +237,10 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                                     .override(
                                       fontFamily: 'Google',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 keyboardType: TextInputType.emailAddress,
                                 validator: _model
-                                    .plateNumberTextControllerValidator
+                                    .plateNumberPasswordTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -266,9 +253,8 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: FFButtonWidget(
-                              onPressed: () async {
-                                context
-                                    .pushNamed(DriverDashboardWidget.routeName);
+                              onPressed: () {
+                                print('Button pressed ...');
                               },
                               text: 'Done',
                               options: FFButtonOptions(
@@ -287,8 +273,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('Google'),
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
@@ -307,7 +291,7 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   context.pushNamed(
-                                      DriverFirstPageWidget.routeName);
+                                      DriverFirstPageCWidget.routeName);
                                 },
                                 text: 'Return',
                                 options: FFButtonOptions(
@@ -326,8 +310,6 @@ class _DriverLoginWidgetState extends State<DriverLoginWidget> {
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey('Google'),
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(

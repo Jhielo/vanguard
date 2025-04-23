@@ -122,14 +122,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => AboutTeamJoselitoWidget(),
         ),
         FFRoute(
-          name: DriverFirstPageWidget.routeName,
-          path: DriverFirstPageWidget.routePath,
-          builder: (context, params) => DriverFirstPageWidget(),
+          name: DriverFirstPageCWidget.routeName,
+          path: DriverFirstPageCWidget.routePath,
+          builder: (context, params) => DriverFirstPageCWidget(),
         ),
         FFRoute(
-          name: PassengerFirstPageWidget.routeName,
-          path: PassengerFirstPageWidget.routePath,
-          builder: (context, params) => PassengerFirstPageWidget(),
+          name: PassengerFirstPageCWidget.routeName,
+          path: PassengerFirstPageCWidget.routePath,
+          builder: (context, params) => PassengerFirstPageCWidget(),
         ),
         FFRoute(
           name: DriverLoginWidget.routeName,
@@ -225,6 +225,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: PassengerEditProfileWidget.routeName,
           path: PassengerEditProfileWidget.routePath,
           builder: (context, params) => PassengerEditProfileWidget(),
+        ),
+        FFRoute(
+          name: DriverFirstPageFWidget.routeName,
+          path: DriverFirstPageFWidget.routePath,
+          builder: (context, params) => DriverFirstPageFWidget(),
+        ),
+        FFRoute(
+          name: PassengerFirstPageFWidget.routeName,
+          path: PassengerFirstPageFWidget.routePath,
+          builder: (context, params) => PassengerFirstPageFWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

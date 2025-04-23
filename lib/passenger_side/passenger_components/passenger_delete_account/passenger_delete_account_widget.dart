@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'passenger_delete_account_model.dart';
 export 'passenger_delete_account_model.dart';
 
@@ -82,12 +81,9 @@ class _PassengerDeleteAccountWidgetState
                   child: Text(
                     'Delete Account',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).headlineSmallFamily,
+                          font: FlutterFlowTheme.of(context).headlineSmall,
                           color: FlutterFlowTheme.of(context).error,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).headlineSmallFamily),
                         ),
                   ),
                 ),
@@ -97,11 +93,8 @@ class _PassengerDeleteAccountWidgetState
                     'Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently lost.',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          font: FlutterFlowTheme.of(context).bodyMedium,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -127,14 +120,10 @@ class _PassengerDeleteAccountWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
+                                font: FlutterFlowTheme.of(context).bodyMedium,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -159,15 +148,11 @@ class _PassengerDeleteAccountWidgetState
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
+                                font: FlutterFlowTheme.of(context).bodyMedium,
                                 color: FlutterFlowTheme.of(context).info,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

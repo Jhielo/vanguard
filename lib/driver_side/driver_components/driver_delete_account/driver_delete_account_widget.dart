@@ -1,9 +1,9 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_delete_account_model.dart';
 export 'driver_delete_account_model.dart';
 
@@ -81,12 +81,9 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                   child: Text(
                     'Delete Account',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).headlineSmallFamily,
+                          font: FlutterFlowTheme.of(context).headlineSmall,
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).headlineSmallFamily),
                         ),
                   ),
                 ),
@@ -96,11 +93,8 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                     'Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently lost.',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          font: FlutterFlowTheme.of(context).bodyMedium,
                           letterSpacing: 0.0,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
                   ),
                 ),
@@ -126,13 +120,9 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
+                                font: FlutterFlowTheme.of(context).bodyMedium,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -144,7 +134,12 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(HomePageWidget.routeName);
+                          GoRouter.of(context).prepareAuthEvent();
+                          await authManager.signOut();
+                          GoRouter.of(context).clearRedirectLocation();
+
+                          context.pushNamedAuth(
+                              HomePageWidget.routeName, context.mounted);
                         },
                         text: 'Delete',
                         options: FFButtonOptions(
@@ -157,15 +152,11 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
+                                font: FlutterFlowTheme.of(context).bodyMedium,
                                 color: FlutterFlowTheme.of(context).info,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

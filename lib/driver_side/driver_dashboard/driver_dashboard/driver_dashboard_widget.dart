@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'driver_dashboard_model.dart';
 export 'driver_dashboard_model.dart';
 
@@ -55,7 +54,6 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: GoogleFonts.asMap().containsKey('Google'),
                 ),
           ),
           actions: [],
@@ -89,8 +87,6 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                     fontFamily: 'Google',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey('Google'),
                                   ),
                             ),
                           ),
@@ -105,8 +101,6 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey('Google'),
                                   ),
                             ),
                           ),
@@ -150,19 +144,17 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Google',
-                                                color: Colors.white,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Google'),
-                                              ),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Google',
+                                                    color: Colors.white,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
                                           elevation: 0.0,
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -206,9 +198,6 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Google'),
                                               ),
                                           elevation: 0.0,
                                           borderRadius:
@@ -253,9 +242,6 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Google'),
                                               ),
                                           elevation: 0.0,
                                           borderRadius:
@@ -326,10 +312,6 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
-                                                      useGoogleFonts:
-                                                          GoogleFonts.asMap()
-                                                              .containsKey(
-                                                                  'Google'),
                                                     ),
                                             elevation: 0.0,
                                             borderRadius:
