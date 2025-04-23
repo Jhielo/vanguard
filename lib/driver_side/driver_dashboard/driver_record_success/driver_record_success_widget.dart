@@ -245,7 +245,7 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Start Location',
+                                      'Route Chosen',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -267,13 +267,14 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                         ),
                                         Expanded(
                                           child: Text(
-                                            '123 Main Street, San Francisco, CA 94105',
+                                            '',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   font: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium,
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -286,48 +287,6 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                   height: 1.0,
                                   thickness: 1.0,
                                   color: FlutterFlowTheme.of(context).alternate,
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'End Location',
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            font: FlutterFlowTheme.of(context)
-                                                .labelMedium,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Icon(
-                                          Icons.location_on,
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          size: 20.0,
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            '456 Market Street, San Francisco, CA 94103',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ].divide(SizedBox(height: 8.0)),
                                 ),
                                 Divider(
                                   height: 1.0,
@@ -369,6 +328,7 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
@@ -442,81 +402,73 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                              },
-                              text: 'Save Record',
-                              icon: Icon(
-                                Icons.save,
-                                size: 15.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 80.0,
-                                height: 50.0,
-                                padding: EdgeInsets.all(8.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).success,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: FlutterFlowTheme.of(context)
-                                          .titleSmall,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                            ),
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Save Record',
+                          icon: Icon(
+                            Icons.save,
+                            size: 15.0,
                           ),
-                          Expanded(
-                            child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                              },
-                              text: 'Delete Record',
-                              icon: Icon(
-                                Icons.delete,
-                                size: 15.0,
-                              ),
-                              options: FFButtonOptions(
-                                width: 80.0,
-                                height: 50.0,
-                                padding: EdgeInsets.all(8.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).error,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: FlutterFlowTheme.of(context)
-                                          .titleSmall,
-                                      color: FlutterFlowTheme.of(context).info,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                          options: FFButtonOptions(
+                            width: 240.0,
+                            height: 50.0,
+                            padding: EdgeInsets.all(8.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).success,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
                                 ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
                             ),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                        ].divide(SizedBox(width: 16.0)),
+                        ),
+                      ),
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Delete Record',
+                          icon: Icon(
+                            Icons.delete,
+                            size: 15.0,
+                          ),
+                          options: FFButtonOptions(
+                            width: 240.0,
+                            height: 50.0,
+                            padding: EdgeInsets.all(8.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).error,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
                       ),
                     ].divide(SizedBox(height: 16.0)),
                   ),

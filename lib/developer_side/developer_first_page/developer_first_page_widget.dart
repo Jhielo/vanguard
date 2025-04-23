@@ -371,7 +371,7 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                         },
                                         text: 'Sign In',
                                         options: FFButtonOptions(
-                                          width: 300.0,
+                                          width: 240.0,
                                           height: 44.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -415,7 +415,7 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                         },
                                         text: 'Return',
                                         options: FFButtonOptions(
-                                          width: 300.0,
+                                          width: 240.0,
                                           height: 44.0,
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(

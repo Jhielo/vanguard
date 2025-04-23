@@ -371,7 +371,7 @@ class _PassengerScheduleScreenWidgetState
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Departure',
+                                    'Duration of Travel',
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -382,7 +382,7 @@ class _PassengerScheduleScreenWidgetState
                                         ),
                                   ),
                                   Text(
-                                    'XX:XX',
+                                    'mins',
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(

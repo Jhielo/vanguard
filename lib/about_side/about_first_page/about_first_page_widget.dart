@@ -89,8 +89,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.asset(
                         'assets/images/Vanguardlogofinal.png',
-                        width: 175.0,
-                        height: 175.0,
+                        width: 150.0,
+                        height: 150.0,
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -1,9 +1,12 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/driver_side/driver_components/driver_logout_dialogue/driver_logout_dialogue_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'driver_dashboard_model.dart';
 export 'driver_dashboard_model.dart';
 
@@ -17,15 +20,33 @@ class DriverDashboardWidget extends StatefulWidget {
   State<DriverDashboardWidget> createState() => _DriverDashboardWidgetState();
 }
 
-class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
+class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
+    with TickerProviderStateMixin {
   late DriverDashboardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DriverDashboardModel());
+
+    animationsMap.addAll({
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -80,7 +101,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
-                              'Welcome, <user>',
+                              'Welcome, ${currentUserUid}!',
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -93,7 +114,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
-                              'Plate Number: LLL-DDDD',
+                              'Plate Number: ${currentUserEmail}',
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -347,7 +368,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget> {
                   ],
                 ),
               ],
-            ),
+            ).animateOnPageLoad(animationsMap['listViewOnPageLoadAnimation']!),
           ),
         ),
       ),

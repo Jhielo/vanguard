@@ -25,11 +25,11 @@ class PassengerFirstPageFModel
   String? Function(BuildContext, String?)?
       passengerEmailAddressTextController1Validator;
   // State field(s) for passenger_password widget.
-  FocusNode? passengerPasswordFocusNode;
-  TextEditingController? passengerPasswordTextController;
-  late bool passengerPasswordVisibility;
+  FocusNode? passengerPasswordFocusNode1;
+  TextEditingController? passengerPasswordTextController1;
+  late bool passengerPasswordVisibility1;
   String? Function(BuildContext, String?)?
-      passengerPasswordTextControllerValidator;
+      passengerPasswordTextController1Validator;
   // State field(s) for passenger_name widget.
   FocusNode? passengerNameFocusNode2;
   TextEditingController? passengerNameTextController2;
@@ -40,12 +40,12 @@ class PassengerFirstPageFModel
   TextEditingController? passengerEmailAddressTextController2;
   String? Function(BuildContext, String?)?
       passengerEmailAddressTextController2Validator;
-  // State field(s) for create_password widget.
-  FocusNode? createPasswordFocusNode;
-  TextEditingController? createPasswordTextController;
-  late bool createPasswordVisibility;
+  // State field(s) for passenger_password widget.
+  FocusNode? passengerPasswordFocusNode2;
+  TextEditingController? passengerPasswordTextController2;
+  late bool passengerPasswordVisibility2;
   String? Function(BuildContext, String?)?
-      createPasswordTextControllerValidator;
+      passengerPasswordTextController2Validator;
   // State field(s) for confirm_password widget.
   FocusNode? confirmPasswordFocusNode;
   TextEditingController? confirmPasswordTextController;
@@ -55,8 +55,8 @@ class PassengerFirstPageFModel
 
   @override
   void initState(BuildContext context) {
-    passengerPasswordVisibility = false;
-    createPasswordVisibility = false;
+    passengerPasswordVisibility1 = false;
+    passengerPasswordVisibility2 = false;
     confirmPasswordVisibility = false;
   }
 
@@ -69,8 +69,8 @@ class PassengerFirstPageFModel
     passengerEmailAddressFocusNode1?.dispose();
     passengerEmailAddressTextController1?.dispose();
 
-    passengerPasswordFocusNode?.dispose();
-    passengerPasswordTextController?.dispose();
+    passengerPasswordFocusNode1?.dispose();
+    passengerPasswordTextController1?.dispose();
 
     passengerNameFocusNode2?.dispose();
     passengerNameTextController2?.dispose();
@@ -78,8 +78,8 @@ class PassengerFirstPageFModel
     passengerEmailAddressFocusNode2?.dispose();
     passengerEmailAddressTextController2?.dispose();
 
-    createPasswordFocusNode?.dispose();
-    createPasswordTextController?.dispose();
+    passengerPasswordFocusNode2?.dispose();
+    passengerPasswordTextController2?.dispose();
 
     confirmPasswordFocusNode?.dispose();
     confirmPasswordTextController?.dispose();

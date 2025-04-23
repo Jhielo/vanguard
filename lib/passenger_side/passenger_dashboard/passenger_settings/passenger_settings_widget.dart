@@ -45,7 +45,7 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,

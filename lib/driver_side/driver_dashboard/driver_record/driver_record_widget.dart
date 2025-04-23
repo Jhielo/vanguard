@@ -102,6 +102,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.all(12.0),
@@ -217,7 +218,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                       EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 40.0),
                   child: Container(
                     width: double.infinity,
-                    height: 360.0,
+                    height: 300.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),
@@ -230,7 +231,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                       padding: EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -267,7 +268,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Distance',
+                                      'Time Started',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -277,7 +278,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           ),
                                     ),
                                     Text(
-                                      '0.0 km',
+                                      getCurrentTimestamp.toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
@@ -330,7 +331,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Avg. Speed',
+                                    'Time Ended',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
