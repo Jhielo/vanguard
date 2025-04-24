@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'driver_dashboard_model.dart';
 export 'driver_dashboard_model.dart';
 
@@ -58,6 +59,8 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -65,7 +68,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -101,7 +104,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
-                              'Welcome, ${currentUserUid}!',
+                              'Welcome, ${FFAppState().currentUserName}!',
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -245,8 +248,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           context.pushNamed(
-                                              DriverEditProfileWidget
-                                                  .routeName);
+                                              DriverSettingsWidget.routeName);
                                         },
                                         text: 'Settings',
                                         icon: Icon(

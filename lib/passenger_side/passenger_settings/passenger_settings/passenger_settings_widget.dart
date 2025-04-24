@@ -78,7 +78,7 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0.0, -1.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
               padding: EdgeInsets.all(24.0),
               child: Column(

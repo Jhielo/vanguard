@@ -96,7 +96,7 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -135,21 +135,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
-                    child: Text(
-                      'Click on each information/image if you wish to change it',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Google',
-                            letterSpacing: 0.0,
-                          ),
-                    ),
-                  ),
-                ),
-                Align(
                   alignment: AlignmentDirectional(0.01, -0.9),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
@@ -158,6 +143,21 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                       width: 200.0,
                       height: 200.0,
                       fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
+                    child: Text(
+                      'Click on each information if you wish to change it',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).labelMedium.override(
+                            fontFamily: 'Google',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -277,7 +277,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         fontFamily: 'Google',
                                         letterSpacing: 0.0,
                                       ),
-                                  hintText: '09123456789',
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -512,6 +511,19 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                           ),
                                         );
                                       },
+                                    );
+
+                                    await UsersTable().update(
+                                      data: {
+                                        'name': _model.nameTextController.text,
+                                        'contact_number': _model
+                                            .contactNumberTextController.text,
+                                        'license_number': _model
+                                            .licenseNumberTextController.text,
+                                        'plate_number': _model
+                                            .plateNumberTextController.text,
+                                      },
+                                      matchingRows: (rows) => rows,
                                     );
                                   },
                                   text: 'Save Changes',

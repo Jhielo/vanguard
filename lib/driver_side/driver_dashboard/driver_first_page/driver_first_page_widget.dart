@@ -2,7 +2,6 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'driver_first_page_model.dart';
@@ -70,7 +69,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -363,8 +362,58 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                         color: Color(0xFF14181B),
                                       ),
                                       FFButtonWidget(
-                                        onPressed: () {
-                                          print('Button pressed ...');
+                                        onPressed: () async {
+                                          _model.driverMatch =
+                                              await UsersTable().queryRows(
+                                            queryFn: (q) => q
+                                                .eqOrNull(
+                                                  'license_number',
+                                                  _model
+                                                      .licenseNumberTextController1
+                                                      .text,
+                                                )
+                                                .eqOrNull(
+                                                  'plate_number',
+                                                  _model
+                                                      .plateNumberTextController1
+                                                      .text,
+                                                ),
+                                          );
+                                          if (_model.driverMatch != null &&
+                                              (_model.driverMatch)!
+                                                  .isNotEmpty) {
+                                            context.pushNamed(
+                                                DriverDashboardWidget
+                                                    .routeName);
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Invalid License or Plate Number',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                            safeSetState(() {
+                                              _model
+                                                  .licenseNumberTextController1
+                                                  ?.clear();
+                                              _model.plateNumberTextController1
+                                                  ?.clear();
+                                            });
+                                          }
+
+                                          safeSetState(() {});
                                         },
                                         text: 'Log in',
                                         options: FFButtonOptions(
@@ -563,7 +612,6 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        hintText: '09*********',
                                                         enabledBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
@@ -876,28 +924,122 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                           0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
-                                                      await UsersTable()
-                                                          .insert({
-                                                        'id': random_data
-                                                            .randomInteger(
-                                                                0, 1000000)
-                                                            .toString(),
-                                                        'role': 'driver',
-                                                        'name': _model
+                                                      if (valueOrDefault<bool>(
+                                                            /* NOT RECOMMENDED */ _model
+                                                                    .nameTextController
+                                                                    .text ==
+                                                                'true',
+                                                            false,
+                                                          ) &&
+                                                          valueOrDefault<bool>(
+                                                            /* NOT RECOMMENDED */ _model
+                                                                    .contactNumberTextController
+                                                                    .text ==
+                                                                'true',
+                                                            false,
+                                                          ) &&
+                                                          valueOrDefault<bool>(
+                                                            /* NOT RECOMMENDED */ _model
+                                                                    .licenseNumberTextController2
+                                                                    .text ==
+                                                                'true',
+                                                            false,
+                                                          ) &&
+                                                          valueOrDefault<bool>(
+                                                            /* NOT RECOMMENDED */ _model
+                                                                    .plateNumberTextController2
+                                                                    .text ==
+                                                                'true',
+                                                            false,
+                                                          )) {
+                                                        await UsersTable()
+                                                            .insert({
+                                                          'id': '',
+                                                          'role': '',
+                                                          'name': '',
+                                                          'contact_number': '',
+                                                          'license_number': '',
+                                                          'plate_number': '',
+                                                          'created_at':
+                                                              supaSerialize<
+                                                                      DateTime>(
+                                                                  getCurrentTimestamp),
+                                                        });
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Account Created!',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    font: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .titleMedium,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Incomplete Details',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      }
+
+                                                      safeSetState(() {
+                                                        _model
+                                                            .licenseNumberTextController1
+                                                            ?.clear();
+                                                        _model
+                                                            .plateNumberTextController1
+                                                            ?.clear();
+                                                        _model
                                                             .nameTextController
-                                                            .text,
-                                                        'contact_number': _model
+                                                            ?.clear();
+                                                        _model
                                                             .contactNumberTextController
-                                                            .text,
-                                                        'license_number': _model
+                                                            ?.clear();
+                                                        _model
                                                             .licenseNumberTextController2
-                                                            .text,
-                                                        'plate_number': _model
+                                                            ?.clear();
+                                                        _model
                                                             .plateNumberTextController2
-                                                            .text,
-                                                        'created_at': supaSerialize<
-                                                                DateTime>(
-                                                            getCurrentTimestamp),
+                                                            ?.clear();
                                                       });
                                                     },
                                                     text: 'Create Account',

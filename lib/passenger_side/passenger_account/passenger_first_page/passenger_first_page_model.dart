@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'passenger_first_page_widget.dart' show PassengerFirstPageWidget;
@@ -25,6 +26,8 @@ class PassengerFirstPageModel
   late bool passengerPasswordVisibility1;
   String? Function(BuildContext, String?)?
       passengerPasswordTextController1Validator;
+  // Stores action output result for [Backend Call - Query Rows] action in passenger_login_btn widget.
+  List<UsersRow>? passengerMatch;
   // State field(s) for passenger_name widget.
   FocusNode? passengerNameFocusNode;
   TextEditingController? passengerNameTextController;

@@ -82,7 +82,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
               padding: EdgeInsets.all(24.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Align(

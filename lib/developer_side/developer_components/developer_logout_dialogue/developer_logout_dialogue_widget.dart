@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -110,7 +111,13 @@ class _DeveloperLogoutDialogueWidgetState
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed(HomePageWidget.routeName);
+                      context.pushNamedAuth(
+                          HomePageWidget.routeName, context.mounted);
+
+                      Navigator.pop(context);
+                      GoRouter.of(context).prepareAuthEvent();
+                      await authManager.signOut();
+                      GoRouter.of(context).clearRedirectLocation();
                     },
                     text: 'Log Out',
                     options: FFButtonOptions(

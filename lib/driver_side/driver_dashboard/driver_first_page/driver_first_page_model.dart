@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'driver_first_page_widget.dart' show DriverFirstPageWidget;
@@ -22,6 +23,8 @@ class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   FocusNode? plateNumberFocusNode1;
   TextEditingController? plateNumberTextController1;
   String? Function(BuildContext, String?)? plateNumberTextController1Validator;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<UsersRow>? driverMatch;
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;

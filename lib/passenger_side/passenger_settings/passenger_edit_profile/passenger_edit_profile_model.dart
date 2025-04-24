@@ -10,10 +10,10 @@ class PassengerEditProfileModel
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
-  // State field(s) for ContactNumber widget.
-  FocusNode? contactNumberFocusNode;
-  TextEditingController? contactNumberTextController;
-  String? Function(BuildContext, String?)? contactNumberTextControllerValidator;
+  // State field(s) for emailAddress widget.
+  FocusNode? emailAddressFocusNode;
+  TextEditingController? emailAddressTextController;
+  String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
   // State field(s) for Password widget.
   FocusNode? passwordFocusNode1;
   TextEditingController? passwordTextController1;
@@ -36,8 +36,8 @@ class PassengerEditProfileModel
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
-    contactNumberFocusNode?.dispose();
-    contactNumberTextController?.dispose();
+    emailAddressFocusNode?.dispose();
+    emailAddressTextController?.dispose();
 
     passwordFocusNode1?.dispose();
     passwordTextController1?.dispose();

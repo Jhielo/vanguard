@@ -98,25 +98,11 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Text(
-                        'This application is an Advanced Predictive Model for Van Schedules on the Legazpi City - Sorsogon City Route: Integrating GPS Data with Random Forest and KNN Algorithms',
+                        'This application is a Predictive Model for Van Schedules on the Legazpi City - Sorsogon City Route: Integrating GPS and Historical Data with Random Forest and KNN Algorithms',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               font: FlutterFlowTheme.of(context).bodyLarge,
                               color: Colors.white,
-                              fontSize: 12.0,
-                              letterSpacing: 0.0,
-                            ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Text(
-                        'Application called VanGuard, as a requirement for Thesis Special Problem and 2 this SY 2024–2025.',
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: FlutterFlowTheme.of(context).bodyMedium,
-                              color: FlutterFlowTheme.of(context).secondaryText,
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                             ),

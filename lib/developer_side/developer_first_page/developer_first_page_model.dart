@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'developer_first_page_widget.dart' show DeveloperFirstPageWidget;
@@ -16,6 +17,8 @@ class DeveloperFirstPageModel
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<UsersRow>? developerMatch;
 
   @override
   void initState(BuildContext context) {

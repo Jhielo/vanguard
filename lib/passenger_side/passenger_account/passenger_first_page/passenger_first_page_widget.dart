@@ -54,10 +54,6 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
 
     _model.confirmPasswordTextController ??= TextEditingController();
     _model.confirmPasswordFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.passengerEmailAddressTextController1?.text = '@gmail.com';
-        }));
   }
 
   @override
@@ -76,7 +72,7 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -325,7 +321,6 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
                                                               .labelMedium,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    hintText: '***************',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -430,9 +425,54 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: FFButtonWidget(
-                                              onPressed: () {
-                                                print(
-                                                    'passenger_login_btn pressed ...');
+                                              onPressed: () async {
+                                                _model.passengerMatch =
+                                                    await UsersTable()
+                                                        .queryRows(
+                                                  queryFn: (q) => q
+                                                      .eqOrNull(
+                                                        'email',
+                                                        _model
+                                                            .passengerEmailAddressTextController1
+                                                            .text,
+                                                      )
+                                                      .eqOrNull(
+                                                        'password',
+                                                        _model
+                                                            .passengerPasswordTextController1
+                                                            .text,
+                                                      ),
+                                                );
+                                                if (_model.passengerMatch !=
+                                                        null &&
+                                                    (_model.passengerMatch)!
+                                                        .isNotEmpty) {
+                                                  context.pushNamed(
+                                                      PassengerDashboardWidget
+                                                          .routeName);
+                                                } else {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'Invalid Email or Password',
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 4000),
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                                  );
+                                                }
+
+                                                safeSetState(() {});
                                               },
                                               text: 'Log in',
                                               options: FFButtonOptions(
@@ -667,7 +707,6 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
                                                           fontFamily: 'Google',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    hintText: '@gmail.com',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -786,7 +825,6 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
                                                           fontFamily: 'Google',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    hintText: '**********',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -925,7 +963,6 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
                                                           fontFamily: 'Google',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    hintText: '**********',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
@@ -1042,6 +1079,26 @@ class _PassengerFirstPageWidgetState extends State<PassengerFirstPageWidget>
                                                       supaSerialize<DateTime>(
                                                           getCurrentTimestamp),
                                                 });
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Account Created!',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryText,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondary,
+                                                  ),
+                                                );
                                               },
                                               text: 'Create Account',
                                               options: FFButtonOptions(

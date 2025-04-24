@@ -926,6 +926,9 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                       ),
                                                     );
                                                   });
+                                              _model.selectedDate =
+                                                  _model.selectedDate;
+                                              safeSetState(() {});
                                             },
                                             text: 'Pick a Date',
                                             options: FFButtonOptions(
@@ -967,7 +970,12 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
                                         child: Text(
-                                          'Trip Date',
+                                          dateTimeFormat(
+                                            "yMMMd",
+                                            _model.selectedDate,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
                                               .override(
@@ -1009,6 +1017,51 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                         _model.datePicked2),
                                                 'event': false,
                                               });
+                                              safeSetState(() {
+                                                _model.nameTextController
+                                                    ?.clear();
+                                                _model
+                                                    .vehiclePlateTextController
+                                                    ?.clear();
+                                                _model
+                                                    .departureTimeTextController
+                                                    ?.clear();
+                                                _model.arrivalTimeTextController
+                                                    ?.clear();
+                                                _model.arrivalTimeMask.clear();
+                                              });
+                                              safeSetState(() {
+                                                _model
+                                                    .routeSelectValueController
+                                                    ?.reset();
+                                              });
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Form Inserted',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleSmall
+                                                        .override(
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                ),
+                                              );
                                             },
                                             text: 'Submit Form',
                                             options: FFButtonOptions(

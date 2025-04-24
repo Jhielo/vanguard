@@ -1,32 +1,36 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
-import 'driver_saved_records_display_model.dart';
-export 'driver_saved_records_display_model.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'driver_record_success_model.dart';
+export 'driver_record_success_model.dart';
 
-class DriverSavedRecordsDisplayWidget extends StatefulWidget {
-  const DriverSavedRecordsDisplayWidget({super.key});
+class DriverRecordSuccessWidget extends StatefulWidget {
+  const DriverRecordSuccessWidget({super.key});
 
-  static String routeName = 'DriverSavedRecordsDisplay';
-  static String routePath = '/driverSavedRecordsDisplay';
+  static String routeName = 'DriverRecordSuccess';
+  static String routePath = '/driverRecordSuccess';
 
   @override
-  State<DriverSavedRecordsDisplayWidget> createState() =>
-      _DriverSavedRecordsDisplayWidgetState();
+  State<DriverRecordSuccessWidget> createState() =>
+      _DriverRecordSuccessWidgetState();
 }
 
-class _DriverSavedRecordsDisplayWidgetState
-    extends State<DriverSavedRecordsDisplayWidget> {
-  late DriverSavedRecordsDisplayModel _model;
+class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
+  late DriverRecordSuccessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DriverSavedRecordsDisplayModel());
+    _model = createModel(context, () => DriverRecordSuccessModel());
+
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -38,6 +42,22 @@ class _DriverSavedRecordsDisplayWidgetState
 
   @override
   Widget build(BuildContext context) {
+    if (currentUserLocationValue == null) {
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: SpinKitDoubleBounce(
+              color: FlutterFlowTheme.of(context).accent1,
+              size: 50.0,
+            ),
+          ),
+        ),
+      );
+    }
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -49,22 +69,8 @@ class _DriverSavedRecordsDisplayWidgetState
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
           title: Text(
-            'Saved Recordings',
+            'Trip Summary',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
                   letterSpacing: 0.0,
@@ -86,8 +92,7 @@ class _DriverSavedRecordsDisplayWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding: EdgeInsets.all(16.0),
@@ -138,7 +143,7 @@ class _DriverSavedRecordsDisplayWidgetState
                                               ),
                                         ),
                                         Text(
-                                          'January 15, 2024',
+                                          getCurrentTimestamp.toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
@@ -203,7 +208,7 @@ class _DriverSavedRecordsDisplayWidgetState
                                               ),
                                         ),
                                         Text(
-                                          '09:15 AM',
+                                          getCurrentTimestamp.toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
@@ -236,7 +241,7 @@ class _DriverSavedRecordsDisplayWidgetState
                                               ),
                                         ),
                                         Text(
-                                          '10:45 AM',
+                                          getCurrentTimestamp.toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
@@ -280,6 +285,24 @@ class _DriverSavedRecordsDisplayWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           size: 20.0,
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              currentUserLocationValue
+                                                  ?.toString(),
+                                              'NULL',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
                                         ),
                                       ].divide(SizedBox(width: 8.0)),
                                     ),
@@ -330,6 +353,7 @@ class _DriverSavedRecordsDisplayWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
@@ -363,6 +387,80 @@ class _DriverSavedRecordsDisplayWidgetState
                           ),
                         ),
                       ),
+                    ].divide(SizedBox(height: 24.0)),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed(DriverRecordWidget.routeName);
+                        },
+                        text: 'Record Another Trip',
+                        icon: Icon(
+                          Icons.add_circle_outline,
+                          color: FlutterFlowTheme.of(context).info,
+                          size: 20.0,
+                        ),
+                        options: FFButtonOptions(
+                          width: 240.0,
+                          height: 50.0,
+                          padding: EdgeInsets.all(8.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Google',
+                                    color: FlutterFlowTheme.of(context).info,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                      Expanded(
+                        child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Save Record',
+                          icon: Icon(
+                            Icons.save,
+                            size: 15.0,
+                          ),
+                          options: FFButtonOptions(
+                            width: 240.0,
+                            height: 50.0,
+                            padding: EdgeInsets.all(8.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).success,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ),
+                      ),
                       Expanded(
                         child: FFButtonWidget(
                           onPressed: () {
@@ -370,7 +468,7 @@ class _DriverSavedRecordsDisplayWidgetState
                           },
                           text: 'Delete Record',
                           icon: Icon(
-                            Icons.delete_sharp,
+                            Icons.delete,
                             size: 15.0,
                           ),
                           options: FFButtonOptions(
@@ -397,7 +495,7 @@ class _DriverSavedRecordsDisplayWidgetState
                           ),
                         ),
                       ),
-                    ],
+                    ].divide(SizedBox(height: 16.0)),
                   ),
                 ),
               ],

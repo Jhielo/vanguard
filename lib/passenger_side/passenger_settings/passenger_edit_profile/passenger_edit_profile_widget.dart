@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/driver_side/driver_components/save_profile_changes_dialogue/save_profile_changes_dialogue_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -33,8 +34,8 @@ class _PassengerEditProfileWidgetState
     _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
 
-    _model.contactNumberTextController ??= TextEditingController();
-    _model.contactNumberFocusNode ??= FocusNode();
+    _model.emailAddressTextController ??= TextEditingController();
+    _model.emailAddressFocusNode ??= FocusNode();
 
     _model.passwordTextController1 ??= TextEditingController();
     _model.passwordFocusNode1 ??= FocusNode();
@@ -59,7 +60,7 @@ class _PassengerEditProfileWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -122,7 +123,7 @@ class _PassengerEditProfileWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 24.0),
                           child: Text(
-                            'Click on each information/image if you wish to change it',
+                            'Click on each informationif you wish to change it',
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
@@ -235,17 +236,17 @@ class _PassengerEditProfileWidgetState
                                     width: 300.0,
                                     child: TextFormField(
                                       controller:
-                                          _model.contactNumberTextController,
-                                      focusNode: _model.contactNumberFocusNode,
+                                          _model.emailAddressTextController,
+                                      focusNode: _model.emailAddressFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.contactNumberTextController',
+                                        '_model.emailAddressTextController',
                                         Duration(milliseconds: 2000),
                                         () async {
                                           safeSetState(() {
-                                            _model.contactNumberTextController
+                                            _model.emailAddressTextController
                                                     ?.text =
                                                 _model
-                                                    .contactNumberTextController
+                                                    .emailAddressTextController
                                                     .text;
                                           });
                                         },
@@ -263,7 +264,6 @@ class _PassengerEditProfileWidgetState
                                               fontFamily: 'Google',
                                               letterSpacing: 0.0,
                                             ),
-                                        hintText: '@gmail.com',
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -312,7 +312,7 @@ class _PassengerEditProfileWidgetState
                                           ),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: _model
-                                          .contactNumberTextControllerValidator
+                                          .emailAddressTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -532,6 +532,41 @@ class _PassengerEditProfileWidgetState
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        if (_model
+                                                .passwordTextController1.text !=
+                                            _model
+                                                .passwordTextController2.text) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'The passwords are not the same',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        }
+                                        await UsersTable().update(
+                                          data: {
+                                            'name':
+                                                _model.nameTextController.text,
+                                            'email': _model
+                                                .emailAddressTextController
+                                                .text,
+                                            'password': _model
+                                                .passwordTextController1.text,
+                                          },
+                                          matchingRows: (rows) => rows,
+                                        );
                                         await showDialog(
                                           context: context,
                                           builder: (dialogContext) {

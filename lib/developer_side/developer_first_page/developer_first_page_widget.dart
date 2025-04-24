@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'developer_first_page_model.dart';
 export 'developer_first_page_model.dart';
 
@@ -174,7 +173,6 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                                           .labelMedium,
                                                       letterSpacing: 0.0,
                                                     ),
-                                            hintText: '@gmail.com',
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -266,7 +264,6 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                                           .labelMedium,
                                                       letterSpacing: 0.0,
                                                     ),
-                                            hintText: '**********',
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -352,115 +349,89 @@ class _DeveloperFirstPageWidgetState extends State<DeveloperFirstPageWidget> {
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 16.0),
-                                      child: FutureBuilder<List<UsersRow>>(
-                                        future: UsersTable().querySingleRow(
-                                          queryFn: (q) => q
-                                              .eqOrNull(
-                                                'email',
-                                                _model
-                                                    .emailAddressTextController
-                                                    .text,
-                                              )
-                                              .eqOrNull(
-                                                'password',
-                                                _model.passwordTextController
-                                                    .text,
-                                              ),
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitDoubleBounce(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  size: 50.0,
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          _model.developerMatch =
+                                              await UsersTable().queryRows(
+                                            queryFn: (q) => q
+                                                .eqOrNull(
+                                                  'email',
+                                                  _model
+                                                      .emailAddressTextController
+                                                      .text,
+                                                )
+                                                .eqOrNull(
+                                                  'password',
+                                                  _model.passwordTextController
+                                                      .text,
                                                 ),
+                                          );
+                                          if (_model.developerMatch != null &&
+                                              (_model.developerMatch)!
+                                                  .isNotEmpty) {
+                                            context.pushNamed(
+                                                DeveloperContentWidget
+                                                    .routeName);
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Invalid Email or Password',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
                                               ),
                                             );
+                                            safeSetState(() {
+                                              _model.emailAddressTextController
+                                                  ?.clear();
+                                              _model.passwordTextController
+                                                  ?.clear();
+                                            });
                                           }
-                                          List<UsersRow> buttonUsersRowList =
-                                              snapshot.data!;
 
-                                          final buttonUsersRow =
-                                              buttonUsersRowList.isNotEmpty
-                                                  ? buttonUsersRowList.first
-                                                  : null;
-
-                                          return FFButtonWidget(
-                                            onPressed: () async {
-                                              if ((buttonUsersRow?.email !=
-                                                          null &&
-                                                      buttonUsersRow?.email !=
-                                                          '') &&
-                                                  (buttonUsersRow?.password !=
-                                                          null &&
-                                                      buttonUsersRow
-                                                              ?.password !=
-                                                          '')) {
-                                                safeSetState(() {});
-                                              } else {
-                                                ScaffoldMessenger.of(context)
-                                                    .showSnackBar(
-                                                  SnackBar(
-                                                    content: Text(
-                                                      'You have empty credentials.',
-                                                      style: TextStyle(
-                                                        fontFamily: 'Google',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                      ),
-                                                    ),
-                                                    duration: Duration(
-                                                        milliseconds: 2000),
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primaryText,
-                                                  ),
-                                                );
-                                              }
-                                            },
-                                            text: 'Sign In',
-                                            options: FFButtonOptions(
-                                              width: 240.0,
-                                              height: 44.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall,
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                              elevation: 3.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                            ),
-                                          );
+                                          safeSetState(() {});
                                         },
+                                        text: 'Sign In',
+                                        options: FFButtonOptions(
+                                          width: 240.0,
+                                          height: 44.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                font:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall,
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                          elevation: 3.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
                                       ),
                                     ),
                                   ),
