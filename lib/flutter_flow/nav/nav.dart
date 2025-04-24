@@ -92,11 +92,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DeveloperFirstPageWidget(),
         ),
         FFRoute(
-          name: DeveloperContentWidget.routeName,
-          path: DeveloperContentWidget.routePath,
-          builder: (context, params) => DeveloperContentWidget(),
-        ),
-        FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
           builder: (context, params) => HomePageWidget(),
@@ -235,6 +230,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: PassengerFirstPageWidget.routeName,
           path: PassengerFirstPageWidget.routePath,
           builder: (context, params) => PassengerFirstPageWidget(),
+        ),
+        FFRoute(
+          name: DeveloperContentWidget.routeName,
+          path: DeveloperContentWidget.routePath,
+          builder: (context, params) => DeveloperContentWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

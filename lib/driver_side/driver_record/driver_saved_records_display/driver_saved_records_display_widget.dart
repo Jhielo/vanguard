@@ -331,7 +331,7 @@ class _DriverSavedRecordsDisplayWidgetState
                                               ),
                                         ),
                                         Text(
-                                          '1h 30m',
+                                          getCurrentTimestamp.toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(

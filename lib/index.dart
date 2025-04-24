@@ -1,8 +1,6 @@
 // Export pages
 export '/developer_side/developer_first_page/developer_first_page_widget.dart'
     show DeveloperFirstPageWidget;
-export '/developer_side/developer_content/developer_content_widget.dart'
-    show DeveloperContentWidget;
 export '/home/home_page/home_page_widget.dart' show HomePageWidget;
 export '/about_side/about_first_page/about_first_page_widget.dart'
     show AboutFirstPageWidget;
@@ -58,3 +56,5 @@ export '/driver_side/driver_dashboard/driver_first_page/driver_first_page_widget
     show DriverFirstPageWidget;
 export '/passenger_side/passenger_account/passenger_first_page/passenger_first_page_widget.dart'
     show PassengerFirstPageWidget;
+export '/developer_side/developer_content/developer_content_widget.dart'
+    show DeveloperContentWidget;

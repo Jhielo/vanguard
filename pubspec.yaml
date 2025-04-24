@@ -67,7 +67,6 @@ dependencies:
   intl: 0.19.0
   json_path: 0.7.2
   map_launcher: 3.5.0
-  mask_text_input_formatter: 2.9.0
   mime_type: 1.0.0
   page_transition: 2.1.0
   path_provider: 2.1.4
@@ -92,6 +91,7 @@ dependencies:
   sign_in_with_apple_web: 2.1.0
   sqflite: 2.3.3+1
   sqflite_common: 2.5.4+3
+  stop_watch_timer: 3.0.2
   storage_client: 2.0.3
   supabase: 2.3.0
   supabase_flutter: 2.6.0

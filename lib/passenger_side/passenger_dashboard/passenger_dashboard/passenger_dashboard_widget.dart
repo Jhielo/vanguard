@@ -80,7 +80,10 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
-                    'Welcome, ${FFAppState().currentUserName}!',
+                    'Welcome, ${valueOrDefault<String>(
+                      FFAppState().currentUserName,
+                      'Adam',
+                    )}!',
                     style: FlutterFlowTheme.of(context).displaySmall.override(
                           fontFamily: 'Google',
                           letterSpacing: 0.0,

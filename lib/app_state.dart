@@ -32,7 +32,7 @@ class FFAppState extends ChangeNotifier {
     _currentUserID = value;
   }
 
-  String _currentUserName = '';
+  String _currentUserName = 'Adam';
   String get currentUserName => _currentUserName;
   set currentUserName(String value) {
     _currentUserName = value;
@@ -42,5 +42,23 @@ class FFAppState extends ChangeNotifier {
   String get currentUserRole => _currentUserRole;
   set currentUserRole(String value) {
     _currentUserRole = value;
+  }
+
+  DateTime? _selectedDepartureTime;
+  DateTime? get selectedDepartureTime => _selectedDepartureTime;
+  set selectedDepartureTime(DateTime? value) {
+    _selectedDepartureTime = value;
+  }
+
+  DateTime? _selectedArrivalTime;
+  DateTime? get selectedArrivalTime => _selectedArrivalTime;
+  set selectedArrivalTime(DateTime? value) {
+    _selectedArrivalTime = value;
+  }
+
+  DateTime? _selectedTripDate;
+  DateTime? get selectedTripDate => _selectedTripDate;
+  set selectedTripDate(DateTime? value) {
+    _selectedTripDate = value;
   }
 }

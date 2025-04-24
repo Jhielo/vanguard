@@ -2,9 +2,11 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'driver_record_model.dart';
@@ -33,6 +35,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => safeSetState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -306,15 +309,29 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  Text(
-                                    '00:00:00',
+                                  FlutterFlowTimer(
+                                    initialTime: _model.timerInitialTimeMs,
+                                    getDisplayTime: (value) =>
+                                        StopWatchTimer.getDisplayTime(
+                                      value,
+                                      hours: false,
+                                      milliSecond: false,
+                                    ),
+                                    controller: _model.timerController,
+                                    updateStateInterval:
+                                        Duration(milliseconds: 1000),
+                                    onChanged:
+                                        (value, displayTime, shouldUpdate) {
+                                      _model.timerMilliseconds = value;
+                                      _model.timerValue = displayTime;
+                                      if (shouldUpdate) safeSetState(() {});
+                                    },
+                                    textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
                                           font: FlutterFlowTheme.of(context)
                                               .headlineSmall,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -341,7 +358,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         ),
                                   ),
                                   Text(
-                                    '0.0 km/h',
+                                    getCurrentTimestamp.toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
