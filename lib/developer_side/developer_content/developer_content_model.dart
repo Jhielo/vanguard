@@ -1,10 +1,15 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'developer_content_widget.dart' show DeveloperContentWidget;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class DeveloperContentModel extends FlutterFlowModel<DeveloperContentWidget> {
+  ///  Local state fields for this page.
+
+  DateTime? selectedDate;
+
   ///  State fields for stateful widgets in this page.
 
   final formKey = GlobalKey<FormState>();
@@ -20,14 +25,16 @@ class DeveloperContentModel extends FlutterFlowModel<DeveloperContentWidget> {
   FocusNode? departureTimeFocusNode;
   TextEditingController? departureTimeTextController;
   String? Function(BuildContext, String?)? departureTimeTextControllerValidator;
+  DateTime? datePicked1;
   // State field(s) for arrival_time widget.
   FocusNode? arrivalTimeFocusNode;
   TextEditingController? arrivalTimeTextController;
   final arrivalTimeMask = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? arrivalTimeTextControllerValidator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for Route_Select widget.
+  String? routeSelectValue;
+  FormFieldController<String>? routeSelectValueController;
+  DateTime? datePicked2;
 
   @override
   void initState(BuildContext context) {}

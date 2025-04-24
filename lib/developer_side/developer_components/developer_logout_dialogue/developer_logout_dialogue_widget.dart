@@ -40,10 +40,11 @@ class _DeveloperLogoutDialogueWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+    return Align(
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
-        width: double.infinity,
+        width: 300.0,
+        height: 240.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.circular(16.0),
@@ -61,6 +62,7 @@ class _DeveloperLogoutDialogueWidgetState
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       font: FlutterFlowTheme.of(context).headlineMedium,
                       color: Colors.white,
+                      fontSize: 24.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
                     ),
@@ -76,7 +78,7 @@ class _DeveloperLogoutDialogueWidgetState
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
@@ -89,7 +91,7 @@ class _DeveloperLogoutDialogueWidgetState
                       padding: EdgeInsets.all(8.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: Colors.black,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 font: FlutterFlowTheme.of(context).titleSmall,
@@ -100,7 +102,7 @@ class _DeveloperLogoutDialogueWidgetState
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(
-                        color: Colors.transparent,
+                        color: FlutterFlowTheme.of(context).primaryBackground,
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(12.0),
@@ -134,7 +136,7 @@ class _DeveloperLogoutDialogueWidgetState
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ),
-                ].divide(SizedBox(width: 16.0)),
+                ],
               ),
             ].divide(SizedBox(height: 24.0)),
           ),

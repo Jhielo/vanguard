@@ -123,6 +123,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                               font: FlutterFlowTheme.of(context).titleSmall,
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
                             ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -159,6 +160,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                               font: FlutterFlowTheme.of(context).titleSmall,
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
                             ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -168,11 +170,6 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                  ),
-                  Divider(
-                    height: 1.0,
-                    thickness: 1.0,
-                    color: FlutterFlowTheme.of(context).alternate,
                   ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
@@ -200,6 +197,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                               font: FlutterFlowTheme.of(context).titleSmall,
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
                             ),
                         elevation: 0.0,
                         borderSide: BorderSide(

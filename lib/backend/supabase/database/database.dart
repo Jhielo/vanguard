@@ -5,4 +5,5 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
-export 'tables/vehicle_tracking.dart';
+export 'tables/van_trips.dart';
+export 'tables/users.dart';

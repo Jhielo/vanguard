@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'driver_first_page_f_widget.dart' show DriverFirstPageFWidget;
+import 'driver_first_page_widget.dart' show DriverFirstPageWidget;
 import 'package:flutter/material.dart';
 
-class DriverFirstPageFModel extends FlutterFlowModel<DriverFirstPageFWidget> {
+class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TabBar widget.

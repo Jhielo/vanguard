@@ -12,11 +12,12 @@ class PredictVanArrivalCall {
     String? route = '',
     String? plateNumber = '',
     String? departureTime = '',
+    int? event,
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'PredictVanArrival',
       apiUrl:
-          'https://vanguardthesis.pythonanywhere.com//r/${route}/pn/${plateNumber}/dt/${departureTime}',
+          'https://vanguardthesis.pythonanywhere.com//r/${route}/pn/${plateNumber}/dt/${departureTime}/e/${event}',
       callType: ApiCallType.GET,
       headers: {},
       params: {},

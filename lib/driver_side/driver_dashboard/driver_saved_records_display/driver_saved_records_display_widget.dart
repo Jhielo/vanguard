@@ -81,25 +81,14 @@ class _DriverSavedRecordsDisplayWidgetState
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: Column(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, -0.8),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/Vanguardlogofinal.png',
-                            width: 150.0,
-                            height: 150.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
                       Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Container(
@@ -272,7 +261,7 @@ class _DriverSavedRecordsDisplayWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Start Location',
+                                      'Route Chosen',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -292,19 +281,6 @@ class _DriverSavedRecordsDisplayWidgetState
                                               .primary,
                                           size: 20.0,
                                         ),
-                                        Expanded(
-                                          child: Text(
-                                            '123 Main Street, San Francisco, CA 94105',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
                                       ].divide(SizedBox(width: 8.0)),
                                     ),
                                   ].divide(SizedBox(height: 8.0)),
@@ -313,48 +289,6 @@ class _DriverSavedRecordsDisplayWidgetState
                                   height: 1.0,
                                   thickness: 1.0,
                                   color: FlutterFlowTheme.of(context).alternate,
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'End Location',
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            font: FlutterFlowTheme.of(context)
-                                                .labelMedium,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Icon(
-                                          Icons.location_on,
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          size: 20.0,
-                                        ),
-                                        Expanded(
-                                          child: Text(
-                                            '456 Market Street, San Francisco, CA 94103',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ].divide(SizedBox(width: 8.0)),
-                                    ),
-                                  ].divide(SizedBox(height: 8.0)),
                                 ),
                                 Divider(
                                   height: 1.0,
@@ -463,7 +397,7 @@ class _DriverSavedRecordsDisplayWidgetState
                           ),
                         ),
                       ),
-                    ].divide(SizedBox(height: 24.0)),
+                    ],
                   ),
                 ),
               ],

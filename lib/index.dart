@@ -1,5 +1,5 @@
 // Export pages
-export '/developer_side/developer_first_page/developer_first_page_widget.dart'
+export '/home/developer_first_page/developer_first_page_widget.dart'
     show DeveloperFirstPageWidget;
 export '/developer_side/developer_content/developer_content_widget.dart'
     show DeveloperContentWidget;
@@ -54,7 +54,7 @@ export '/passenger_side/passenger_dashboard/passenger_announcement_non_prio/pass
     show PassengerAnnouncementNonPrioWidget;
 export '/passenger_side/passenger_dashboard/passenger_edit_profile/passenger_edit_profile_widget.dart'
     show PassengerEditProfileWidget;
-export '/driver_side/driver_first_page_f/driver_first_page_f_widget.dart'
-    show DriverFirstPageFWidget;
-export '/passenger_side/passenger_dashboard/passenger_first_page_f/passenger_first_page_f_widget.dart'
-    show PassengerFirstPageFWidget;
+export '/home/driver_first_page/driver_first_page_widget.dart'
+    show DriverFirstPageWidget;
+export '/home/passenger_first_page/passenger_first_page_widget.dart'
+    show PassengerFirstPageWidget;

@@ -227,14 +227,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => PassengerEditProfileWidget(),
         ),
         FFRoute(
-          name: DriverFirstPageFWidget.routeName,
-          path: DriverFirstPageFWidget.routePath,
-          builder: (context, params) => DriverFirstPageFWidget(),
+          name: DriverFirstPageWidget.routeName,
+          path: DriverFirstPageWidget.routePath,
+          builder: (context, params) => DriverFirstPageWidget(),
         ),
         FFRoute(
-          name: PassengerFirstPageFWidget.routeName,
-          path: PassengerFirstPageFWidget.routePath,
-          builder: (context, params) => PassengerFirstPageFWidget(),
+          name: PassengerFirstPageWidget.routeName,
+          path: PassengerFirstPageWidget.routePath,
+          builder: (context, params) => PassengerFirstPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

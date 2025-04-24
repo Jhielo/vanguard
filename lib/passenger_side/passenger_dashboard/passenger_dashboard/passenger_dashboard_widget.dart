@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/passenger_side/passenger_components/passenger_logout_dialogue/passenger_logout_dialogue_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'passenger_dashboard_model.dart';
 export 'passenger_dashboard_model.dart';
 
@@ -38,6 +39,8 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -77,7 +80,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Text(
-                    'Welcome, <user>',
+                    'Welcome, ${FFAppState().currentUserName}!',
                     style: FlutterFlowTheme.of(context).displaySmall.override(
                           fontFamily: 'Google',
                           letterSpacing: 0.0,

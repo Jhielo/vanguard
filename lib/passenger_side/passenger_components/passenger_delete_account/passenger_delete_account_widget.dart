@@ -43,10 +43,12 @@ class _PassengerDeleteAccountWidgetState
       decoration: BoxDecoration(
         color: Colors.transparent,
       ),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
         child: Container(
           width: 300.0,
+          height: 240.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             boxShadow: [
@@ -66,23 +68,16 @@ class _PassengerDeleteAccountWidgetState
             padding: EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                  child: Icon(
-                    Icons.warning_rounded,
-                    color: FlutterFlowTheme.of(context).error,
-                    size: 48.0,
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: Text(
                     'Delete Account',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
                           font: FlutterFlowTheme.of(context).headlineSmall,
-                          color: FlutterFlowTheme.of(context).error,
+                          color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -90,10 +85,11 @@ class _PassengerDeleteAccountWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: Text(
-                    'Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently lost.',
+                    'Are you sure you want to delete your account? This action cannot be undone.',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           font: FlutterFlowTheme.of(context).bodyMedium,
+                          color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                         ),
                   ),

@@ -44,60 +44,63 @@ class _FullTeamJoselitoWidgetState extends State<FullTeamJoselitoWidget> {
         height: double.infinity,
         child: Stack(
           children: [
-            Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                color: Color(0x80000000),
-              ),
-            ),
-            Container(
-              width: 350.0,
-              height: 400.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 10.0,
-                    color: Color(0x33000000),
-                    offset: Offset(
-                      0.0,
-                      4.0,
-                    ),
-                    spreadRadius: 0.0,
-                  )
-                ],
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        child: Image.asset(
-                          'assets/images/Joselito_Face.jpg',
+            InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 350.0,
+                height: 400.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 10.0,
+                      color: Color(0x33000000),
+                      offset: Offset(
+                        0.0,
+                        4.0,
+                      ),
+                      spreadRadius: 0.0,
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Expanded(
+                        child: Container(
                           width: double.infinity,
-                          height: double.infinity,
-                          fit: BoxFit.contain,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Image.asset(
+                            'assets/images/Joselito_Face.jpg',
+                            width: double.infinity,
+                            height: double.infinity,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
-                    ),
-                    Text(
-                      'Click outside to close',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                            font: FlutterFlowTheme.of(context).bodySmall,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            letterSpacing: 0.0,
-                          ),
-                    ),
-                  ].divide(SizedBox(height: 16.0)),
+                      Text(
+                        'Click again to close',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                              font: FlutterFlowTheme.of(context).bodySmall,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              letterSpacing: 0.0,
+                            ),
+                      ),
+                    ].divide(SizedBox(height: 16.0)),
+                  ),
                 ),
               ),
             ),

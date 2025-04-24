@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'developer_content_model.dart';
@@ -414,6 +415,78 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                 .departureTimeTextController,
                                             focusNode:
                                                 _model.departureTimeFocusNode,
+                                            onFieldSubmitted: (_) async {
+                                              await showModalBottomSheet<bool>(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    final _datePicked1CupertinoTheme =
+                                                        CupertinoTheme.of(
+                                                            context);
+                                                    return Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height /
+                                                              3,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                              .size
+                                                              .width,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      child: CupertinoTheme(
+                                                        data:
+                                                            _datePicked1CupertinoTheme
+                                                                .copyWith(
+                                                          textTheme:
+                                                              _datePicked1CupertinoTheme
+                                                                  .textTheme
+                                                                  .copyWith(
+                                                            dateTimePickerTextStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .headlineMedium,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                          ),
+                                                        ),
+                                                        child:
+                                                            CupertinoDatePicker(
+                                                          mode:
+                                                              CupertinoDatePickerMode
+                                                                  .time,
+                                                          minimumDate:
+                                                              DateTime(1900),
+                                                          initialDateTime:
+                                                              getCurrentTimestamp,
+                                                          maximumDate:
+                                                              DateTime(2050),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryBackground,
+                                                          use24hFormat: false,
+                                                          onDateTimeChanged:
+                                                              (newDateTime) =>
+                                                                  safeSetState(
+                                                                      () {
+                                                            _model.datePicked1 =
+                                                                newDateTime;
+                                                          }),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  });
+                                            },
                                             autofocus: true,
                                             textCapitalization:
                                                 TextCapitalization.words,
@@ -689,14 +762,14 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                             AlignmentDirectional(0.0, 0.0),
                                         child: FlutterFlowDropDown<String>(
                                           controller: _model
-                                                  .dropDownValueController ??=
+                                                  .routeSelectValueController ??=
                                               FormFieldController<String>(null),
                                           options: [
                                             'Sorsogon - Legazpi',
                                             'Legazpi - Sorsogon\n'
                                           ],
-                                          onChanged: (val) => safeSetState(
-                                              () => _model.dropDownValue = val),
+                                          onChanged: (val) => safeSetState(() =>
+                                              _model.routeSelectValue = val),
                                           width: 300.0,
                                           height: 52.0,
                                           searchHintTextStyle:
@@ -759,6 +832,152 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                           isMultiSelect: false,
                                         ),
                                       ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          'Trip Date',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                font:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              await showModalBottomSheet<bool>(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    final _datePicked2CupertinoTheme =
+                                                        CupertinoTheme.of(
+                                                            context);
+                                                    return Container(
+                                                      height:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height /
+                                                              3,
+                                                      width:
+                                                          MediaQuery.of(context)
+                                                              .size
+                                                              .width,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      child: CupertinoTheme(
+                                                        data:
+                                                            _datePicked2CupertinoTheme
+                                                                .copyWith(
+                                                          textTheme:
+                                                              _datePicked2CupertinoTheme
+                                                                  .textTheme
+                                                                  .copyWith(
+                                                            dateTimePickerTextStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      font: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .headlineMedium,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                          ),
+                                                        ),
+                                                        child:
+                                                            CupertinoDatePicker(
+                                                          mode:
+                                                              CupertinoDatePickerMode
+                                                                  .date,
+                                                          minimumDate:
+                                                              DateTime(1900),
+                                                          initialDateTime:
+                                                              getCurrentTimestamp,
+                                                          maximumDate:
+                                                              getCurrentTimestamp,
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryBackground,
+                                                          use24hFormat: false,
+                                                          onDateTimeChanged:
+                                                              (newDateTime) =>
+                                                                  safeSetState(
+                                                                      () {
+                                                            _model.datePicked2 =
+                                                                newDateTime;
+                                                          }),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  });
+                                            },
+                                            text: 'Pick a Date',
+                                            options: FFButtonOptions(
+                                              width: 300.0,
+                                              height: 48.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        font:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall,
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Text(
+                                          'Trip Date',
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                                font:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, 0.0),
@@ -768,21 +987,27 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                   16.0, 40.0, 16.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
-                                              await VehicleTrackingTable()
-                                                  .insert({
+                                              await VanTripsTable().insert({
                                                 'id': '',
-                                                'name': '',
-                                                'vehicle_plate': '',
-                                                'departure_time':
+                                                'name': _model
+                                                    .nameTextController.text,
+                                                'vehicle_plate': _model
+                                                    .vehiclePlateTextController
+                                                    .text,
+                                                'departure_time': supaSerialize<
+                                                        PostgresTime>(
+                                                    PostgresTime(
+                                                        getCurrentTimestamp)),
+                                                'arrival_time': supaSerialize<
+                                                        PostgresTime>(
+                                                    PostgresTime(
+                                                        getCurrentTimestamp)),
+                                                'route':
+                                                    _model.routeSelectValue,
+                                                'trip_date':
                                                     supaSerialize<DateTime>(
-                                                        getCurrentTimestamp),
-                                                'arrival_time':
-                                                    supaSerialize<DateTime>(
-                                                        getCurrentTimestamp),
-                                                'created_at':
-                                                    supaSerialize<DateTime>(
-                                                        getCurrentTimestamp),
-                                                'route': '',
+                                                        _model.datePicked2),
+                                                'event': false,
                                               });
                                             },
                                             text: 'Submit Form',

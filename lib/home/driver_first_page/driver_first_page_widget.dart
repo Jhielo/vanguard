@@ -1,33 +1,33 @@
-import '/auth/supabase_auth/auth_util.dart';
-import '/driver_side/driver_components/driver_logout_dialogue/driver_logout_dialogue_widget.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'driver_first_page_f_model.dart';
-export 'driver_first_page_f_model.dart';
+import 'driver_first_page_model.dart';
+export 'driver_first_page_model.dart';
 
-class DriverFirstPageFWidget extends StatefulWidget {
-  const DriverFirstPageFWidget({super.key});
+class DriverFirstPageWidget extends StatefulWidget {
+  const DriverFirstPageWidget({super.key});
 
-  static String routeName = 'DriverFirstPageF';
-  static String routePath = '/driverFirstPageF';
+  static String routeName = 'DriverFirstPage';
+  static String routePath = '/driverFirstPage';
 
   @override
-  State<DriverFirstPageFWidget> createState() => _DriverFirstPageFWidgetState();
+  State<DriverFirstPageWidget> createState() => _DriverFirstPageWidgetState();
 }
 
-class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
+class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
     with TickerProviderStateMixin {
-  late DriverFirstPageFModel _model;
+  late DriverFirstPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DriverFirstPageFModel());
+    _model = createModel(context, () => DriverFirstPageModel());
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -52,10 +52,6 @@ class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
 
     _model.plateNumberTextController2 ??= TextEditingController();
     _model.plateNumberFocusNode2 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
-          _model.plateNumberTextController1?.text = 'LLL-DDDD';
-        }));
   }
 
   @override
@@ -169,7 +165,19 @@ class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
                             ],
                             controller: _model.tabBarController,
                             onTap: (i) async {
-                              [() async {}, () async {}][i]();
+                              [
+                                () async {},
+                                () async {
+                                  await UsersTable().insert({
+                                    'id': '',
+                                    'role': '',
+                                    'name': '',
+                                    'contact_number': '',
+                                    'license_number': '',
+                                    'plate_number': '',
+                                  });
+                                }
+                              ][i]();
                             },
                           ),
                         ),
@@ -355,26 +363,8 @@ class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
                                         color: Color(0xFF14181B),
                                       ),
                                       FFButtonWidget(
-                                        onPressed: () async {
-                                          GoRouter.of(context)
-                                              .prepareAuthEvent();
-
-                                          final user =
-                                              await authManager.signInWithEmail(
-                                            context,
-                                            _model.licenseNumberTextController1
-                                                .text,
-                                            _model.plateNumberTextController1
-                                                .text,
-                                          );
-                                          if (user == null) {
-                                            return;
-                                          }
-
-                                          context.goNamedAuth(
-                                              DeveloperFirstPageWidget
-                                                  .routeName,
-                                              context.mounted);
+                                        onPressed: () {
+                                          print('Button pressed ...');
                                         },
                                         text: 'Log in',
                                         options: FFButtonOptions(
@@ -573,7 +563,7 @@ class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        hintText: '09123456789',
+                                                        hintText: '09*********',
                                                         enabledBorder:
                                                             OutlineInputBorder(
                                                           borderSide:
@@ -886,27 +876,29 @@ class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
                                                           0.0, 0.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
-                                                      GoRouter.of(context)
-                                                          .prepareAuthEvent();
-
-                                                      final user = await authManager
-                                                          .createAccountWithEmail(
-                                                        context,
-                                                        _model
+                                                      await UsersTable()
+                                                          .insert({
+                                                        'id': random_data
+                                                            .randomInteger(
+                                                                0, 1000000)
+                                                            .toString(),
+                                                        'role': 'driver',
+                                                        'name': _model
+                                                            .nameTextController
+                                                            .text,
+                                                        'contact_number': _model
+                                                            .contactNumberTextController
+                                                            .text,
+                                                        'license_number': _model
                                                             .licenseNumberTextController2
                                                             .text,
-                                                        _model
+                                                        'plate_number': _model
                                                             .plateNumberTextController2
                                                             .text,
-                                                      );
-                                                      if (user == null) {
-                                                        return;
-                                                      }
-
-                                                      context.pushNamedAuth(
-                                                          DriverDashboardWidget
-                                                              .routeName,
-                                                          context.mounted);
+                                                        'created_at': supaSerialize<
+                                                                DateTime>(
+                                                            getCurrentTimestamp),
+                                                      });
                                                     },
                                                     text: 'Create Account',
                                                     options: FFButtonOptions(
@@ -978,54 +970,42 @@ class _DriverFirstPageFWidgetState extends State<DriverFirstPageFWidget>
                     children: [
                       Align(
                         alignment: AlignmentDirectional(0.0, 1.0),
-                        child: Builder(
-                          builder: (context) => FFButtonWidget(
-                            onPressed: () async {
-                              await showDialog(
-                                context: context,
-                                builder: (dialogContext) {
-                                  return Dialog(
-                                    elevation: 0,
-                                    insetPadding: EdgeInsets.zero,
-                                    backgroundColor: Colors.transparent,
-                                    alignment: AlignmentDirectional(0.0, 0.0)
-                                        .resolve(Directionality.of(context)),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        FocusScope.of(dialogContext).unfocus();
-                                        FocusManager.instance.primaryFocus
-                                            ?.unfocus();
-                                      },
-                                      child: DriverLogoutDialogueWidget(),
-                                    ),
-                                  );
-                                },
-                              );
-                            },
-                            text: 'Back to Main Page',
-                            options: FFButtonOptions(
-                              width: 240.0,
-                              height: 40.0,
-                              padding: EdgeInsets.all(8.0),
-                              iconPadding: EdgeInsets.all(0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleMedium
-                                  .override(
-                                    font: FlutterFlowTheme.of(context)
-                                        .titleMedium,
-                                    color: Colors.white,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context.pushNamed(
+                              HomePageWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.leftToRight,
+                                ),
+                              },
+                            );
+                          },
+                          text: 'Back to Main Page',
+                          options: FFButtonOptions(
+                            width: 240.0,
+                            height: 40.0,
+                            padding: EdgeInsets.all(8.0),
+                            iconPadding: EdgeInsets.all(0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  font:
+                                      FlutterFlowTheme.of(context).titleMedium,
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                            elevation: 2.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
                             ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),

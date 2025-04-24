@@ -35,25 +35,31 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       safeSetState(() {});
       // Inserts in supabase
-      await VehicleTrackingTable().insert({
+      await VanTripsTable().insert({
         'id': '',
         'name': '',
         'vehicle_plate': '',
-        'departure_time': supaSerialize<DateTime>(getCurrentTimestamp),
-        'arrival_time': supaSerialize<DateTime>(getCurrentTimestamp),
+        'departure_time':
+            supaSerialize<PostgresTime>(PostgresTime(getCurrentTimestamp)),
+        'arrival_time':
+            supaSerialize<PostgresTime>(PostgresTime(getCurrentTimestamp)),
         'route': '',
-        'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
+        'trip_date': supaSerialize<DateTime>(getCurrentTimestamp),
+        'event': false,
       });
       // Updates the SupaBase
-      await VehicleTrackingTable().update(
+      await VanTripsTable().update(
         data: {
           'id': '',
           'name': '',
           'vehicle_plate': '',
-          'departure_time': supaSerialize<DateTime>(getCurrentTimestamp),
+          'departure_time':
+              supaSerialize<PostgresTime>(PostgresTime(getCurrentTimestamp)),
           'route': '',
-          'created_at': supaSerialize<DateTime>(getCurrentTimestamp),
-          'arrival_time': supaSerialize<DateTime>(getCurrentTimestamp),
+          'arrival_time':
+              supaSerialize<PostgresTime>(PostgresTime(getCurrentTimestamp)),
+          'trip_date': supaSerialize<DateTime>(getCurrentTimestamp),
+          'event': false,
         },
         matchingRows: (rows) => rows,
       );

@@ -1,10 +1,10 @@
-import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'passenger_schedule_screen_model.dart';
 export 'passenger_schedule_screen_model.dart';
@@ -222,43 +222,6 @@ class _PassengerScheduleScreenWidgetState
                       ),
                     ].divide(SizedBox(height: 8.0)),
                   ),
-                  FlutterFlowCalendar(
-                    color: FlutterFlowTheme.of(context).primary,
-                    iconColor: FlutterFlowTheme.of(context).secondaryText,
-                    weekFormat: false,
-                    weekStartsMonday: false,
-                    initialDate: getCurrentTimestamp,
-                    rowHeight: 48.0,
-                    onChange: (DateTimeRange? newSelectedDate) {
-                      safeSetState(
-                          () => _model.calendarSelectedDay = newSelectedDate);
-                    },
-                    titleStyle:
-                        FlutterFlowTheme.of(context).titleLarge.override(
-                              font: FlutterFlowTheme.of(context).titleLarge,
-                              letterSpacing: 0.0,
-                            ),
-                    dayOfWeekStyle:
-                        FlutterFlowTheme.of(context).bodyLarge.override(
-                              font: FlutterFlowTheme.of(context).bodyLarge,
-                              letterSpacing: 0.0,
-                            ),
-                    dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: FlutterFlowTheme.of(context).bodyMedium,
-                          letterSpacing: 0.0,
-                        ),
-                    selectedDateStyle:
-                        FlutterFlowTheme.of(context).titleSmall.override(
-                              font: FlutterFlowTheme.of(context).titleSmall,
-                              letterSpacing: 0.0,
-                            ),
-                    inactiveDateStyle:
-                        FlutterFlowTheme.of(context).labelMedium.override(
-                              font: FlutterFlowTheme.of(context).labelMedium,
-                              letterSpacing: 0.0,
-                            ),
-                    locale: FFLocalizations.of(context).languageCode,
-                  ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -282,44 +245,99 @@ class _PassengerScheduleScreenWidgetState
                               letterSpacing: 0.0,
                             ),
                       ),
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            width: 1.0,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
-                                child: Icon(
-                                  Icons.calendar_today,
-                                  color: Colors.white,
-                                  size: 24.0,
-                                ),
-                              ),
-                              Text(
-                                'April 20, 2025 - 10:30 AM',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await showModalBottomSheet<bool>(
+                              context: context,
+                              builder: (context) {
+                                final _datePickedCupertinoTheme =
+                                    CupertinoTheme.of(context);
+                                return Container(
+                                  height:
+                                      MediaQuery.of(context).size.height / 3,
+                                  width: MediaQuery.of(context).size.width,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  child: CupertinoTheme(
+                                    data: _datePickedCupertinoTheme.copyWith(
+                                      textTheme: _datePickedCupertinoTheme
+                                          .textTheme
+                                          .copyWith(
+                                        dateTimePickerTextStyle:
+                                            FlutterFlowTheme.of(context)
+                                                .headlineMedium
+                                                .override(
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineMedium,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                      ),
                                     ),
-                              ),
-                            ],
+                                    child: CupertinoDatePicker(
+                                      mode: CupertinoDatePickerMode.date,
+                                      minimumDate: getCurrentTimestamp,
+                                      initialDateTime: getCurrentTimestamp,
+                                      maximumDate: DateTime(2050),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                      use24hFormat: false,
+                                      onDateTimeChanged: (newDateTime) =>
+                                          safeSetState(() {
+                                        _model.datePicked = newDateTime;
+                                      }),
+                                    ),
+                                  ),
+                                );
+                              });
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              width: 1.0,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 12.0, 0.0),
+                                  child: Icon(
+                                    Icons.calendar_today,
+                                    color: Colors.white,
+                                    size: 24.0,
+                                  ),
+                                ),
+                                Text(
+                                  'April 20, 2025 - 10:30 AM',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        font: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

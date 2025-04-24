@@ -104,7 +104,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               color: Colors.white,
                               fontSize: 28.0,
                               letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.normal,
                             ),
                       ),
                     ].divide(SizedBox(height: 8.0)),
@@ -114,7 +114,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(DriverFirstPageFWidget.routeName);
+                          context.pushNamed(
+                            DriverFirstPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 600),
+                              ),
+                            },
+                          );
                         },
                         text: 'Driver',
                         icon: Icon(
@@ -147,8 +156,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context
-                              .pushNamed(PassengerFirstPageFWidget.routeName);
+                          context.pushNamed(
+                            PassengerFirstPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 600),
+                              ),
+                            },
+                          );
                         },
                         text: 'Passenger',
                         icon: Icon(
@@ -180,7 +197,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(DeveloperFirstPageWidget.routeName);
+                          context.pushNamed(
+                            DeveloperFirstPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 600),
+                              ),
+                            },
+                          );
                         },
                         text: 'Developer',
                         icon: Icon(
@@ -224,7 +250,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       ),
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(AboutFirstPageWidget.routeName);
+                          context.pushNamed(
+                            AboutFirstPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.rightToLeft,
+                                duration: Duration(milliseconds: 600),
+                              ),
+                            },
+                          );
                         },
                         text: 'About',
                         icon: Icon(

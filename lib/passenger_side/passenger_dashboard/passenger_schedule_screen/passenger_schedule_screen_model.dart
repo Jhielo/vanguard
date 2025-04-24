@@ -1,8 +1,8 @@
-import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'passenger_schedule_screen_widget.dart'
     show PassengerScheduleScreenWidget;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PassengerScheduleScreenModel
@@ -15,16 +15,10 @@ class PassengerScheduleScreenModel
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
-  // State field(s) for Calendar widget.
-  DateTimeRange? calendarSelectedDay;
+  DateTime? datePicked;
 
   @override
-  void initState(BuildContext context) {
-    calendarSelectedDay = DateTimeRange(
-      start: DateTime.now().startOfDay,
-      end: DateTime.now().endOfDay,
-    );
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {}

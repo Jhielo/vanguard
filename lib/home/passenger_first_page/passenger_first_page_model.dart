@@ -1,10 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'passenger_first_page_f_widget.dart' show PassengerFirstPageFWidget;
+import 'passenger_first_page_widget.dart' show PassengerFirstPageWidget;
 import 'package:flutter/material.dart';
 
-class PassengerFirstPageFModel
-    extends FlutterFlowModel<PassengerFirstPageFWidget> {
+class PassengerFirstPageModel
+    extends FlutterFlowModel<PassengerFirstPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TabBar widget.
@@ -14,11 +14,6 @@ class PassengerFirstPageFModel
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  // State field(s) for passenger_name widget.
-  FocusNode? passengerNameFocusNode1;
-  TextEditingController? passengerNameTextController1;
-  String? Function(BuildContext, String?)?
-      passengerNameTextController1Validator;
   // State field(s) for passenger_email_address widget.
   FocusNode? passengerEmailAddressFocusNode1;
   TextEditingController? passengerEmailAddressTextController1;
@@ -31,10 +26,9 @@ class PassengerFirstPageFModel
   String? Function(BuildContext, String?)?
       passengerPasswordTextController1Validator;
   // State field(s) for passenger_name widget.
-  FocusNode? passengerNameFocusNode2;
-  TextEditingController? passengerNameTextController2;
-  String? Function(BuildContext, String?)?
-      passengerNameTextController2Validator;
+  FocusNode? passengerNameFocusNode;
+  TextEditingController? passengerNameTextController;
+  String? Function(BuildContext, String?)? passengerNameTextControllerValidator;
   // State field(s) for passenger_email_address widget.
   FocusNode? passengerEmailAddressFocusNode2;
   TextEditingController? passengerEmailAddressTextController2;
@@ -63,17 +57,14 @@ class PassengerFirstPageFModel
   @override
   void dispose() {
     tabBarController?.dispose();
-    passengerNameFocusNode1?.dispose();
-    passengerNameTextController1?.dispose();
-
     passengerEmailAddressFocusNode1?.dispose();
     passengerEmailAddressTextController1?.dispose();
 
     passengerPasswordFocusNode1?.dispose();
     passengerPasswordTextController1?.dispose();
 
-    passengerNameFocusNode2?.dispose();
-    passengerNameTextController2?.dispose();
+    passengerNameFocusNode?.dispose();
+    passengerNameTextController?.dispose();
 
     passengerEmailAddressFocusNode2?.dispose();
     passengerEmailAddressTextController2?.dispose();

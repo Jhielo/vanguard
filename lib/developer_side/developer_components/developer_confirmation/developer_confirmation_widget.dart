@@ -42,10 +42,11 @@ class _DeveloperConfirmationWidgetState
       decoration: BoxDecoration(
         color: Colors.transparent,
       ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+      child: Align(
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Container(
-          width: double.infinity,
+          width: 300.0,
+          height: 240.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             boxShadow: [
@@ -65,6 +66,7 @@ class _DeveloperConfirmationWidgetState
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -93,7 +95,7 @@ class _DeveloperConfirmationWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
@@ -106,7 +108,8 @@ class _DeveloperConfirmationWidgetState
                           padding: EdgeInsets.all(8.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xB2000000),
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -117,7 +120,8 @@ class _DeveloperConfirmationWidgetState
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(8.0),
@@ -151,7 +155,7 @@ class _DeveloperConfirmationWidgetState
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                       ),
-                    ].divide(SizedBox(width: 16.0)),
+                    ],
                   ),
                 ),
               ].divide(SizedBox(height: 16.0)),
