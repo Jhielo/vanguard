@@ -1,26 +1,34 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-class PredictVanArrivalCall {
+class PredictVansCall {
   static Future<ApiCallResponse> call({
     String? route = '',
-    String? plateNumber = '',
-    String? departureTime = '',
+    String? preferredDepTime = '',
+    int? weekday,
+    String? hour = '',
     int? event,
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'PredictVanArrival',
+      callName: 'PredictVans',
       apiUrl:
-          'https://vanguardthesis.pythonanywhere.com//r/${route}/pn/${plateNumber}/dt/${departureTime}/e/${event}',
+          'https://vanguardthesis.pythonanywhere.com/route/${route}/pref/${preferredDepTime}/weekday/${weekday}/hour/${hour}/event/${event}',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'route': route,
+        'preferred_dep_time': preferredDepTime,
+        'weekday': weekday,
+        'hour': hour,
+        'event': event,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -29,6 +37,15 @@ class PredictVanArrivalCall {
       alwaysAllowBody: false,
     );
   }
+
+  static String? departure(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.departure''',
+      ));
+  static String? arrival(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.arrival''',
+      ));
 }
 
 class ApiPagingParams {

@@ -29,14 +29,18 @@ class VanTripsRow extends SupabaseDataRow {
   String get route => getField<String>('route')!;
   set route(String value) => setField<String>('route', value);
 
-  PostgresTime get departureTime => getField<PostgresTime>('departure_time')!;
-  set departureTime(PostgresTime value) =>
+  PostgresTime? get departureTime => getField<PostgresTime>('departure_time');
+  set departureTime(PostgresTime? value) =>
       setField<PostgresTime>('departure_time', value);
 
-  PostgresTime get arrivalTime => getField<PostgresTime>('arrival_time')!;
-  set arrivalTime(PostgresTime value) =>
+  PostgresTime? get arrivalTime => getField<PostgresTime>('arrival_time');
+  set arrivalTime(PostgresTime? value) =>
       setField<PostgresTime>('arrival_time', value);
 
   bool get event => getField<bool>('event')!;
   set event(bool value) => setField<bool>('event', value);
+
+  PostgresTime? get travelTime => getField<PostgresTime>('travel_time');
+  set travelTime(PostgresTime? value) =>
+      setField<PostgresTime>('travel_time', value);
 }

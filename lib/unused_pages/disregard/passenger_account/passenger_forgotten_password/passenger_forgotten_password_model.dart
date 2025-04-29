@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'passenger_forgotten_password_widget.dart'
     show PassengerForgottenPasswordWidget;
 import 'package:flutter/material.dart';
@@ -10,14 +11,15 @@ class PassengerForgottenPasswordModel
   final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
+  TextEditingController? passwordTextController;
   late bool passwordVisibility1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
+  TextEditingController? confirmPasswordTextController;
   late bool passwordVisibility2;
-  String? Function(BuildContext, String?)? textController2Validator;
+  String? Function(BuildContext, String?)?
+      confirmPasswordTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
@@ -28,9 +30,9 @@ class PassengerForgottenPasswordModel
   @override
   void dispose() {
     textFieldFocusNode1?.dispose();
-    textController1?.dispose();
+    passwordTextController?.dispose();
 
     textFieldFocusNode2?.dispose();
-    textController2?.dispose();
+    confirmPasswordTextController?.dispose();
   }
 }

@@ -117,6 +117,7 @@ class _DeveloperConfirmationWidgetState
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
@@ -146,6 +147,7 @@ class _DeveloperConfirmationWidgetState
                                 color: FlutterFlowTheme.of(context).info,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(

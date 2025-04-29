@@ -1,9 +1,10 @@
-import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'driver_delete_account_model.dart';
 export 'driver_delete_account_model.dart';
 
@@ -39,6 +40,8 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
@@ -121,17 +124,19 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                           color: FlutterFlowTheme.of(context).alternate,
                           width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        GoRouter.of(context).prepareAuthEvent();
-                        await authManager.signOut();
-                        GoRouter.of(context).clearRedirectLocation();
+                        await UsersTable().delete(
+                          matchingRows: (rows) => rows.eqOrNull(
+                            'id',
+                            FFAppState().deleteUuid,
+                          ),
+                        );
 
-                        context.pushNamedAuth(
-                            HomePageWidget.routeName, context.mounted);
+                        context.pushNamed(HomePageWidget.routeName);
                       },
                       text: 'Delete',
                       options: FFButtonOptions(
@@ -154,7 +159,7 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                           color: Colors.transparent,
                           width: 1.0,
                         ),
-                        borderRadius: BorderRadius.circular(24.0),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
                   ],

@@ -168,7 +168,7 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                     child: Text(
-                      'joselitoocciano.velasco@bicol-u.edu.ph\n09461499272\n\nData Gatherer, Data Cleaner, Sub Developer\n',
+                      'joselitoocciano.velasco@bicol-u.edu.ph\n09461499272\n\nBack-end Developer, Data Gatherer, Data Cleaner',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Google',
@@ -213,7 +213,7 @@ class _AboutTeamJoselitoWidgetState extends State<AboutTeamJoselitoWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: Text(
-                      'I\'m Joselito O. Velasco, a 4th-year Computer Science student and CHED scholar. I help our research team by gathering and cleaning data, and I also assist in development. I enjoy working on projects that turn ideas into something real.',
+                      'Built the app from the ground up, from gathering and cleaning the data to making sure everything runs smooth, smart and accurate.\n',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             font: FlutterFlowTheme.of(context).bodySmall,

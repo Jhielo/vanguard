@@ -16,10 +16,11 @@ class DeveloperContentModel extends FlutterFlowModel<DeveloperContentWidget> {
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
   String? Function(BuildContext, String?)? nameTextControllerValidator;
-  // State field(s) for vehicle_plate widget.
-  FocusNode? vehiclePlateFocusNode;
-  TextEditingController? vehiclePlateTextController;
-  String? Function(BuildContext, String?)? vehiclePlateTextControllerValidator;
+  // State field(s) for vehicle_plate_number widget.
+  FocusNode? vehiclePlateNumberFocusNode;
+  TextEditingController? vehiclePlateNumberTextController;
+  String? Function(BuildContext, String?)?
+      vehiclePlateNumberTextControllerValidator;
   DateTime? datePicked1;
   DateTime? datePicked2;
   // State field(s) for Route_Select widget.
@@ -37,7 +38,7 @@ class DeveloperContentModel extends FlutterFlowModel<DeveloperContentWidget> {
     nameFocusNode?.dispose();
     nameTextController?.dispose();
 
-    vehiclePlateFocusNode?.dispose();
-    vehiclePlateTextController?.dispose();
+    vehiclePlateNumberFocusNode?.dispose();
+    vehiclePlateNumberTextController?.dispose();
   }
 }

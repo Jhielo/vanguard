@@ -5,9 +5,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:provider/provider.dart';
 import 'passenger_schedule_screen_model.dart';
 export 'passenger_schedule_screen_model.dart';
 
@@ -32,6 +34,12 @@ class _PassengerScheduleScreenWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PassengerScheduleScreenModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().preferredTravelDate = getCurrentTimestamp;
+      safeSetState(() {});
+    });
   }
 
   @override
@@ -43,6 +51,8 @@ class _PassengerScheduleScreenWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -65,6 +75,11 @@ class _PassengerScheduleScreenWidgetState
               size: 30.0,
             ),
             onPressed: () async {
+              FFAppState().route = '';
+              FFAppState().isRouteChosen = false;
+              FFAppState().predictedArrival = '';
+              FFAppState().predictedDeparture = '';
+              safeSetState(() {});
               context.pop();
             },
           ),
@@ -115,8 +130,12 @@ class _PassengerScheduleScreenWidgetState
                       controller: _model.dropDownValueController ??=
                           FormFieldController<String>(null),
                       options: ['Sorsogon - Legazpi', 'Legazpi - Sorsogon\n'],
-                      onChanged: (val) =>
-                          safeSetState(() => _model.dropDownValue = val),
+                      onChanged: (val) async {
+                        safeSetState(() => _model.dropDownValue = val);
+                        FFAppState().route = 'sorsogon-legazpi';
+                        FFAppState().isRouteChosen = true;
+                        safeSetState(() {});
+                      },
                       width: double.infinity,
                       height: 52.0,
                       searchHintTextStyle:
@@ -220,8 +239,11 @@ class _PassengerScheduleScreenWidgetState
                                       child: CupertinoDatePicker(
                                         mode:
                                             CupertinoDatePickerMode.dateAndTime,
-                                        minimumDate: getCurrentTimestamp,
-                                        initialDateTime: getCurrentTimestamp,
+                                        minimumDate: (getCurrentTimestamp ??
+                                            DateTime(1900)),
+                                        initialDateTime:
+                                            (FFAppState().preferredTravelDate ??
+                                                DateTime.now()),
                                         maximumDate: DateTime(2050),
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
@@ -235,6 +257,9 @@ class _PassengerScheduleScreenWidgetState
                                     ),
                                   );
                                 });
+                            FFAppState().preferredTravelDate =
+                                _model.datePicked;
+                            safeSetState(() {});
                           },
                           child: Container(
                             width: double.infinity,
@@ -248,37 +273,49 @@ class _PassengerScheduleScreenWidgetState
                                 width: 1.0,
                               ),
                             ),
-                            child: Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Icon(
-                                      Icons.calendar_today,
-                                      color: Colors.white,
-                                      size: 24.0,
-                                    ),
-                                  ),
-                                  Text(
-                                    dateTimeFormat(
-                                      "d/M h:mm a",
-                                      _model.datePicked,
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsets.all(16.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        child: Icon(
+                                          Icons.calendar_today,
+                                          color: Colors.black,
+                                          size: 24.0,
                                         ),
-                                  ),
-                                ],
+                                      ),
+                                    ),
+                                    Text(
+                                      '${dateTimeFormat(
+                                        "yMMMd",
+                                        FFAppState().preferredTravelDate,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      )} - ${dateTimeFormat(
+                                        "jm",
+                                        FFAppState().preferredTravelDate,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      )}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            font: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -331,7 +368,7 @@ class _PassengerScheduleScreenWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Date of Arrival',
+                                      'Estimated Time of Arrival',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -342,41 +379,8 @@ class _PassengerScheduleScreenWidgetState
                                           ),
                                     ),
                                     Text(
-                                      dateTimeFormat(
-                                        "Md",
-                                        _model.datePicked,
-                                        locale: FFLocalizations.of(context)
-                                            .languageCode,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            font: FlutterFlowTheme.of(context)
-                                                .headlineSmall,
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Time of Arrival',
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            font: FlutterFlowTheme.of(context)
-                                                .labelMedium,
-                                            color: Color(0xFFB0B0B0),
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                    Text(
-                                      'XX:XX',
+                                      FFAppState().predictedArrival,
+                                      textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
@@ -416,7 +420,7 @@ class _PassengerScheduleScreenWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Duration of Travel',
+                                      'Estimated Time of Departure',
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -427,7 +431,7 @@ class _PassengerScheduleScreenWidgetState
                                           ),
                                     ),
                                     Text(
-                                      'mins',
+                                      FFAppState().predictedDeparture,
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
@@ -449,55 +453,89 @@ class _PassengerScheduleScreenWidgetState
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        FutureBuilder<ApiCallResponse>(
-                          future: PredictVanArrivalCall.call(),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: SpinKitDoubleBounce(
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    size: 50.0,
+                        FFButtonWidget(
+                          onPressed: () async {
+                            var _shouldSetState = false;
+                            if (FFAppState().isRouteChosen) {
+                              _model.apiResult1ts = await PredictVansCall.call(
+                                event: functions.getData(false,
+                                    FFAppState().preferredTravelDate!, false),
+                                weekday: functions.getData(false,
+                                    FFAppState().preferredTravelDate!, true),
+                                preferredDepTime: functions.getTime(
+                                    FFAppState().preferredTravelDate!, false),
+                                route:
+                                    FFAppState().route == 'Sorsogon - Legazpi'
+                                        ? 'sorsogon-legazpi'
+                                        : 'legazpi-sorsogon',
+                                hour: functions
+                                    .getData(
+                                        true,
+                                        FFAppState().preferredTravelDate!,
+                                        false)
+                                    .toString(),
+                              );
+
+                              _shouldSetState = true;
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Route Not Yet Chosen',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    textAlign: TextAlign.center,
                                   ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).primary,
                                 ),
                               );
+                              if (_shouldSetState) safeSetState(() {});
+                              return;
                             }
-                            final buttonPredictVanArrivalResponse =
-                                snapshot.data!;
 
-                            return FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
-                              },
-                              text: 'Predict Schedule',
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                height: 50.0,
-                                padding: EdgeInsets.all(8.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      font: FlutterFlowTheme.of(context)
-                                          .titleSmall,
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                elevation: 0.0,
-                                borderSide: BorderSide(
-                                  color: Color(0xFF2D3748),
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            );
+                            if ((_model.apiResult1ts?.succeeded ?? true)) {
+                              FFAppState().predictedDeparture =
+                                  PredictVansCall.departure(
+                                (_model.apiResult1ts?.jsonBody ?? ''),
+                              )!;
+                              FFAppState().predictedArrival =
+                                  PredictVansCall.arrival(
+                                (_model.apiResult1ts?.jsonBody ?? ''),
+                              )!;
+                              safeSetState(() {});
+                            } else {
+                              if (_shouldSetState) safeSetState(() {});
+                              return;
+                            }
+
+                            if (_shouldSetState) safeSetState(() {});
                           },
+                          text: 'Predict Schedule',
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 50.0,
+                            padding: EdgeInsets.all(8.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                            elevation: 0.0,
+                            borderSide: BorderSide(
+                              color: Color(0xFF2D3748),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -539,6 +577,13 @@ class _PassengerScheduleScreenWidgetState
                                   safeSetState(() {
                                     _model.dropDownValueController?.reset();
                                   });
+                                  FFAppState().predictedDeparture = '';
+                                  FFAppState().preferredTravelDate =
+                                      getCurrentTimestamp;
+                                  FFAppState().predictedArrival = '';
+                                  FFAppState().route = '';
+                                  FFAppState().isRouteChosen = false;
+                                  safeSetState(() {});
                                 },
                                 text: 'Reset Data',
                                 options: FFButtonOptions(

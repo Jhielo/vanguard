@@ -8,11 +8,12 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'dart:io';
-
-Future<void> exitApp() async {
-  exit(0);
-}
-
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!
+
+import 'package:uuid/uuid.dart';
+
+Future<String> getUuid() async {
+  final uuid = Uuid();
+  return uuid.v4(); // Generates a random UUID in the standard format
+}

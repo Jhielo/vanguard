@@ -1,4 +1,3 @@
-import '/auth/supabase_auth/auth_util.dart';
 import '/driver_side/driver_components/driver_logout_dialogue/driver_logout_dialogue_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -76,6 +75,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
             'VanGuard',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
+                  color: Colors.white,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -117,7 +117,7 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
-                              'Plate Number: ${currentUserEmail}',
+                              'Plate Number: ${FFAppState().userPlateNum}',
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -219,18 +219,17 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Google',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Google',
+                                                    color: Colors.white,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
                                           elevation: 0.0,
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -266,18 +265,17 @@ class _DriverDashboardWidgetState extends State<DriverDashboardWidget>
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle: FlutterFlowTheme.of(
-                                                  context)
-                                              .titleSmall
-                                              .override(
-                                                fontFamily: 'Google',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Google',
+                                                    color: Colors.white,
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                  ),
                                           elevation: 0.0,
                                           borderRadius:
                                               BorderRadius.circular(8.0),

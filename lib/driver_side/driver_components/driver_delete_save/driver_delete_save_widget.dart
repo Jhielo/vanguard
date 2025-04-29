@@ -1,24 +1,22 @@
-import '/auth/supabase_auth/auth_util.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/index.dart';
 import 'package:flutter/material.dart';
-import 'driver_logout_dialogue_model.dart';
-export 'driver_logout_dialogue_model.dart';
+import 'package:provider/provider.dart';
+import 'driver_delete_save_model.dart';
+export 'driver_delete_save_model.dart';
 
 /// A pop-up for drivers before they return to the main page
-class DriverLogoutDialogueWidget extends StatefulWidget {
-  const DriverLogoutDialogueWidget({super.key});
+class DriverDeleteSaveWidget extends StatefulWidget {
+  const DriverDeleteSaveWidget({super.key});
 
   @override
-  State<DriverLogoutDialogueWidget> createState() =>
-      _DriverLogoutDialogueWidgetState();
+  State<DriverDeleteSaveWidget> createState() => _DriverDeleteSaveWidgetState();
 }
 
-class _DriverLogoutDialogueWidgetState
-    extends State<DriverLogoutDialogueWidget> {
-  late DriverLogoutDialogueModel _model;
+class _DriverDeleteSaveWidgetState extends State<DriverDeleteSaveWidget> {
+  late DriverDeleteSaveModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -29,7 +27,7 @@ class _DriverLogoutDialogueWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DriverLogoutDialogueModel());
+    _model = createModel(context, () => DriverDeleteSaveModel());
   }
 
   @override
@@ -41,6 +39,8 @@ class _DriverLogoutDialogueWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
@@ -61,7 +61,7 @@ class _DriverLogoutDialogueWidgetState
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Confirm Log Out?',
+                  'Delete Record?',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         font: FlutterFlowTheme.of(context).headlineMedium,
@@ -72,7 +72,7 @@ class _DriverLogoutDialogueWidgetState
                       ),
                 ),
                 Text(
-                  'Do you want to log out of your driver account?',
+                  'Do you want to delete this record?',
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         font: FlutterFlowTheme.of(context).bodyMedium,
@@ -114,22 +114,15 @@ class _DriverLogoutDialogueWidgetState
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        GoRouter.of(context).prepareAuthEvent();
-                        await authManager.signOut();
-                        GoRouter.of(context).clearRedirectLocation();
-
-                        FFAppState().isLoggedIn =
-                            !(FFAppState().isLoggedIn ?? true);
-                        FFAppState().currentUserName = 'Adam';
-                        FFAppState().currentUserRole = '';
-                        FFAppState().currentUserID = '';
-                        FFAppState().userPlateNum = '';
-                        safeSetState(() {});
-
-                        context.pushNamedAuth(
-                            HomePageWidget.routeName, context.mounted);
+                        await VansDatasetTable().delete(
+                          matchingRows: (rows) => rows.eqOrNull(
+                            'id',
+                            FFAppState().deleteUuid,
+                          ),
+                        );
+                        Navigator.pop(context);
                       },
-                      text: 'Log Out',
+                      text: 'Confirm',
                       options: FFButtonOptions(
                         width: 120.0,
                         height: 48.0,

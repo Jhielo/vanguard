@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'driver_first_page_widget.dart' show DriverFirstPageWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   ///  State fields for stateful widgets in this page.
@@ -14,17 +15,18 @@ class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  // State field(s) for LicenseNumber widget.
-  FocusNode? licenseNumberFocusNode1;
-  TextEditingController? licenseNumberTextController1;
-  String? Function(BuildContext, String?)?
-      licenseNumberTextController1Validator;
+  // State field(s) for Username widget.
+  FocusNode? usernameFocusNode;
+  TextEditingController? usernameTextController;
+  String? Function(BuildContext, String?)? usernameTextControllerValidator;
   // State field(s) for PlateNumber widget.
-  FocusNode? plateNumberFocusNode1;
-  TextEditingController? plateNumberTextController1;
-  String? Function(BuildContext, String?)? plateNumberTextController1Validator;
+  FocusNode? plateNumberFocusNode;
+  TextEditingController? plateNumberTextController;
+  String? Function(BuildContext, String?)? plateNumberTextControllerValidator;
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
-  List<UsersRow>? driverMatch;
+  List<UsersRow>? userexist;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<UsersRow>? userUuid;
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;
@@ -32,16 +34,16 @@ class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   // State field(s) for ContactNumber widget.
   FocusNode? contactNumberFocusNode;
   TextEditingController? contactNumberTextController;
+  final contactNumberMask = MaskTextInputFormatter(mask: '(###) ###-####');
   String? Function(BuildContext, String?)? contactNumberTextControllerValidator;
-  // State field(s) for LicenseNumber widget.
-  FocusNode? licenseNumberFocusNode2;
-  TextEditingController? licenseNumberTextController2;
-  String? Function(BuildContext, String?)?
-      licenseNumberTextController2Validator;
-  // State field(s) for PlateNumber widget.
-  FocusNode? plateNumberFocusNode2;
-  TextEditingController? plateNumberTextController2;
-  String? Function(BuildContext, String?)? plateNumberTextController2Validator;
+  // State field(s) for PlateNumber2 widget.
+  FocusNode? plateNumber2FocusNode;
+  TextEditingController? plateNumber2TextController;
+  String? Function(BuildContext, String?)? plateNumber2TextControllerValidator;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<UsersRow>? platenumberExists;
+  // Stores action output result for [Custom Action - getUuid] action in Button widget.
+  String? uuid;
 
   @override
   void initState(BuildContext context) {}
@@ -49,11 +51,11 @@ class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   @override
   void dispose() {
     tabBarController?.dispose();
-    licenseNumberFocusNode1?.dispose();
-    licenseNumberTextController1?.dispose();
+    usernameFocusNode?.dispose();
+    usernameTextController?.dispose();
 
-    plateNumberFocusNode1?.dispose();
-    plateNumberTextController1?.dispose();
+    plateNumberFocusNode?.dispose();
+    plateNumberTextController?.dispose();
 
     nameFocusNode?.dispose();
     nameTextController?.dispose();
@@ -61,10 +63,7 @@ class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
     contactNumberFocusNode?.dispose();
     contactNumberTextController?.dispose();
 
-    licenseNumberFocusNode2?.dispose();
-    licenseNumberTextController2?.dispose();
-
-    plateNumberFocusNode2?.dispose();
-    plateNumberTextController2?.dispose();
+    plateNumber2FocusNode?.dispose();
+    plateNumber2TextController?.dispose();
   }
 }

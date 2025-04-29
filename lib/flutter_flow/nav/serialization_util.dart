@@ -207,6 +207,10 @@ dynamic deserializeParam<T>(
         switch (T) {
           case VanTripsRow:
             return VanTripsRow(data);
+          case VansDatasetRow:
+            return VansDatasetRow(data);
+          case NdrrmcAnnouncementsRow:
+            return NdrrmcAnnouncementsRow(data);
           case UsersRow:
             return UsersRow(data);
           default:

@@ -1,3 +1,4 @@
+import '/driver_side/driver_components/driver_confirmation/driver_confirmation_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -6,9 +7,14 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
+import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 import 'driver_record_model.dart';
 export 'driver_record_model.dart';
 
@@ -33,6 +39,17 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
     super.initState();
     _model = createModel(context, () => DriverRecordModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      FFAppState().originLatitude =
+          functions.extractLatLong(currentUserLocationValue!, true);
+      FFAppState().originLongitude =
+          functions.extractLatLong(currentUserLocationValue!, false);
+      safeSetState(() {});
+    });
+
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -47,6 +64,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
       return Container(
         color: FlutterFlowTheme.of(context).primaryBackground,
@@ -86,13 +104,34 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              if (FFAppState().hasStarted == false) {
+                FFAppState().isRouteChosen = false;
+                safeSetState(() {});
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Recording is On Going',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    duration: Duration(milliseconds: 4000),
+                    backgroundColor: FlutterFlowTheme.of(context).primary,
+                  ),
+                );
+                return;
+              }
+
+              context.pushNamed(DriverDashboardWidget.routeName);
             },
           ),
           title: Text(
             'Route Tracker',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: FlutterFlowTheme.of(context).headlineMedium,
+                  color: Colors.white,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -132,8 +171,25 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             'Sorsogon - Legazpi',
                             'Legazpi - Sorsogon\n'
                           ],
-                          onChanged: (val) =>
-                              safeSetState(() => _model.dropDownValue = val),
+                          onChanged: (val) async {
+                            safeSetState(() => _model.dropDownValue = val);
+                            currentUserLocationValue =
+                                await getCurrentUserLocation(
+                                    defaultLocation: LatLng(0.0, 0.0));
+                            FFAppState().route = _model.dropDownValue!;
+                            FFAppState().isRouteChosen = true;
+                            FFAppState().originLatitude =
+                                functions.extractLatLong(
+                                    currentUserLocationValue!, true);
+                            FFAppState().originLongitude =
+                                functions.extractLatLong(
+                                    currentUserLocationValue!, false);
+                            FFAppState().destinationLatitude = functions
+                                .setMarker(FFAppState().route, true, true)!;
+                            FFAppState().destinationLongitude = functions
+                                .setMarker(FFAppState().route, true, false)!;
+                            safeSetState(() {});
+                          },
                           width: double.infinity,
                           height: 52.0,
                           searchHintTextStyle: FlutterFlowTheme.of(context)
@@ -190,24 +246,59 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          child: FlutterFlowGoogleMap(
-                            controller: _model.googleMapsController,
-                            onCameraIdle: (latLng) =>
-                                _model.googleMapsCenter = latLng,
-                            initialLocation: _model.googleMapsCenter ??=
-                                currentUserLocationValue!,
-                            markerColor: GoogleMarkerColor.violet,
-                            mapType: MapType.normal,
-                            style: GoogleMapStyle.standard,
-                            initialZoom: 14.0,
-                            allowInteraction: true,
-                            allowZoom: true,
-                            showZoomControls: true,
-                            showLocation: true,
-                            showCompass: false,
-                            showMapToolbar: true,
-                            showTraffic: false,
-                            centerMapOnMarkerTap: true,
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: double.infinity,
+                                height: double.infinity,
+                                child: custom_widgets.PolylineMap(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  originLatitude: FFAppState().originLatitude,
+                                  originLongitude: FFAppState().originLongitude,
+                                  destinationLatitude:
+                                      FFAppState().destinationLatitude,
+                                  destinationLongitude:
+                                      FFAppState().destinationLongitude,
+                                  googleApiKey:
+                                      'AIzaSyCXlMt_QH0U1hFTAvsn9r0uY9Zm6G4UuHY',
+                                ),
+                              ),
+                              if (valueOrDefault<bool>(
+                                FFAppState().isRouteChosen,
+                                false,
+                              ))
+                                Builder(builder: (context) {
+                                  final _googleMapMarker =
+                                      currentUserLocationValue;
+                                  return FlutterFlowGoogleMap(
+                                    controller: _model.googleMapsController,
+                                    onCameraIdle: (latLng) =>
+                                        _model.googleMapsCenter = latLng,
+                                    initialLocation: _model.googleMapsCenter ??=
+                                        currentUserLocationValue!,
+                                    markers: [
+                                      if (_googleMapMarker != null)
+                                        FlutterFlowMarker(
+                                          _googleMapMarker.serialize(),
+                                          _googleMapMarker,
+                                        ),
+                                    ],
+                                    markerColor: GoogleMarkerColor.violet,
+                                    mapType: MapType.normal,
+                                    style: GoogleMapStyle.standard,
+                                    initialZoom: 14.0,
+                                    allowInteraction: true,
+                                    allowZoom: true,
+                                    showZoomControls: true,
+                                    showLocation: true,
+                                    showCompass: false,
+                                    showMapToolbar: false,
+                                    showTraffic: false,
+                                    centerMapOnMarkerTap: true,
+                                  );
+                                }),
+                            ],
                           ),
                         ),
                       ],
@@ -281,14 +372,15 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           ),
                                     ),
                                     Text(
-                                      getCurrentTimestamp.toString(),
+                                      functions.getTime(
+                                          FFAppState().timeStarted!, false),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
                                             font: FlutterFlowTheme.of(context)
                                                 .headlineSmall,
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .primaryText,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -358,14 +450,15 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         ),
                                   ),
                                   Text(
-                                    getCurrentTimestamp.toString(),
+                                    functions.getTime(
+                                        FFAppState().timeEnded!, false),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineSmall
                                         .override(
                                           font: FlutterFlowTheme.of(context)
                                               .headlineSmall,
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .primaryText,
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -388,9 +481,38 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
+                                onPressed: FFAppState().hasStarted
+                                    ? null
+                                    : () async {
+                                        if (FFAppState().isRouteChosen ==
+                                            true) {
+                                          FFAppState().hasStarted = true;
+                                          FFAppState().timeStarted =
+                                              getCurrentTimestamp;
+                                          safeSetState(() {});
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Route is Not Yet  Chosen',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                            ),
+                                          );
+                                          return;
+                                        }
+
+                                        _model.timerController.onStartTimer();
+                                      },
                                 text: 'Start',
                                 icon: Icon(
                                   Icons.play_arrow_rounded,
@@ -401,6 +523,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                   width: 100.0,
                                   height: 48.0,
                                   padding: EdgeInsets.all(8.0),
+                                  iconAlignment: IconAlignment.start,
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).success,
@@ -416,62 +539,149 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
                               ),
-                              FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: 'Pause',
-                                icon: Icon(
-                                  Icons.pause_rounded,
-                                  color: Colors.white,
-                                  size: 20.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 100.0,
-                                  height: 48.0,
-                                  padding: EdgeInsets.all(8.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).warning,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
+                              Stack(
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        _model.timerController.onStartTimer();
+                                        FFAppState().paused = true;
+                                        safeSetState(() {});
+                                      },
+                                      text: 'Continue',
+                                      options: FFButtonOptions(
+                                        width: 100.0,
+                                        height: 48.0,
+                                        padding: EdgeInsets.all(8.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .warning,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: FlutterFlowTheme.of(context)
+                                                  .bodyMedium,
+                                              color: Colors.white,
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
                                       ),
-                                  borderRadius: BorderRadius.circular(24.0),
-                                ),
+                                    ),
+                                  ),
+                                  if (FFAppState().paused)
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed:
+                                            (FFAppState().hasStarted == false)
+                                                ? null
+                                                : () async {
+                                                    _model.timerController
+                                                        .onStopTimer();
+                                                    FFAppState().paused = false;
+                                                    safeSetState(() {});
+                                                  },
+                                        text: 'Pause',
+                                        icon: Icon(
+                                          Icons.pause_rounded,
+                                          color: Colors.white,
+                                          size: 20.0,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: 100.0,
+                                          height: 48.0,
+                                          padding: EdgeInsets.all(8.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .warning,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                font:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                                color: Colors.white,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
-                              FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: 'Stop',
-                                icon: Icon(
-                                  Icons.stop_rounded,
-                                  color: Colors.white,
-                                  size: 20.0,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 100.0,
-                                  height: 48.0,
-                                  padding: EdgeInsets.all(8.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).error,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                        color: Colors.white,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  borderRadius: BorderRadius.circular(24.0),
+                              Builder(
+                                builder: (context) => FFButtonWidget(
+                                  onPressed: (FFAppState().hasStarted == false)
+                                      ? null
+                                      : () async {
+                                          FFAppState().tripDuration =
+                                              _model.timerMilliseconds;
+                                          FFAppState().timeEnded =
+                                              getCurrentTimestamp;
+                                          safeSetState(() {});
+                                          _model.timerController.onStopTimer();
+                                          await showDialog(
+                                            context: context,
+                                            builder: (dialogContext) {
+                                              return Dialog(
+                                                elevation: 0,
+                                                insetPadding: EdgeInsets.zero,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                alignment: AlignmentDirectional(
+                                                        0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    FocusScope.of(dialogContext)
+                                                        .unfocus();
+                                                    FocusManager
+                                                        .instance.primaryFocus
+                                                        ?.unfocus();
+                                                  },
+                                                  child:
+                                                      DriverConfirmationWidget(),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                  text: 'Stop',
+                                  icon: Icon(
+                                    Icons.stop_rounded,
+                                    color: Colors.white,
+                                    size: 20.0,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width: 100.0,
+                                    height: 48.0,
+                                    padding: EdgeInsets.all(8.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).error,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    borderRadius: BorderRadius.circular(24.0),
+                                  ),
                                 ),
                               ),
                             ],

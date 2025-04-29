@@ -99,7 +99,7 @@ class _DeveloperLogoutDialogueWidgetState
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.normal,
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(
@@ -133,7 +133,7 @@ class _DeveloperLogoutDialogueWidgetState
                                 color: Colors.white,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.normal,
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(

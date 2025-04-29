@@ -3,9 +3,11 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 import 'driver_saved_records_model.dart';
 export 'driver_saved_records_model.dart';
 
@@ -40,6 +42,8 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -62,13 +66,14 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              context.pushNamed(DriverDashboardWidget.routeName);
             },
           ),
           title: Text(
             'Saved Recordings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
+                  color: Colors.white,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -79,10 +84,12 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: FutureBuilder<List<VanTripsRow>>(
-            future: VanTripsTable().queryRows(
-              queryFn: (q) => q.order('trip_date'),
-              limit: 6,
+          child: FutureBuilder<List<VansDatasetRow>>(
+            future: VansDatasetTable().queryRows(
+              queryFn: (q) => q.eqOrNull(
+                'plateNum',
+                FFAppState().userPlateNum,
+              ),
             ),
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
@@ -98,25 +105,52 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
                   ),
                 );
               }
-              List<VanTripsRow> listViewVanTripsRowList = snapshot.data!;
+              List<VansDatasetRow> listViewVansDatasetRowList = snapshot.data!;
 
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 shrinkWrap: true,
                 scrollDirection: Axis.vertical,
-                itemCount: listViewVanTripsRowList.length,
+                itemCount: listViewVansDatasetRowList.length,
                 itemBuilder: (context, listViewIndex) {
-                  final listViewVanTripsRow =
-                      listViewVanTripsRowList[listViewIndex];
+                  final listViewVansDatasetRow =
+                      listViewVansDatasetRowList[listViewIndex];
                   return Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         context.pushNamed(
-                            DriverSavedRecordsDisplayWidget.routeName);
+                          DriverSavedRecordsDisplayWidget.routeName,
+                          queryParameters: {
+                            'currentDate': serializeParam(
+                              listViewVansDatasetRow.dateTrip,
+                              ParamType.String,
+                            ),
+                            'currentStartTime': serializeParam(
+                              listViewVansDatasetRow.departureTime,
+                              ParamType.String,
+                            ),
+                            'currentEndTime': serializeParam(
+                              listViewVansDatasetRow.arrivalTime,
+                              ParamType.String,
+                            ),
+                            'currentRoute': serializeParam(
+                              listViewVansDatasetRow.route,
+                              ParamType.String,
+                            ),
+                            'currentDuration': serializeParam(
+                              listViewVansDatasetRow.travelTime,
+                              ParamType.String,
+                            ),
+                            'currentUuid': serializeParam(
+                              listViewVansDatasetRow.id,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
                       },
-                      text: 'Recording #${listViewIndex.toString()}',
+                      text: 'Recording #${functions.increment(listViewIndex)}',
                       options: FFButtonOptions(
                         height: 120.0,
                         padding:

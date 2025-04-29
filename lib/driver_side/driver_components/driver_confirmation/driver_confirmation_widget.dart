@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'driver_confirmation_model.dart';
 export 'driver_confirmation_model.dart';
@@ -92,6 +93,11 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
+                            FFAppState().paused = false;
+                            FFAppState().timeEnded =
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    629488800000);
+                            _model.updatePage(() {});
                             Navigator.pop(context);
                           },
                           text: 'Return',
@@ -111,6 +117,7 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(
@@ -121,8 +128,12 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                           ),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            FFAppState().timeEnded = getCurrentTimestamp;
+                            _model.updatePage(() {});
+
+                            context
+                                .pushNamed(DriverRecordSuccessWidget.routeName);
                           },
                           text: 'Confirm',
                           options: FFButtonOptions(
@@ -139,6 +150,7 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                                   color: FlutterFlowTheme.of(context).info,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(

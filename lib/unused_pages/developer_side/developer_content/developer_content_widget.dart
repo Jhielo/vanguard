@@ -1,11 +1,10 @@
 import '/backend/supabase/supabase.dart';
-import '/developer_side/developer_components/developer_logout_dialogue/developer_logout_dialogue_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/random_data_util.dart' as random_data;
+import '/unused_pages/developer_side/developer_components/developer_logout_dialogue/developer_logout_dialogue_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,9 +35,9 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
     _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
     _model.nameFocusNode!.addListener(() => safeSetState(() {}));
-    _model.vehiclePlateTextController ??= TextEditingController();
-    _model.vehiclePlateFocusNode ??= FocusNode();
-    _model.vehiclePlateFocusNode!.addListener(() => safeSetState(() {}));
+    _model.vehiclePlateNumberTextController ??= TextEditingController();
+    _model.vehiclePlateNumberFocusNode ??= FocusNode();
+    _model.vehiclePlateNumberFocusNode!.addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -258,10 +257,10 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                       child: Container(
                                         width: 300.0,
                                         child: TextFormField(
-                                          controller:
-                                              _model.vehiclePlateTextController,
-                                          focusNode:
-                                              _model.vehiclePlateFocusNode,
+                                          controller: _model
+                                              .vehiclePlateNumberTextController,
+                                          focusNode: _model
+                                              .vehiclePlateNumberFocusNode,
                                           autofocus: true,
                                           textCapitalization:
                                               TextCapitalization.words,
@@ -342,14 +341,16 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             filled: true,
-                                            fillColor: (_model
-                                                        .vehiclePlateFocusNode
-                                                        ?.hasFocus ??
-                                                    false)
-                                                ? FlutterFlowTheme.of(context)
-                                                    .accent1
-                                                : FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
+                                            fillColor:
+                                                (_model.vehiclePlateNumberFocusNode
+                                                            ?.hasFocus ??
+                                                        false)
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent1
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 20.0, 16.0, 20.0),
@@ -366,7 +367,7 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .primary,
                                           validator: _model
-                                              .vehiclePlateTextControllerValidator
+                                              .vehiclePlateNumberTextControllerValidator
                                               .asValidator(context),
                                           inputFormatters: [
                                             if (!isAndroid && !isiOS)
@@ -500,19 +501,16 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .labelLarge
-                                                    .override(
-                                                      font: FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelLarge,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily: 'Google',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .primaryText,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 elevation: 0.0,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
@@ -521,9 +519,14 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                           ),
                                           Text(
                                             valueOrDefault<String>(
-                                              FFAppState()
-                                                  .selectedDepartureTime
-                                                  ?.toString(),
+                                              dateTimeFormat(
+                                                "Hm",
+                                                FFAppState()
+                                                    .selectedDepartureTime,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
                                               '--:--',
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -661,9 +664,14 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                           ),
                                           Text(
                                             valueOrDefault<String>(
-                                              FFAppState()
-                                                  .selectedArrivalTime
-                                                  ?.toString(),
+                                              dateTimeFormat(
+                                                "Hm",
+                                                FFAppState()
+                                                    .selectedArrivalTime,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
                                               '--:--',
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -901,17 +909,23 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                 AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               valueOrDefault<String>(
-                                                _model.datePicked3?.toString(),
+                                                dateTimeFormat(
+                                                  "yMMMd",
+                                                  _model.datePicked3,
+                                                  locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageCode,
+                                                ),
                                                 '---, -- ----',
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .labelMedium
+                                                      .titleSmall
                                                       .override(
                                                         font:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .titleSmall,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -926,30 +940,95 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                             16.0, 40.0, 16.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
-                                            _model.insertTrip =
-                                                await VanTripsTable().insert({
-                                              'id': random_data
-                                                  .randomDouble(0.0, 1000000.0)
-                                                  .toString(),
-                                              'name': _model
-                                                  .nameTextController.text,
-                                              'vehicle_plate': _model
-                                                  .vehiclePlateTextController
-                                                  .text,
-                                              'departure_time':
-                                                  supaSerialize<PostgresTime>(
-                                                      PostgresTime(
-                                                          _model.datePicked1)),
-                                              'arrival_time':
-                                                  supaSerialize<PostgresTime>(
-                                                      PostgresTime(
-                                                          _model.datePicked2)),
-                                              'route': _model.routeSelectValue,
-                                              'trip_date':
-                                                  supaSerialize<DateTime>(
-                                                      _model.datePicked3),
-                                              'event': false,
-                                            });
+                                            if ((/* NOT RECOMMENDED */ _model
+                                                        .nameTextController
+                                                        .text ==
+                                                    'true') &&
+                                                (/* NOT RECOMMENDED */ _model
+                                                        .vehiclePlateNumberTextController
+                                                        .text ==
+                                                    'true') &&
+                                                (_model.routeSelectValue !=
+                                                        null &&
+                                                    _model.routeSelectValue !=
+                                                        '')) {
+                                              _model.insertTrip =
+                                                  await VanTripsTable().insert({
+                                                'name': _model
+                                                    .nameTextController.text,
+                                                'vehicle_plate': _model
+                                                    .vehiclePlateNumberTextController
+                                                    .text,
+                                                'departure_time':
+                                                    supaSerialize<PostgresTime>(
+                                                        PostgresTime(_model
+                                                            .datePicked1)),
+                                                'arrival_time':
+                                                    supaSerialize<PostgresTime>(
+                                                        PostgresTime(_model
+                                                            .datePicked2)),
+                                                'route':
+                                                    _model.routeSelectValue,
+                                                'trip_date':
+                                                    supaSerialize<DateTime>(
+                                                        _model.datePicked3),
+                                                'event': false,
+                                              });
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Form Successfully Inserted!',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleSmall
+                                                        .override(
+                                                          font: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .titleSmall,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                ),
+                                              );
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    'Incomplete Details',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Google',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                ),
+                                              );
+                                            }
+
                                             safeSetState(() {
                                               _model.routeSelectValueController
                                                   ?.reset();
@@ -957,37 +1036,10 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                             safeSetState(() {
                                               _model.nameTextController
                                                   ?.clear();
-                                              _model.vehiclePlateTextController
+                                              _model
+                                                  .vehiclePlateNumberTextController
                                                   ?.clear();
                                             });
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'Form Successfully Inserted!',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .titleSmall
-                                                      .override(
-                                                        font:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                                duration: Duration(
-                                                    milliseconds: 4000),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
-                                            );
 
                                             safeSetState(() {});
                                           },

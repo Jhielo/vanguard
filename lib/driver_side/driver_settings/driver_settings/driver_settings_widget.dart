@@ -1,3 +1,4 @@
+import '/driver_side/driver_components/driver_logout_dialogue/driver_logout_dialogue_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -66,6 +67,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
             'Driver Settings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: FlutterFlowTheme.of(context).headlineMedium,
+                  color: Colors.white,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
@@ -106,7 +108,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                       text: 'Edit Profile',
                       icon: Icon(
                         Icons.edit_outlined,
-                        color: FlutterFlowTheme.of(context).primaryText,
+                        color: Colors.white,
                         size: 20.0,
                       ),
                       options: FFButtonOptions(
@@ -117,20 +119,77 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .titleSmall
-                            .override(
-                              font: FlutterFlowTheme.of(context).titleSmall,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.normal,
-                            ),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         elevation: 0.0,
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Builder(
+                      builder: (context) => FFButtonWidget(
+                        onPressed: () async {
+                          await showDialog(
+                            context: context,
+                            builder: (dialogContext) {
+                              return Dialog(
+                                elevation: 0,
+                                insetPadding: EdgeInsets.zero,
+                                backgroundColor: Colors.transparent,
+                                alignment: AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    FocusScope.of(dialogContext).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
+                                  child: DriverLogoutDialogueWidget(),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        text: 'Log out',
+                        icon: Icon(
+                          Icons.logout,
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
+                        options: FFButtonOptions(
+                          width: 240.0,
+                          height: 50.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                font: FlutterFlowTheme.of(context).titleSmall,
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          elevation: 0.0,
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
                   ),
@@ -143,7 +202,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                       text: 'About',
                       icon: Icon(
                         Icons.info_outlined,
-                        color: FlutterFlowTheme.of(context).primaryText,
+                        color: Colors.white,
                         size: 20.0,
                       ),
                       options: FFButtonOptions(
@@ -154,14 +213,13 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .titleSmall
-                            .override(
-                              font: FlutterFlowTheme.of(context).titleSmall,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.normal,
-                            ),
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  font: FlutterFlowTheme.of(context).titleSmall,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                ),
                         elevation: 0.0,
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,
@@ -180,7 +238,7 @@ class _DriverSettingsWidgetState extends State<DriverSettingsWidget> {
                       text: 'Delete Account',
                       icon: Icon(
                         Icons.delete_outlined,
-                        color: FlutterFlowTheme.of(context).primaryText,
+                        color: Colors.white,
                         size: 20.0,
                       ),
                       options: FFButtonOptions(

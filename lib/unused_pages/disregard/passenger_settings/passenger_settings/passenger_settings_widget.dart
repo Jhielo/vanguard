@@ -67,6 +67,7 @@ class _PassengerSettingsWidgetState extends State<PassengerSettingsWidget> {
             'Passenger Settings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: FlutterFlowTheme.of(context).headlineMedium,
+                  color: Colors.white,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),

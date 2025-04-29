@@ -532,41 +532,6 @@ class _PassengerEditProfileWidgetState
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        if (_model
-                                                .passwordTextController1.text !=
-                                            _model
-                                                .passwordTextController2.text) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                'The passwords are not the same',
-                                                style: TextStyle(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                ),
-                                              ),
-                                              duration:
-                                                  Duration(milliseconds: 4000),
-                                              backgroundColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                            ),
-                                          );
-                                        }
-                                        await UsersTable().update(
-                                          data: {
-                                            'name':
-                                                _model.nameTextController.text,
-                                            'email': _model
-                                                .emailAddressTextController
-                                                .text,
-                                            'password': _model
-                                                .passwordTextController1.text,
-                                          },
-                                          matchingRows: (rows) => rows,
-                                        );
                                         await showDialog(
                                           context: context,
                                           builder: (dialogContext) {
@@ -593,6 +558,56 @@ class _PassengerEditProfileWidgetState
                                               ),
                                             );
                                           },
+                                        );
+
+                                        if (_model
+                                                .passwordTextController1.text ==
+                                            _model
+                                                .passwordTextController2.text) {
+                                          await UsersTable().update(
+                                            data: {
+                                              'name': _model
+                                                  .nameTextController.text,
+                                              'email': _model
+                                                  .emailAddressTextController
+                                                  .text,
+                                              'password': _model
+                                                  .passwordTextController1.text,
+                                            },
+                                            matchingRows: (rows) => rows,
+                                          );
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'The passwords are not the same',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        }
+
+                                        await UsersTable().update(
+                                          data: {
+                                            'name':
+                                                _model.nameTextController.text,
+                                            'email': _model
+                                                .emailAddressTextController
+                                                .text,
+                                            'password': _model
+                                                .passwordTextController1.text,
+                                          },
+                                          matchingRows: (rows) => rows,
                                         );
                                       },
                                       text: 'Save Changes',

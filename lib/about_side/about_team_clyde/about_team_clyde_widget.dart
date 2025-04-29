@@ -167,7 +167,7 @@ class _AboutTeamClydeWidgetState extends State<AboutTeamClydeWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                     child: Text(
-                      'clydejustinecedeno.nate@bicol-u,edu,ph\n09693229993\n\nUI/UX Designer, Graphic Designer, Lead Developer',
+                      'clydejustinecedeno.nate@bicol-u,edu,ph\n09693229993\n\nUI/UX Designer, Graphic Designer, Front-end Developer',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'Google',

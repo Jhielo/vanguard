@@ -36,7 +36,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
       safeSetState(() {});
       // Inserts in supabase
       await VanTripsTable().insert({
-        'id': '',
         'name': '',
         'vehicle_plate': '',
         'departure_time':
@@ -50,7 +49,6 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
       // Updates the SupaBase
       await VanTripsTable().update(
         data: {
-          'id': '',
           'name': '',
           'vehicle_plate': '',
           'departure_time':

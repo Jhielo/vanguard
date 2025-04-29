@@ -1,7 +1,9 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'passenger_forgotten_password_model.dart';
 export 'passenger_forgotten_password_model.dart';
@@ -28,10 +30,10 @@ class _PassengerForgottenPasswordWidgetState
     super.initState();
     _model = createModel(context, () => PassengerForgottenPasswordModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.confirmPasswordTextController ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
   }
 
@@ -136,7 +138,7 @@ class _PassengerForgottenPasswordWidgetState
                               Container(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.textController1,
+                                  controller: _model.passwordTextController,
                                   focusNode: _model.textFieldFocusNode1,
                                   autofocus: true,
                                   textInputAction: TextInputAction.next,
@@ -217,14 +219,16 @@ class _PassengerForgottenPasswordWidgetState
                                         letterSpacing: 0.0,
                                       ),
                                   keyboardType: TextInputType.visiblePassword,
-                                  validator: _model.textController1Validator
+                                  validator: _model
+                                      .passwordTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
                                 child: TextFormField(
-                                  controller: _model.textController2,
+                                  controller:
+                                      _model.confirmPasswordTextController,
                                   focusNode: _model.textFieldFocusNode2,
                                   textInputAction: TextInputAction.done,
                                   obscureText: !_model.passwordVisibility2,
@@ -304,113 +308,10 @@ class _PassengerForgottenPasswordWidgetState
                                         letterSpacing: 0.0,
                                       ),
                                   keyboardType: TextInputType.visiblePassword,
-                                  validator: _model.textController2Validator
+                                  validator: _model
+                                      .confirmPasswordTextControllerValidator
                                       .asValidator(context),
                                 ),
-                              ),
-                              Text(
-                                'Password must contain:',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      font: FlutterFlowTheme.of(context)
-                                          .bodySmall,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.check_circle,
-                                    color: FlutterFlowTheme.of(context).success,
-                                    size: 16.0,
-                                  ),
-                                  Text(
-                                    'At least 8 characters',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          font: FlutterFlowTheme.of(context)
-                                              .bodySmall,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(width: 8.0)),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.check_circle,
-                                    color: FlutterFlowTheme.of(context).success,
-                                    size: 16.0,
-                                  ),
-                                  Text(
-                                    'At least one uppercase letter',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          font: FlutterFlowTheme.of(context)
-                                              .bodySmall,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(width: 8.0)),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.check_circle,
-                                    color: FlutterFlowTheme.of(context).success,
-                                    size: 16.0,
-                                  ),
-                                  Text(
-                                    'At least one number',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          font: FlutterFlowTheme.of(context)
-                                              .bodySmall,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(width: 8.0)),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Icon(
-                                    Icons.check_circle,
-                                    color: FlutterFlowTheme.of(context).success,
-                                    size: 16.0,
-                                  ),
-                                  Text(
-                                    'At least one special character',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          font: FlutterFlowTheme.of(context)
-                                              .bodySmall,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(width: 8.0)),
                               ),
                             ].divide(SizedBox(height: 24.0)),
                           ),
@@ -419,8 +320,15 @@ class _PassengerForgottenPasswordWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 40.0, 0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await authManager.updatePassword(
+                                newPassword: _model.passwordTextController.text,
+                                context: context,
+                              );
+                              safeSetState(() {});
+
+                              context.goNamedAuth(
+                                  HomePageWidget.routeName, context.mounted);
                             },
                             text: 'Reset Password',
                             icon: Icon(

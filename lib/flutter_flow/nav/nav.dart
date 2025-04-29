@@ -75,16 +75,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? DeveloperFirstPageWidget()
-          : HomePageWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? HomePageWidget() : EntryPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? DeveloperFirstPageWidget()
-              : HomePageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? HomePageWidget() : EntryPageWidget(),
         ),
         FFRoute(
           name: DeveloperFirstPageWidget.routeName,
@@ -164,7 +162,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: DriverSavedRecordsDisplayWidget.routeName,
           path: DriverSavedRecordsDisplayWidget.routePath,
-          builder: (context, params) => DriverSavedRecordsDisplayWidget(),
+          builder: (context, params) => DriverSavedRecordsDisplayWidget(
+            currentDate: params.getParam(
+              'currentDate',
+              ParamType.String,
+            ),
+            currentStartTime: params.getParam(
+              'currentStartTime',
+              ParamType.String,
+            ),
+            currentEndTime: params.getParam(
+              'currentEndTime',
+              ParamType.String,
+            ),
+            currentRoute: params.getParam(
+              'currentRoute',
+              ParamType.String,
+            ),
+            currentDuration: params.getParam(
+              'currentDuration',
+              ParamType.String,
+            ),
+            currentUuid: params.getParam(
+              'currentUuid',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: PassengerLoginWidget.routeName,
@@ -235,6 +258,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: DeveloperContentWidget.routeName,
           path: DeveloperContentWidget.routePath,
           builder: (context, params) => DeveloperContentWidget(),
+        ),
+        FFRoute(
+          name: EntryPageWidget.routeName,
+          path: EntryPageWidget.routePath,
+          builder: (context, params) => EntryPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -403,7 +431,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/homePage';
+            return '/entryPage';
           }
           return null;
         },
