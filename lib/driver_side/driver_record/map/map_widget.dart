@@ -62,14 +62,6 @@ class _MapWidgetState extends State<MapWidget> {
               context.pop();
             },
           ),
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).titleLarge.override(
-                  font: FlutterFlowTheme.of(context).titleLarge,
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  letterSpacing: 0.0,
-                ),
-          ),
           actions: [],
           centerTitle: true,
           elevation: 2.0,

@@ -46,7 +46,7 @@ export '/unused_pages/disregard/passenger_account/passenger_forgotten_password/p
     show PassengerForgottenPasswordWidget;
 export '/passenger_side/passenger_announcements/passenger_announcement/passenger_announcement_widget.dart'
     show PassengerAnnouncementWidget;
-export '/passenger_side/passenger_dashboard/passenger_announcement_prio/passenger_announcement_prio_widget.dart'
+export '/passenger_side/passenger_announcements/passenger_announcement_prio/passenger_announcement_prio_widget.dart'
     show PassengerAnnouncementPrioWidget;
 export '/passenger_side/passenger_announcements/passenger_announcement_non_prio/passenger_announcement_non_prio_widget.dart'
     show PassengerAnnouncementNonPrioWidget;

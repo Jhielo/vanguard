@@ -44,7 +44,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   List<google_maps.LatLng> polyCoordinates = [];
   LocationData? currentLocation;
 
-  void getCurrentLocation() {
+  Future<void> _getCurrentLocation() async {
     Location location = Location();
 
     location.getLocation().then(
@@ -53,9 +53,23 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
       },
     );
 
+    google_maps.GoogleMapController googleMapController =
+        await _controller.future;
+
     location.onLocationChanged.listen(
       (newLoc) {
         currentLocation = newLoc;
+
+        googleMapController.animateCamera(
+          google_maps.CameraUpdate.newCameraPosition(
+            google_maps.CameraPosition(
+                zoom: 13.5,
+                target: google_maps.LatLng(
+                  newLoc.latitude!,
+                  newLoc.longitude!,
+                )),
+          ),
+        );
 
         setState(() {});
       },
@@ -87,7 +101,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
 
   @override
   void initState() {
-    getCurrentLocation();
+    _getCurrentLocation();
     _getPolyPoints();
     super.initState();
   }
@@ -98,7 +112,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
       width: widget.width ?? double.infinity,
       height: widget.height ?? double.infinity,
       child: currentLocation == null
-          ? const Center(child: Text("Loading"))
+          ? const Center(child: Text("Loading..."))
           : google_maps.GoogleMap(
               initialCameraPosition: google_maps.CameraPosition(
                 target: google_maps.LatLng(
@@ -128,6 +142,9 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
                   position: legazpi,
                 ),
               }, //markers
+              onMapCreated: (mapController) {
+                _controller.complete(mapController);
+              },
             ), //Gmap
     ); //Box
   } //widget
