@@ -48,6 +48,31 @@ class PredictVansCall {
       ));
 }
 
+class GoogleAPICall {
+  static Future<ApiCallResponse> call({
+    double? originLat,
+    double? originLong,
+    double? destinationLat,
+    double? destinationLong,
+    String? apiKey = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'googleAPI',
+      apiUrl:
+          'https://maps.googleapis.com/maps/api/directions/json?origin=${originLat},${originLong}&destination=${destinationLat},${destinationLong}&departure_time=now&key=${apiKey}',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

@@ -5,7 +5,6 @@ export '../supabase.dart';
 export 'row.dart';
 export 'table.dart';
 
-export 'tables/van_trips.dart';
 export 'tables/vans_dataset.dart';
 export 'tables/ndrrmc_announcements.dart';
 export 'tables/users.dart';

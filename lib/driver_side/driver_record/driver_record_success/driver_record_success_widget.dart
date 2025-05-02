@@ -68,7 +68,7 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).info,
               size: 30.0,
             ),
             onPressed: () async {
@@ -88,7 +88,7 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
             'Trip Summary',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -483,7 +483,10 @@ class _DriverRecordSuccessWidgetState extends State<DriverRecordSuccessWidget> {
                                                             0.0, 0.0),
                                                     child: Icon(
                                                       Icons.timer,
-                                                      color: Colors.white,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .info,
                                                       size: 24.0,
                                                     ),
                                                   ),

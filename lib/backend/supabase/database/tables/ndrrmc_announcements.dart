@@ -15,12 +15,6 @@ class NdrrmcAnnouncementsRow extends SupabaseDataRow {
   @override
   SupabaseTable get table => NdrrmcAnnouncementsTable();
 
-  int get id => getField<int>('id')!;
-  set id(int value) => setField<int>('id', value);
-
-  String? get title => getField<String>('title');
-  set title(String? value) => setField<String>('title', value);
-
   DateTime? get datePosted => getField<DateTime>('date_posted');
   set datePosted(DateTime? value) => setField<DateTime>('date_posted', value);
 
@@ -32,4 +26,16 @@ class NdrrmcAnnouncementsRow extends SupabaseDataRow {
 
   DateTime get createdAt => getField<DateTime>('created_at')!;
   set createdAt(DateTime value) => setField<DateTime>('created_at', value);
+
+  String get id => getField<String>('id')!;
+  set id(String value) => setField<String>('id', value);
+
+  String? get text => getField<String>('text');
+  set text(String? value) => setField<String>('text', value);
+
+  bool? get priority => getField<bool>('priority');
+  set priority(bool? value) => setField<bool>('priority', value);
+
+  String? get title => getField<String>('title');
+  set title(String? value) => setField<String>('title', value);
 }

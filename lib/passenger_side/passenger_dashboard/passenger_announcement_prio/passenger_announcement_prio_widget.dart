@@ -5,30 +5,30 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'passenger_announcement_non_prio_model.dart';
-export 'passenger_announcement_non_prio_model.dart';
+import 'passenger_announcement_prio_model.dart';
+export 'passenger_announcement_prio_model.dart';
 
-class PassengerAnnouncementNonPrioWidget extends StatefulWidget {
-  const PassengerAnnouncementNonPrioWidget({super.key});
+class PassengerAnnouncementPrioWidget extends StatefulWidget {
+  const PassengerAnnouncementPrioWidget({super.key});
 
-  static String routeName = 'PassengerAnnouncementNonPrio';
-  static String routePath = '/passengerAnnouncementNonPrio';
+  static String routeName = 'PassengerAnnouncementPrio';
+  static String routePath = '/passengerAnnouncementPrio';
 
   @override
-  State<PassengerAnnouncementNonPrioWidget> createState() =>
-      _PassengerAnnouncementNonPrioWidgetState();
+  State<PassengerAnnouncementPrioWidget> createState() =>
+      _PassengerAnnouncementPrioWidgetState();
 }
 
-class _PassengerAnnouncementNonPrioWidgetState
-    extends State<PassengerAnnouncementNonPrioWidget> {
-  late PassengerAnnouncementNonPrioModel _model;
+class _PassengerAnnouncementPrioWidgetState
+    extends State<PassengerAnnouncementPrioWidget> {
+  late PassengerAnnouncementPrioModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PassengerAnnouncementNonPrioModel());
+    _model = createModel(context, () => PassengerAnnouncementPrioModel());
   }
 
   @override
@@ -69,7 +69,7 @@ class _PassengerAnnouncementNonPrioWidgetState
             'Announcements',
             style: FlutterFlowTheme.of(context).titleLarge.override(
                   font: FlutterFlowTheme.of(context).titleLarge,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: FlutterFlowTheme.of(context).info,
                   fontSize: 28.0,
                   letterSpacing: 0.0,
                 ),
@@ -88,7 +88,7 @@ class _PassengerAnnouncementNonPrioWidgetState
                 future: NdrrmcAnnouncementsTable().queryRows(
                   queryFn: (q) => q.eqOrNull(
                     'priority',
-                    false,
+                    true,
                   ),
                 ),
                 builder: (context, snapshot) {
@@ -129,7 +129,7 @@ class _PassengerAnnouncementNonPrioWidgetState
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
-                                '800x800?regular announcement',
+                                '800x800?urgent announcement',
                               ).image,
                             ),
                             boxShadow: [
@@ -161,63 +161,56 @@ class _PassengerAnnouncementNonPrioWidgetState
                                 ),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              child: Align(
+                              child: Stack(
                                 alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.asset(
-                                          'assets/images/VanGuard_Splash.png',
-                                          width: 347.5,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
-                                          alignment: Alignment(0.0, 0.0),
-                                        ),
-                                      ),
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/VanGuard_Splash.png',
+                                      width: 347.5,
+                                      height: 200.0,
+                                      fit: BoxFit.cover,
+                                      alignment: Alignment(0.0, 0.0),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                listViewNdrrmcAnnouncementsRow
-                                                    .title,
-                                                'Non-Priority Announcements',
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleLarge
-                                                  .override(
-                                                    font: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .info,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(16.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              listViewNdrrmcAnnouncementsRow
+                                                  .title,
+                                              'Priority Announcements',
                                             ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleLarge
+                                                .override(
+                                                  font: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleLarge,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .info,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),

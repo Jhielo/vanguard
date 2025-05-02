@@ -96,14 +96,15 @@ class _DriverDeleteSaveWidgetState extends State<DriverDeleteSaveWidget> {
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  font: FlutterFlowTheme.of(context).titleSmall,
-                                  color: Colors.white,
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
+                        textStyle: FlutterFlowTheme.of(context)
+                            .titleSmall
+                            .override(
+                              font: FlutterFlowTheme.of(context).titleSmall,
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                            ),
                         elevation: 0.0,
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).alternate,

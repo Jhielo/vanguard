@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'developer_content_widget.dart' show DeveloperContentWidget;
@@ -27,8 +26,6 @@ class DeveloperContentModel extends FlutterFlowModel<DeveloperContentWidget> {
   String? routeSelectValue;
   FormFieldController<String>? routeSelectValueController;
   DateTime? datePicked3;
-  // Stores action output result for [Backend Call - Insert Row] action in Button widget.
-  VanTripsRow? insertTrip;
 
   @override
   void initState(BuildContext context) {}

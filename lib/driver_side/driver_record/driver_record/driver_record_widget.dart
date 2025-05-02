@@ -1,6 +1,6 @@
+import '/driver_side/driver_components/driver_cancel_recording/driver_cancel_recording_widget.dart';
 import '/driver_side/driver_components/driver_confirmation/driver_confirmation_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
@@ -13,7 +13,6 @@ import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'driver_record_model.dart';
 export 'driver_record_model.dart';
@@ -47,11 +46,14 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
           functions.extractLatLong(currentUserLocationValue!, true);
       FFAppState().originLongitude =
           functions.extractLatLong(currentUserLocationValue!, false);
+      FFAppState().route = '';
+      FFAppState().timeStarted =
+          DateTime.fromMillisecondsSinceEpoch(629488800000);
+      FFAppState().timeEnded =
+          DateTime.fromMillisecondsSinceEpoch(629488800000);
       safeSetState(() {});
     });
 
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -65,21 +67,6 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 50.0,
-            height: 50.0,
-            child: SpinKitDoubleBounce(
-              color: FlutterFlowTheme.of(context).accent1,
-              size: 50.0,
-            ),
-          ),
-        ),
-      );
-    }
 
     return GestureDetector(
       onTap: () {
@@ -88,50 +75,62 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        resizeToAvoidBottomInset: false,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
-          backgroundColor: Color(0xFF183072),
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              if (FFAppState().hasStarted == false) {
-                FFAppState().isRouteChosen = false;
-                safeSetState(() {});
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      'Recording is On Going',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    duration: Duration(milliseconds: 4000),
-                    backgroundColor: FlutterFlowTheme.of(context).primary,
-                  ),
-                );
-                return;
-              }
+          leading: Builder(
+            builder: (context) => FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: FlutterFlowTheme.of(context).info,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                if (FFAppState().hasStarted == false) {
+                  FFAppState().isRouteChosen = false;
+                  safeSetState(() {});
+                } else {
+                  _model.timerController.onStopTimer();
+                  FFAppState().isPaused = true;
+                  safeSetState(() {});
+                  await showDialog(
+                    context: context,
+                    builder: (dialogContext) {
+                      return Dialog(
+                        elevation: 0,
+                        insetPadding: EdgeInsets.zero,
+                        backgroundColor: Colors.transparent,
+                        alignment: AlignmentDirectional(0.0, 0.0)
+                            .resolve(Directionality.of(context)),
+                        child: GestureDetector(
+                          onTap: () {
+                            FocusScope.of(dialogContext).unfocus();
+                            FocusManager.instance.primaryFocus?.unfocus();
+                          },
+                          child: DriverCancelRecordingWidget(),
+                        ),
+                      );
+                    },
+                  );
 
-              context.pushNamed(DriverDashboardWidget.routeName);
-            },
+                  _model.timerController.onStartTimer();
+                  return;
+                }
+
+                context.pushNamed(DriverDashboardWidget.routeName);
+              },
+            ),
           ),
           title: Text(
             'Route Tracker',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: FlutterFlowTheme.of(context).headlineMedium,
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -246,59 +245,15 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          child: Stack(
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                height: double.infinity,
-                                child: custom_widgets.PolylineMap(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  originLatitude: FFAppState().originLatitude,
-                                  originLongitude: FFAppState().originLongitude,
-                                  destinationLatitude:
-                                      FFAppState().destinationLatitude,
-                                  destinationLongitude:
-                                      FFAppState().destinationLongitude,
-                                  googleApiKey:
-                                      'AIzaSyCXlMt_QH0U1hFTAvsn9r0uY9Zm6G4UuHY',
-                                ),
-                              ),
-                              if (valueOrDefault<bool>(
-                                FFAppState().isRouteChosen,
-                                false,
-                              ))
-                                Builder(builder: (context) {
-                                  final _googleMapMarker =
-                                      currentUserLocationValue;
-                                  return FlutterFlowGoogleMap(
-                                    controller: _model.googleMapsController,
-                                    onCameraIdle: (latLng) =>
-                                        _model.googleMapsCenter = latLng,
-                                    initialLocation: _model.googleMapsCenter ??=
-                                        currentUserLocationValue!,
-                                    markers: [
-                                      if (_googleMapMarker != null)
-                                        FlutterFlowMarker(
-                                          _googleMapMarker.serialize(),
-                                          _googleMapMarker,
-                                        ),
-                                    ],
-                                    markerColor: GoogleMarkerColor.violet,
-                                    mapType: MapType.normal,
-                                    style: GoogleMapStyle.standard,
-                                    initialZoom: 14.0,
-                                    allowInteraction: true,
-                                    allowZoom: true,
-                                    showZoomControls: true,
-                                    showLocation: true,
-                                    showCompass: false,
-                                    showMapToolbar: false,
-                                    showTraffic: false,
-                                    centerMapOnMarkerTap: true,
-                                  );
-                                }),
-                            ],
+                          child: Container(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: custom_widgets.OrderTrackingPage(
+                              width: double.infinity,
+                              height: double.infinity,
+                              googleApiKey:
+                                  'AIzaSyCXlMt_QH0U1hFTAvsn9r0uY9Zm6G4UuHY',
+                            ),
                           ),
                         ),
                       ],
@@ -516,7 +471,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                 text: 'Start',
                                 icon: Icon(
                                   Icons.play_arrow_rounded,
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).info,
                                   size: 20.0,
                                 ),
                                 options: FFButtonOptions(
@@ -532,7 +487,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                       .override(
                                         font: FlutterFlowTheme.of(context)
                                             .bodyMedium,
-                                        color: Colors.white,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -590,7 +546,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         text: 'Pause',
                                         icon: Icon(
                                           Icons.pause_rounded,
-                                          color: Colors.white,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
                                           size: 20.0,
                                         ),
                                         options: FFButtonOptions(
@@ -609,7 +566,9 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                                 font:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
-                                                color: Colors.white,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -657,11 +616,13 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                               );
                                             },
                                           );
+
+                                          _model.timerController.onStartTimer();
                                         },
                                   text: 'Stop',
                                   icon: Icon(
                                     Icons.stop_rounded,
-                                    color: Colors.white,
+                                    color: FlutterFlowTheme.of(context).info,
                                     size: 20.0,
                                   ),
                                   options: FFButtonOptions(
@@ -676,7 +637,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         .override(
                                           font: FlutterFlowTheme.of(context)
                                               .bodyMedium,
-                                          color: Colors.white,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                         ),

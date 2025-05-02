@@ -46,7 +46,7 @@ export '/unused_pages/disregard/passenger_account/passenger_forgotten_password/p
     show PassengerForgottenPasswordWidget;
 export '/passenger_side/passenger_announcements/passenger_announcement/passenger_announcement_widget.dart'
     show PassengerAnnouncementWidget;
-export '/passenger_side/passenger_announcements/passenger_announcement_prio/passenger_announcement_prio_widget.dart'
+export '/passenger_side/passenger_dashboard/passenger_announcement_prio/passenger_announcement_prio_widget.dart'
     show PassengerAnnouncementPrioWidget;
 export '/passenger_side/passenger_announcements/passenger_announcement_non_prio/passenger_announcement_non_prio_widget.dart'
     show PassengerAnnouncementNonPrioWidget;
@@ -59,3 +59,4 @@ export '/unused_pages/disregard/passenger_account/passenger_first_page/passenger
 export '/unused_pages/developer_side/developer_content/developer_content_widget.dart'
     show DeveloperContentWidget;
 export '/home/entry_page/entry_page_widget.dart' show EntryPageWidget;
+export '/driver_side/driver_record/map/map_widget.dart' show MapWidget;

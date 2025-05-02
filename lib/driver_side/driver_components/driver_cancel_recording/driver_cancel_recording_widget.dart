@@ -3,19 +3,20 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'driver_confirmation_model.dart';
-export 'driver_confirmation_model.dart';
+import 'driver_cancel_recording_model.dart';
+export 'driver_cancel_recording_model.dart';
 
-class DriverConfirmationWidget extends StatefulWidget {
-  const DriverConfirmationWidget({super.key});
+class DriverCancelRecordingWidget extends StatefulWidget {
+  const DriverCancelRecordingWidget({super.key});
 
   @override
-  State<DriverConfirmationWidget> createState() =>
-      _DriverConfirmationWidgetState();
+  State<DriverCancelRecordingWidget> createState() =>
+      _DriverCancelRecordingWidgetState();
 }
 
-class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
-  late DriverConfirmationModel _model;
+class _DriverCancelRecordingWidgetState
+    extends State<DriverCancelRecordingWidget> {
+  late DriverCancelRecordingModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -26,7 +27,7 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DriverConfirmationModel());
+    _model = createModel(context, () => DriverCancelRecordingModel());
   }
 
   @override
@@ -74,7 +75,7 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 40.0),
                     child: Text(
-                      'Confirm Recording?',
+                      'Stop Recording?',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context)
                           .headlineSmall
@@ -93,9 +94,6 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().timeEnded =
-                                DateTime.fromMillisecondsSinceEpoch(
-                                    629488800000);
                             _model.updatePage(() {});
                             Navigator.pop(context);
                           },
@@ -128,11 +126,17 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
                         ),
                         FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().timeEnded = getCurrentTimestamp;
-                            _model.updatePage(() {});
+                            FFAppState().route = '';
+                            FFAppState().hasStarted = false;
+                            FFAppState().timeStarted =
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    629488800000);
+                            FFAppState().timeEnded =
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    629488800000);
+                            safeSetState(() {});
 
-                            context
-                                .pushNamed(DriverRecordSuccessWidget.routeName);
+                            context.pushNamed(DriverDashboardWidget.routeName);
                           },
                           text: 'Confirm',
                           options: FFButtonOptions(

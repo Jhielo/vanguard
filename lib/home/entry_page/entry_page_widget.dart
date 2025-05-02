@@ -28,6 +28,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setDarkModeSetting(context, ThemeMode.dark);
       await Future.delayed(const Duration(milliseconds: 1000));
 
       context.pushNamed(HomePageWidget.routeName);
@@ -76,7 +77,7 @@ class _EntryPageWidgetState extends State<EntryPageWidget> {
                               .override(
                                 font:
                                     FlutterFlowTheme.of(context).headlineLarge,
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 28.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,

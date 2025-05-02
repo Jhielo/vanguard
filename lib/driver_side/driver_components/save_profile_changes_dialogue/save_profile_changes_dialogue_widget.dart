@@ -81,7 +81,7 @@ class _SaveProfileChangesDialogueWidgetState
                           .headlineSmall
                           .override(
                             font: FlutterFlowTheme.of(context).headlineSmall,
-                            color: Colors.white,
+                            color: FlutterFlowTheme.of(context).primaryText,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -122,7 +122,8 @@ class _SaveProfileChangesDialogueWidgetState
                                 .titleSmall
                                 .override(
                                   font: FlutterFlowTheme.of(context).titleSmall,
-                                  color: Colors.white,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -137,8 +138,10 @@ class _SaveProfileChangesDialogueWidgetState
                           ),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            FFAppState().isChangeSave = true;
+                            safeSetState(() {});
+                            Navigator.pop(context);
                           },
                           text: 'Save',
                           options: FFButtonOptions(

@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -952,28 +951,6 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                         null &&
                                                     _model.routeSelectValue !=
                                                         '')) {
-                                              _model.insertTrip =
-                                                  await VanTripsTable().insert({
-                                                'name': _model
-                                                    .nameTextController.text,
-                                                'vehicle_plate': _model
-                                                    .vehiclePlateNumberTextController
-                                                    .text,
-                                                'departure_time':
-                                                    supaSerialize<PostgresTime>(
-                                                        PostgresTime(_model
-                                                            .datePicked1)),
-                                                'arrival_time':
-                                                    supaSerialize<PostgresTime>(
-                                                        PostgresTime(_model
-                                                            .datePicked2)),
-                                                'route':
-                                                    _model.routeSelectValue,
-                                                'trip_date':
-                                                    supaSerialize<DateTime>(
-                                                        _model.datePicked3),
-                                                'event': false,
-                                              });
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
                                                 SnackBar(
@@ -1040,8 +1017,6 @@ class _DeveloperContentWidgetState extends State<DeveloperContentWidget> {
                                                   .vehiclePlateNumberTextController
                                                   ?.clear();
                                             });
-
-                                            safeSetState(() {});
                                           },
                                           text: 'Submit Form',
                                           options: FFButtonOptions(

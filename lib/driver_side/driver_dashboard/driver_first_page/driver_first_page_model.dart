@@ -25,8 +25,6 @@ class DriverFirstPageModel extends FlutterFlowModel<DriverFirstPageWidget> {
   String? Function(BuildContext, String?)? plateNumberTextControllerValidator;
   // Stores action output result for [Backend Call - Query Rows] action in Button widget.
   List<UsersRow>? userexist;
-  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
-  List<UsersRow>? userUuid;
   // State field(s) for Name widget.
   FocusNode? nameFocusNode;
   TextEditingController? nameTextController;

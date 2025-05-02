@@ -53,7 +53,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
-          backgroundColor: Color(0xFF183072),
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -62,7 +62,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).info,
               size: 30.0,
             ),
             onPressed: () async {
@@ -73,7 +73,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
             'Saved Recordings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -87,8 +87,8 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
           child: FutureBuilder<List<VansDatasetRow>>(
             future: VansDatasetTable().queryRows(
               queryFn: (q) => q.eqOrNull(
-                'plateNum',
-                FFAppState().userPlateNum,
+                'user_id',
+                FFAppState().currentUserID,
               ),
             ),
             builder: (context, snapshot) {
@@ -152,7 +152,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
                       },
                       text: 'Recording #${functions.increment(listViewIndex)}',
                       options: FFButtonOptions(
-                        height: 120.0,
+                        height: 80.0,
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
@@ -161,7 +161,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Google',
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).info,
                                   fontSize: 24.0,
                                   letterSpacing: 0.0,
                                 ),

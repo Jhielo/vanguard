@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -19,9 +18,6 @@ class DriverRecordModel extends FlutterFlowModel<DriverRecordWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
-  // State field(s) for GoogleMap widget.
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
   // State field(s) for Timer widget.
   final timerInitialTimeMs = 0;
   int timerMilliseconds = 0;

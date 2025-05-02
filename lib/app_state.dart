@@ -188,6 +188,18 @@ class FFAppState extends ChangeNotifier {
   set preferredTravelDate(DateTime? value) {
     _preferredTravelDate = value;
   }
+
+  bool _isPaused = false;
+  bool get isPaused => _isPaused;
+  set isPaused(bool value) {
+    _isPaused = value;
+  }
+
+  bool _isChangeSave = false;
+  bool get isChangeSave => _isChangeSave;
+  set isChangeSave(bool value) {
+    _isChangeSave = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

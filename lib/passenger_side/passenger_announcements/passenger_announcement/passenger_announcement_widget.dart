@@ -45,7 +45,7 @@ class _PassengerAnnouncementWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -56,18 +56,18 @@ class _PassengerAnnouncementWidgetState
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).info,
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              context.pushNamed(PassengerDashboardWidget.routeName);
             },
           ),
           title: Text(
             'Announcements',
             style: FlutterFlowTheme.of(context).titleLarge.override(
                   font: FlutterFlowTheme.of(context).titleLarge,
-                  color: FlutterFlowTheme.of(context).primaryText,
+                  color: FlutterFlowTheme.of(context).info,
                   fontSize: 28.0,
                   letterSpacing: 0.0,
                 ),
@@ -157,8 +157,8 @@ class _PassengerAnnouncementWidgetState
                                       .override(
                                         font: FlutterFlowTheme.of(context)
                                             .titleLarge,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),

@@ -54,7 +54,7 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).info,
               size: 30.0,
             ),
             onPressed: () async {
@@ -65,7 +65,7 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   font: FlutterFlowTheme.of(context).headlineMedium,
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                 ),
           ),

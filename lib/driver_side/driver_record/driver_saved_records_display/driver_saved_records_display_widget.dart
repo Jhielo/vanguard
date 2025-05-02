@@ -187,7 +187,8 @@ class _DriverSavedRecordsDisplayWidgetState
                                             AlignmentDirectional(0.0, 0.0),
                                         child: Icon(
                                           Icons.calendar_today,
-                                          color: Colors.white,
+                                          color:
+                                              FlutterFlowTheme.of(context).info,
                                           size: 24.0,
                                         ),
                                       ),

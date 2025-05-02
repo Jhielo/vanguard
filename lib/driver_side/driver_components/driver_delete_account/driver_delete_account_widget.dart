@@ -132,11 +132,36 @@ class _DriverDeleteAccountWidgetState extends State<DriverDeleteAccountWidget> {
                         await UsersTable().delete(
                           matchingRows: (rows) => rows.eqOrNull(
                             'id',
-                            FFAppState().deleteUuid,
+                            FFAppState().currentUserID,
                           ),
                         );
+                        FFAppState().isLoggedIn = false;
+                        FFAppState().currentUserID = '';
+                        FFAppState().currentUserName = 'Adam';
+                        FFAppState().currentUserRole = '';
+                        safeSetState(() {});
 
                         context.pushNamed(HomePageWidget.routeName);
+
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Account successfully deleted!',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    font:
+                                        FlutterFlowTheme.of(context).titleSmall,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).primary,
+                          ),
+                        );
                       },
                       text: 'Delete',
                       options: FFButtonOptions(

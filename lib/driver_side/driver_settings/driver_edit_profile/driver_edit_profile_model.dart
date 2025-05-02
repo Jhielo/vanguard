@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'driver_edit_profile_widget.dart' show DriverEditProfileWidget;
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class DriverEditProfileModel extends FlutterFlowModel<DriverEditProfileWidget> {
   ///  Local state fields for this page.
@@ -18,6 +19,7 @@ class DriverEditProfileModel extends FlutterFlowModel<DriverEditProfileWidget> {
   // State field(s) for ContactNumber widget.
   FocusNode? contactNumberFocusNode;
   TextEditingController? contactNumberTextController;
+  final contactNumberMask = MaskTextInputFormatter(mask: '(###) ###-####');
   String? Function(BuildContext, String?)? contactNumberTextControllerValidator;
   // State field(s) for LicenseNumber widget.
   FocusNode? licenseNumberFocusNode;

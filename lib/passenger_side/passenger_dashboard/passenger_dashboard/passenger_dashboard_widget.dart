@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/unused_pages/disregard/passenger_components/passenger_logout_dialogue/passenger_logout_dialogue_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'passenger_dashboard_model.dart';
 export 'passenger_dashboard_model.dart';
 
@@ -39,8 +38,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -56,7 +53,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
             'VanGuard',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -77,20 +74,6 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                   width: 404.0,
                   height: 64.8,
                   decoration: BoxDecoration(),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Text(
-                    'Welcome, ${valueOrDefault<String>(
-                      FFAppState().currentUserName,
-                      'Adam',
-                    )}!',
-                    style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Google',
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
                 ),
                 Container(
                   width: 404.0,
@@ -121,7 +104,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                         children: [
                           Container(
                             width: 100.0,
-                            height: 22.2,
+                            height: 43.29,
                             decoration: BoxDecoration(),
                           ),
                           Padding(
@@ -134,7 +117,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                               },
                               text: 'Check Announcements',
                               icon: Icon(
-                                Icons.announcement_outlined,
+                                Icons.map,
                                 size: 15.0,
                               ),
                               options: FFButtonOptions(
@@ -149,7 +132,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Google',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context).info,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
@@ -189,7 +172,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Google',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context).info,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
@@ -229,7 +212,7 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                     .titleSmall
                                     .override(
                                       fontFamily: 'Google',
-                                      color: Colors.white,
+                                      color: FlutterFlowTheme.of(context).info,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
@@ -292,7 +275,8 @@ class _PassengerDashboardWidgetState extends State<PassengerDashboardWidget> {
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Google',
-                                        color: Colors.white,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,

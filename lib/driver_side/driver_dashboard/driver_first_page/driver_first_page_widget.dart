@@ -3,9 +3,11 @@ import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'driver_first_page_model.dart';
 export 'driver_first_page_model.dart';
 
@@ -24,11 +26,22 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
   late DriverFirstPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  late StreamSubscription<bool> _keyboardVisibilitySubscription;
+  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DriverFirstPageModel());
+
+    if (!isWeb) {
+      _keyboardVisibilitySubscription =
+          KeyboardVisibilityController().onChange.listen((bool visible) {
+        safeSetState(() {
+          _isKeyboardVisible = visible;
+        });
+      });
+    }
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -56,6 +69,9 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
   void dispose() {
     _model.dispose();
 
+    if (!isWeb) {
+      _keyboardVisibilitySubscription.cancel();
+    }
     super.dispose();
   }
 
@@ -76,7 +92,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
             'VanGuard',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Google',
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -109,7 +125,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                             .headlineLarge
                             .override(
                               font: FlutterFlowTheme.of(context).headlineLarge,
-                              color: Colors.white,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 36.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
@@ -122,7 +138,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                           font: FlutterFlowTheme.of(context).bodyLarge,
-                          color: Color(0xFF9E9E9E),
+                          color: FlutterFlowTheme.of(context).secondaryText,
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
@@ -348,6 +364,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                   fontFamily: 'Google',
                                                   letterSpacing: 0.0,
                                                 ),
+                                            keyboardType: TextInputType.number,
                                             validator: _model
                                                 .plateNumberTextControllerValidator
                                                 .asValidator(context),
@@ -381,11 +398,6 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                   (_model.userexist)!
                                                       .isNotEmpty) ==
                                               true) {
-                                            _model.userUuid =
-                                                await UsersTable().queryRows(
-                                              queryFn: (q) => q,
-                                            );
-                                            _shouldSetState = true;
                                             FFAppState().isLoggedIn =
                                                 !(FFAppState().isLoggedIn ??
                                                     true);
@@ -395,7 +407,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                 _model.usernameTextController
                                                     .text;
                                             FFAppState().currentUserID = _model
-                                                .userUuid!.firstOrNull!.id;
+                                                .userexist!.firstOrNull!.id;
                                             FFAppState().userPlateNum = _model
                                                 .plateNumberTextController.text;
                                             safeSetState(() {});
@@ -446,17 +458,18 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Google',
-                                                    color: Colors.white,
-                                                    fontSize: 16.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .titleSmall
+                                              .override(
+                                                fontFamily: 'Google',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .info,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
@@ -1071,48 +1084,53 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed(
-                              HomePageWidget.routeName,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.leftToRight,
-                                ),
-                              },
-                            );
-                          },
-                          text: 'Back to Main Page',
-                          options: FFButtonOptions(
-                            width: 240.0,
-                            height: 40.0,
-                            padding: EdgeInsets.all(8.0),
-                            iconPadding: EdgeInsets.all(0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  font:
-                                      FlutterFlowTheme.of(context).titleMedium,
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                            elevation: 2.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                      if ((isWeb
+                              ? MediaQuery.viewInsetsOf(context).bottom > 0
+                              : _isKeyboardVisible) ==
+                          false)
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 1.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed(
+                                HomePageWidget.routeName,
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType:
+                                        PageTransitionType.leftToRight,
+                                  ),
+                                },
+                              );
+                            },
+                            text: 'Back to Main Page',
+                            options: FFButtonOptions(
+                              width: 240.0,
+                              height: 40.0,
+                              padding: EdgeInsets.all(8.0),
+                              iconPadding: EdgeInsets.all(0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    font: FlutterFlowTheme.of(context)
+                                        .titleMedium,
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
-                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
-                      ),
                     ].divide(SizedBox(height: 16.0)),
                   ),
                 ].divide(SizedBox(height: 24.0)),

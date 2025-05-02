@@ -60,7 +60,7 @@ class _PassengerScheduleScreenWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF0D1117),
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -71,7 +71,7 @@ class _PassengerScheduleScreenWidgetState
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_rounded,
-              color: Colors.white,
+              color: FlutterFlowTheme.of(context).info,
               size: 30.0,
             ),
             onPressed: () async {
@@ -87,7 +87,7 @@ class _PassengerScheduleScreenWidgetState
             'Schedules',
             style: FlutterFlowTheme.of(context).titleLarge.override(
                   font: FlutterFlowTheme.of(context).titleLarge,
-                  color: Colors.white,
+                  color: FlutterFlowTheme.of(context).info,
                   fontSize: 28.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
@@ -119,7 +119,7 @@ class _PassengerScheduleScreenWidgetState
                               .titleMedium
                               .override(
                                 font: FlutterFlowTheme.of(context).titleMedium,
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -185,7 +185,7 @@ class _PassengerScheduleScreenWidgetState
                               .titleMedium
                               .override(
                                 font: FlutterFlowTheme.of(context).titleMedium,
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -196,7 +196,8 @@ class _PassengerScheduleScreenWidgetState
                               .bodyMedium
                               .override(
                                 font: FlutterFlowTheme.of(context).bodyMedium,
-                                color: Color(0xFFB0B0B0),
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
                               ),
                         ),
@@ -288,7 +289,8 @@ class _PassengerScheduleScreenWidgetState
                                             12.0, 0.0, 12.0, 0.0),
                                         child: Icon(
                                           Icons.calendar_today,
-                                          color: Colors.black,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
                                           size: 24.0,
                                         ),
                                       ),
@@ -310,7 +312,8 @@ class _PassengerScheduleScreenWidgetState
                                           .override(
                                             font: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
-                                            color: Colors.white,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -374,7 +377,8 @@ class _PassengerScheduleScreenWidgetState
                                           .override(
                                             font: FlutterFlowTheme.of(context)
                                                 .labelMedium,
-                                            color: Color(0xFFB0B0B0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -386,7 +390,8 @@ class _PassengerScheduleScreenWidgetState
                                           .override(
                                             font: FlutterFlowTheme.of(context)
                                                 .headlineSmall,
-                                            color: Colors.white,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -426,7 +431,8 @@ class _PassengerScheduleScreenWidgetState
                                           .override(
                                             font: FlutterFlowTheme.of(context)
                                                 .labelMedium,
-                                            color: Color(0xFFB0B0B0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -437,7 +443,8 @@ class _PassengerScheduleScreenWidgetState
                                           .override(
                                             font: FlutterFlowTheme.of(context)
                                                 .headlineSmall,
-                                            color: Colors.white,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
@@ -525,7 +532,7 @@ class _PassengerScheduleScreenWidgetState
                                 .titleSmall
                                 .override(
                                   font: FlutterFlowTheme.of(context).titleSmall,
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).info,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -558,7 +565,8 @@ class _PassengerScheduleScreenWidgetState
                                       .override(
                                         font: FlutterFlowTheme.of(context)
                                             .titleSmall,
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -597,7 +605,8 @@ class _PassengerScheduleScreenWidgetState
                                       .override(
                                         font: FlutterFlowTheme.of(context)
                                             .titleSmall,
-                                        color: Colors.white,
+                                        color:
+                                            FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
