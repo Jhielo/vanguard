@@ -44,6 +44,9 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
   List<google_maps.LatLng> polyCoordinates = [];
   LocationData? currentLocation;
 
+  google_maps.BitmapDescriptor currentLocationIcon =
+      google_maps.BitmapDescriptor.defaultMarker;
+
   Future<void> _getCurrentLocation() async {
     Location location = Location();
 
@@ -99,9 +102,20 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
     }
   }
 
+  void setCustomMarkerIcon() {
+    google_maps.BitmapDescriptor.fromAssetImage(
+            ImageConfiguration.empty, "assets/images/currentLocationIcon.png")
+        .then(
+      (icon) {
+        currentLocationIcon = icon;
+      },
+    );
+  }
+
   @override
   void initState() {
     _getCurrentLocation();
+    setCustomMarkerIcon();
     _getPolyPoints();
     super.initState();
   }
@@ -130,6 +144,7 @@ class _OrderTrackingPageState extends State<OrderTrackingPage> {
               markers: {
                 google_maps.Marker(
                   markerId: const google_maps.MarkerId("currentLocation"),
+                  icon: currentLocationIcon,
                   position: google_maps.LatLng(
                       currentLocation!.latitude!, currentLocation!.longitude!),
                 ),

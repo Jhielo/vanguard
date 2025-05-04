@@ -1,8 +1,10 @@
 import '/about_side/about_components/full_team_jhielo/full_team_jhielo_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'about_team_jhielo_model.dart';
 export 'about_team_jhielo_model.dart';
 
@@ -16,15 +18,122 @@ class AboutTeamJhieloWidget extends StatefulWidget {
   State<AboutTeamJhieloWidget> createState() => _AboutTeamJhieloWidgetState();
 }
 
-class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
+class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget>
+    with TickerProviderStateMixin {
   late AboutTeamJhieloModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AboutTeamJhieloModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 25.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 25.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 50.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 75.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 75.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 150.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 175.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 175.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -43,7 +152,7 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.black,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -60,7 +169,7 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
             onPressed: () async {
               context.pop();
             },
-          ),
+          ).animateOnPageLoad(animationsMap['iconButtonOnPageLoadAnimation']!),
           title: Text(
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -68,7 +177,7 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                   color: Colors.white,
                   letterSpacing: 0.0,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
           actions: [],
           centerTitle: true,
           elevation: 2.0,
@@ -143,7 +252,8 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'circleImageOnPageLoadAnimation']!),
                               ),
                             ),
                           ],
@@ -168,7 +278,8 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                   fontSize: 24.0,
                                   letterSpacing: 0.0,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
                         ),
                       ),
                       Align(
@@ -185,7 +296,8 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                   fontFamily: 'Google',
                                   letterSpacing: 0.0,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation3']!),
                         ),
                       ),
                       Padding(
@@ -197,7 +309,8 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                           indent: 32.0,
                           endIndent: 32.0,
                           color: Color(0x33FFFFFF),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['dividerOnPageLoadAnimation']!),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
@@ -213,7 +326,8 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                   fontSize: 24.0,
                                   letterSpacing: 0.0,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation4']!),
                         ),
                       ),
                       Container(
@@ -236,7 +350,8 @@ class _AboutTeamJhieloWidgetState extends State<AboutTeamJhieloWidget> {
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation5']!),
                         ),
                       ),
                     ],

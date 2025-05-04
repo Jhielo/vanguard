@@ -1,5 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -7,7 +8,9 @@ import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:provider/provider.dart';
 import 'driver_first_page_model.dart';
 export 'driver_first_page_model.dart';
 
@@ -28,6 +31,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -63,6 +68,141 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
 
     _model.plateNumber2TextController ??= TextEditingController();
     _model.plateNumber2FocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -77,6 +217,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -96,7 +238,7 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
           actions: [],
           centerTitle: true,
           elevation: 2.0,
@@ -130,7 +272,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
                     ].divide(SizedBox(height: 8.0)),
                   ),
                   Text(
@@ -143,7 +286,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation2']!),
                   Expanded(
                     child: Column(
                       children: [
@@ -288,7 +432,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                 .usernameTextControllerValidator
                                                 .asValidator(context),
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textFieldOnPageLoadAnimation1']!),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -369,11 +514,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                 .plateNumberTextControllerValidator
                                                 .asValidator(context),
                                           ),
-                                        ),
-                                      ),
-                                      Divider(
-                                        thickness: 2.0,
-                                        color: Color(0xFF14181B),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textFieldOnPageLoadAnimation2']!),
                                       ),
                                       FFButtonWidget(
                                         onPressed: () async {
@@ -411,6 +553,19 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                             FFAppState().userPlateNum = _model
                                                 .plateNumberTextController.text;
                                             safeSetState(() {});
+                                            await VansDatasetTable().update(
+                                              data: {
+                                                'user_id':
+                                                    FFAppState().currentUserID,
+                                                'user': FFAppState()
+                                                    .currentUserName,
+                                              },
+                                              matchingRows: (rows) =>
+                                                  rows.eqOrNull(
+                                                'plateNum',
+                                                FFAppState().userPlateNum,
+                                              ),
+                                            );
 
                                             context.pushNamed(
                                                 DriverDashboardWidget
@@ -478,7 +633,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                         ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'buttonOnPageLoadAnimation1']!),
                                     ],
                                   ),
                                 ),
@@ -616,7 +772,9 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                             .asValidator(
                                                                 context),
                                                       ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textFieldOnPageLoadAnimation3']!),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -734,7 +892,9 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                               .contactNumberMask
                                                         ],
                                                       ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textFieldOnPageLoadAnimation4']!),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -847,7 +1007,9 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                             .asValidator(
                                                                 context),
                                                       ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'textFieldOnPageLoadAnimation5']!),
                                                   ),
                                                   Align(
                                                     alignment:
@@ -1064,7 +1226,9 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                                                             BorderRadius
                                                                 .circular(12.0),
                                                       ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'buttonOnPageLoadAnimation2']!),
                                                   ),
                                                 ],
                                               ),
@@ -1129,7 +1293,8 @@ class _DriverFirstPageWidgetState extends State<DriverFirstPageWidget>
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation3']!),
                         ),
                     ].divide(SizedBox(height: 16.0)),
                   ),

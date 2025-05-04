@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'about_first_page_model.dart';
 export 'about_first_page_model.dart';
 
@@ -16,15 +18,156 @@ class AboutFirstPageWidget extends StatefulWidget {
   State<AboutFirstPageWidget> createState() => _AboutFirstPageWidgetState();
 }
 
-class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
+class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget>
+    with TickerProviderStateMixin {
   late AboutFirstPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AboutFirstPageModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 650.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 700.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 750.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 800.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 850.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 950.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -43,7 +186,7 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.black,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
           backgroundColor: Color(0xFF183072),
           automaticallyImplyLeading: false,
@@ -58,9 +201,10 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
               size: 30.0,
             ),
             onPressed: () async {
+              FFAppState().update(() {});
               context.pop();
             },
-          ),
+          ).animateOnPageLoad(animationsMap['iconButtonOnPageLoadAnimation']!),
           title: Text(
             'About',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -68,7 +212,7 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                   color: FlutterFlowTheme.of(context).info,
                   letterSpacing: 0.0,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation5']!),
           actions: [],
           centerTitle: true,
           elevation: 2.0,
@@ -93,12 +237,30 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         height: 150.0,
                         fit: BoxFit.cover,
                       ),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation']!),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      child: Text(
+                        'VanGuard',
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              font: FlutterFlowTheme.of(context).headlineMedium,
+                              color: Colors.white,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Text(
-                        'This application is a Predictive Model for Van Schedules on the Legazpi City - Sorsogon City Route: Integrating GPS and Historical Data with Random Forest and KNN Algorithms',
+                        'This application is a Predictive Model for Van Schedules on the Legazpi City - Sorsogon City Route: Integrating Random Forest and KNN Algorithms',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               font: FlutterFlowTheme.of(context).bodyLarge,
@@ -106,7 +268,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                               fontSize: 12.0,
                               letterSpacing: 0.0,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation2']!),
                     ),
                     Padding(
                       padding:
@@ -117,7 +280,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         indent: 32.0,
                         endIndent: 32.0,
                         color: Color(0x33FFFFFF),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['dividerOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
@@ -133,7 +297,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation3']!),
                     ),
                     Padding(
                       padding:
@@ -326,7 +491,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                             ],
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
@@ -339,7 +505,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                               color: FlutterFlowTheme.of(context).secondaryText,
                               letterSpacing: 0.0,
                             ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation4']!),
                     ),
                     Padding(
                       padding:
@@ -350,7 +517,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                         indent: 32.0,
                         endIndent: 32.0,
                         color: Color(0x33FFFFFF),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['dividerOnPageLoadAnimation2']!),
                     ),
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
@@ -402,7 +570,8 @@ class _AboutFirstPageWidgetState extends State<AboutFirstPageWidget> {
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation2']!),
                     ),
                   ].divide(SizedBox(height: 24.0)),
                 ),

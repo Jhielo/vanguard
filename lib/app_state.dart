@@ -200,6 +200,42 @@ class FFAppState extends ChangeNotifier {
   set isChangeSave(bool value) {
     _isChangeSave = value;
   }
+
+  String _trafficStatus = '';
+  String get trafficStatus => _trafficStatus;
+  set trafficStatus(String value) {
+    _trafficStatus = value;
+  }
+
+  double _sorsogonLat = 12.9763652;
+  double get sorsogonLat => _sorsogonLat;
+  set sorsogonLat(double value) {
+    _sorsogonLat = value;
+  }
+
+  double _sorsogonLong = 124.0193223;
+  double get sorsogonLong => _sorsogonLong;
+  set sorsogonLong(double value) {
+    _sorsogonLong = value;
+  }
+
+  double _legazpiLat = 13.1437659;
+  double get legazpiLat => _legazpiLat;
+  set legazpiLat(double value) {
+    _legazpiLat = value;
+  }
+
+  double _legazpiLong = 123.7451897;
+  double get legazpiLong => _legazpiLong;
+  set legazpiLong(double value) {
+    _legazpiLong = value;
+  }
+
+  String _estimatedTravelTime = '';
+  String get estimatedTravelTime => _estimatedTravelTime;
+  set estimatedTravelTime(String value) {
+    _estimatedTravelTime = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

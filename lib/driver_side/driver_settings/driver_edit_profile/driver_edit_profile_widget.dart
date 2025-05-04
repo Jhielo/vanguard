@@ -1,11 +1,13 @@
 import '/backend/supabase/supabase.dart';
 import '/driver_side/driver_components/save_profile_changes_dialogue/save_profile_changes_dialogue_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'driver_edit_profile_model.dart';
@@ -22,10 +24,13 @@ class DriverEditProfileWidget extends StatefulWidget {
       _DriverEditProfileWidgetState();
 }
 
-class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
+class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget>
+    with TickerProviderStateMixin {
   late DriverEditProfileModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -39,6 +44,124 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
     _model.licenseNumberFocusNode ??= FocusNode();
 
     _model.plateNumberFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 25.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 75.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 125.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 125.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -107,7 +230,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                 onPressed: () async {
                   context.pop();
                 },
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['iconButtonOnPageLoadAnimation']!),
               title: Text(
                 'Edit Profile',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -116,7 +240,7 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
                     ),
-              ),
+              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               actions: [],
               centerTitle: true,
               elevation: 2.0,
@@ -140,7 +264,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                             height: 200.0,
                             fit: BoxFit.cover,
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation']!),
                       ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
@@ -156,7 +281,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                   fontFamily: 'Google',
                                   letterSpacing: 0.0,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
                         ),
                       ),
                       Align(
@@ -252,7 +378,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         .nameTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation1']!),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -352,7 +479,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         .asValidator(context),
                                     inputFormatters: [_model.contactNumberMask],
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation2']!),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -442,7 +570,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         .licenseNumberTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation3']!),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -532,7 +661,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         .plateNumberTextControllerValidator
                                         .asValidator(context),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'textFieldOnPageLoadAnimation4']!),
                               ),
                               Align(
                                 alignment: AlignmentDirectional(0.0, 0.74),
@@ -666,7 +796,8 @@ class _DriverEditProfileWidgetState extends State<DriverEditProfileWidget> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation']!),
                                   ),
                                 ),
                               ),

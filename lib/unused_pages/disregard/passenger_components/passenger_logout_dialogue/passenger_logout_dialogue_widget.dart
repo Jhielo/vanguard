@@ -75,7 +75,8 @@ class _PassengerLogoutDialogueWidgetState
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 40.0),
                     child: Text(
                       'Confirm Log Out?',
                       textAlign: TextAlign.center,
@@ -86,18 +87,6 @@ class _PassengerLogoutDialogueWidgetState
                             color: Colors.white,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
-                          ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                    child: Text(
-                      'Do you want to log out of your passenger account?',
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            font: FlutterFlowTheme.of(context).bodyMedium,
-                            color: Color(0xFF9E9E9E),
-                            letterSpacing: 0.0,
                           ),
                     ),
                   ),

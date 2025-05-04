@@ -1,4 +1,5 @@
 import '/backend/supabase/supabase.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'driver_saved_records_model.dart';
@@ -22,15 +24,77 @@ class DriverSavedRecordsWidget extends StatefulWidget {
       _DriverSavedRecordsWidgetState();
 }
 
-class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
+class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget>
+    with TickerProviderStateMixin {
   late DriverSavedRecordsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DriverSavedRecordsModel());
+
+    animationsMap.addAll({
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-50.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-50.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -68,7 +132,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
             onPressed: () async {
               context.pushNamed(DriverDashboardWidget.routeName);
             },
-          ),
+          ).animateOnPageLoad(animationsMap['iconButtonOnPageLoadAnimation']!),
           title: Text(
             'Saved Recordings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -77,7 +141,7 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
           actions: [],
           centerTitle: true,
           elevation: 2.0,
@@ -86,10 +150,12 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
           top: true,
           child: FutureBuilder<List<VansDatasetRow>>(
             future: VansDatasetTable().queryRows(
-              queryFn: (q) => q.eqOrNull(
-                'user_id',
-                FFAppState().currentUserID,
-              ),
+              queryFn: (q) => q
+                  .eqOrNull(
+                    'user_id',
+                    FFAppState().currentUserID,
+                  )
+                  .order('created_at', ascending: true),
             ),
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
@@ -168,10 +234,12 @@ class _DriverSavedRecordsWidgetState extends State<DriverSavedRecordsWidget> {
                         elevation: 0.0,
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['buttonOnPageLoadAnimation']!),
                   );
                 },
-              );
+              ).animateOnPageLoad(
+                  animationsMap['listViewOnPageLoadAnimation']!);
             },
           ),
         ),

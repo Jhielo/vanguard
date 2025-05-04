@@ -268,6 +268,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: MapWidget.routeName,
           path: MapWidget.routePath,
           builder: (context, params) => MapWidget(),
+        ),
+        FFRoute(
+          name: PassengerTrafficMapWidget.routeName,
+          path: PassengerTrafficMapWidget.routePath,
+          builder: (context, params) => PassengerTrafficMapWidget(),
+        ),
+        FFRoute(
+          name: PassengerCalendarWidget.routeName,
+          path: PassengerCalendarWidget.routePath,
+          builder: (context, params) => PassengerCalendarWidget(),
+        ),
+        FFRoute(
+          name: PassengerTrafficMapsWidget.routeName,
+          path: PassengerTrafficMapsWidget.routePath,
+          builder: (context, params) => PassengerTrafficMapsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

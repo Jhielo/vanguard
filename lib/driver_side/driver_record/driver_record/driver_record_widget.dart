@@ -1,5 +1,6 @@
 import '/driver_side/driver_components/driver_cancel_recording/driver_cancel_recording_widget.dart';
 import '/driver_side/driver_components/driver_confirmation/driver_confirmation_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -13,6 +14,7 @@ import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'driver_record_model.dart';
 export 'driver_record_model.dart';
@@ -27,11 +29,14 @@ class DriverRecordWidget extends StatefulWidget {
   State<DriverRecordWidget> createState() => _DriverRecordWidgetState();
 }
 
-class _DriverRecordWidgetState extends State<DriverRecordWidget> {
+class _DriverRecordWidgetState extends State<DriverRecordWidget>
+    with TickerProviderStateMixin {
   late DriverRecordModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -52,6 +57,248 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
       FFAppState().timeEnded =
           DateTime.fromMillisecondsSinceEpoch(629488800000);
       safeSetState(() {});
+    });
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dropDownOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'timerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 650.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -126,7 +373,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
 
                   context.pushNamed(DriverDashboardWidget.routeName);
                 },
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['iconButtonOnPageLoadAnimation']!),
             ),
             title: Text(
               'Route Tracker',
@@ -136,7 +384,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
                   ),
-            ),
+            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation6']!),
             actions: [],
             centerTitle: true,
             elevation: 2.0,
@@ -155,6 +403,7 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(12.0),
+                      shape: BoxShape.rectangle,
                       border: Border.all(
                         color: FlutterFlowTheme.of(context).alternate,
                         width: 1.0,
@@ -234,35 +483,41 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                             isOverButton: true,
                             isSearchable: true,
                             isMultiSelect: false,
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: 250.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context).alternate,
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: Image.network(
-                                  '800x800?map',
-                                ).image,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['dropDownOnPageLoadAnimation']!),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
                             child: Container(
                               width: double.infinity,
-                              height: double.infinity,
-                              child: custom_widgets.OrderTrackingPage(
+                              height: 250.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).alternate,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: Image.network(
+                                    '800x800?map',
+                                  ).image,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Container(
                                 width: double.infinity,
                                 height: double.infinity,
-                                googleApiKey:
-                                    'AIzaSyCXlMt_QH0U1hFTAvsn9r0uY9Zm6G4UuHY',
-                              ),
+                                child: custom_widgets.OrderTrackingPage(
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  googleApiKey:
+                                      'AIzaSyCXlMt_QH0U1hFTAvsn9r0uY9Zm6G4UuHY',
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation2']!),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['containerOnPageLoadAnimation1']!),
                 ),
                 Expanded(
                   child: Padding(
@@ -296,7 +551,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation1']!),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -329,7 +585,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                                   .bodyMedium,
                                               letterSpacing: 0.0,
                                             ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation2']!),
                                       Text(
                                         functions.getTime(
                                             FFAppState().timeStarted!, false),
@@ -343,7 +600,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                                       .primaryText,
                                               letterSpacing: 0.0,
                                             ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation3']!),
                                     ],
                                   ),
                                 ),
@@ -360,7 +618,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                                 .bodyMedium,
                                             letterSpacing: 0.0,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation4']!),
                                     FlutterFlowTimer(
                                       initialTime: _model.timerInitialTimeMs,
                                       getDisplayTime: (value) =>
@@ -386,7 +645,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                                 .headlineSmall,
                                             letterSpacing: 0.0,
                                           ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'timerOnPageLoadAnimation']!),
                                   ],
                                 ),
                               ],
@@ -423,7 +683,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           ),
                                     ),
                                   ],
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'columnOnPageLoadAnimation']!),
                               ],
                             ),
                             Text(
@@ -436,7 +697,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation5']!),
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -500,7 +762,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                         ),
                                     borderRadius: BorderRadius.circular(24.0),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'buttonOnPageLoadAnimation1']!),
                                 Stack(
                                   children: [
                                     Align(
@@ -536,7 +799,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           borderRadius:
                                               BorderRadius.circular(24.0),
                                         ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'buttonOnPageLoadAnimation2']!),
                                     ),
                                     if (FFAppState().paused)
                                       Align(
@@ -585,7 +849,8 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(24.0),
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'buttonOnPageLoadAnimation3']!),
                                       ),
                                   ],
                                 ),
@@ -661,14 +926,16 @@ class _DriverRecordWidgetState extends State<DriverRecordWidget> {
                                           ),
                                       borderRadius: BorderRadius.circular(24.0),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'buttonOnPageLoadAnimation4']!),
                                 ),
                               ],
                             ),
                           ].divide(SizedBox(height: 16.0)),
                         ),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation3']!),
                   ),
                 ),
               ],

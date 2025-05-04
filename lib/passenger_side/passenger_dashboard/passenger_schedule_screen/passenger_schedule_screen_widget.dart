@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'passenger_schedule_screen_model.dart';
 export 'passenger_schedule_screen_model.dart';
@@ -25,10 +27,12 @@ class PassengerScheduleScreenWidget extends StatefulWidget {
 }
 
 class _PassengerScheduleScreenWidgetState
-    extends State<PassengerScheduleScreenWidget> {
+    extends State<PassengerScheduleScreenWidget> with TickerProviderStateMixin {
   late PassengerScheduleScreenModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -39,6 +43,179 @@ class _PassengerScheduleScreenWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().preferredTravelDate = getCurrentTimestamp;
       safeSetState(() {});
+    });
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dropDownOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 150.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 175.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 175.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
   }
 
@@ -82,7 +259,7 @@ class _PassengerScheduleScreenWidgetState
               safeSetState(() {});
               context.pop();
             },
-          ),
+          ).animateOnPageLoad(animationsMap['iconButtonOnPageLoadAnimation']!),
           title: Text(
             'Schedules',
             style: FlutterFlowTheme.of(context).titleLarge.override(
@@ -92,7 +269,7 @@ class _PassengerScheduleScreenWidgetState
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation6']!),
           actions: [],
           centerTitle: true,
           elevation: 2.0,
@@ -102,16 +279,17 @@ class _PassengerScheduleScreenWidgetState
           child: Align(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 24.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 24.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Preferred Route',
@@ -123,7 +301,8 @@ class _PassengerScheduleScreenWidgetState
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation1']!),
                       ],
                     ),
                     FlutterFlowDropDown<String>(
@@ -169,12 +348,13 @@ class _PassengerScheduleScreenWidgetState
                       borderWidth: 2.0,
                       borderRadius: 12.0,
                       margin:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 8.0, 4.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 1.0, 8.0, 4.0),
                       hidesUnderline: true,
                       isOverButton: true,
                       isSearchable: true,
                       isMultiSelect: false,
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['dropDownOnPageLoadAnimation']!),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,9 +369,10 @@ class _PassengerScheduleScreenWidgetState
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
                         Text(
-                          'Pick a preferred date/time for your travel (Optional)',
+                          'Pick a preferred date/time for your travel',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -200,7 +381,8 @@ class _PassengerScheduleScreenWidgetState
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation3']!),
                         InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -322,8 +504,26 @@ class _PassengerScheduleScreenWidgetState
                               ),
                             ),
                           ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation1']!),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              7.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            functions
+                                .isRushHour(FFAppState().preferredTravelDate!),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: FlutterFlowTheme.of(context).bodyMedium,
+                                  color: FlutterFlowTheme.of(context).error,
+                                  fontSize: 12.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation4']!),
                         ),
-                      ].divide(SizedBox(height: 12.0)),
+                      ].divide(SizedBox(height: 5.0)),
                     ),
                     Container(
                       width: double.infinity,
@@ -347,7 +547,8 @@ class _PassengerScheduleScreenWidgetState
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation5']!),
                         Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -401,7 +602,8 @@ class _PassengerScheduleScreenWidgetState
                               ],
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation2']!),
                         Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -454,7 +656,8 @@ class _PassengerScheduleScreenWidgetState
                               ],
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation3']!),
                       ].divide(SizedBox(height: 16.0)),
                     ),
                     Column(
@@ -521,6 +724,10 @@ class _PassengerScheduleScreenWidgetState
                             if (_shouldSetState) safeSetState(() {});
                           },
                           text: 'Predict Schedule',
+                          icon: Icon(
+                            Icons.online_prediction_sharp,
+                            size: 15.0,
+                          ),
                           options: FFButtonOptions(
                             width: double.infinity,
                             height: 50.0,
@@ -543,42 +750,12 @@ class _PassengerScheduleScreenWidgetState
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation1']!),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
-                              child: FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: 'Add Schedule',
-                                options: FFButtonOptions(
-                                  height: 50.0,
-                                  padding: EdgeInsets.all(8.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).accent1,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        font: FlutterFlowTheme.of(context)
-                                            .titleSmall,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  elevation: 0.0,
-                                  borderSide: BorderSide(
-                                    color: Color(0xFF2D3748),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                            ),
                             Expanded(
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -594,6 +771,10 @@ class _PassengerScheduleScreenWidgetState
                                   safeSetState(() {});
                                 },
                                 text: 'Reset Data',
+                                icon: Icon(
+                                  Icons.restart_alt,
+                                  size: 15.0,
+                                ),
                                 options: FFButtonOptions(
                                   height: 50.0,
                                   padding: EdgeInsets.all(8.0),
@@ -618,13 +799,14 @@ class _PassengerScheduleScreenWidgetState
                                   ),
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['buttonOnPageLoadAnimation2']!),
                             ),
                           ].divide(SizedBox(width: 16.0)),
                         ),
                       ].divide(SizedBox(height: 16.0)),
                     ),
-                  ].divide(SizedBox(height: 24.0)),
+                  ].divide(SizedBox(height: 20.0)),
                 ),
               ),
             ),

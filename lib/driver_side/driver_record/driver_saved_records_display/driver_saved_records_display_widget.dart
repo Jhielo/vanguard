@@ -1,10 +1,12 @@
 import '/driver_side/driver_components/driver_delete_save/driver_delete_save_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'driver_saved_records_display_model.dart';
 export 'driver_saved_records_display_model.dart';
 
@@ -35,15 +37,83 @@ class DriverSavedRecordsDisplayWidget extends StatefulWidget {
 }
 
 class _DriverSavedRecordsDisplayWidgetState
-    extends State<DriverSavedRecordsDisplayWidget> {
+    extends State<DriverSavedRecordsDisplayWidget>
+    with TickerProviderStateMixin {
   late DriverSavedRecordsDisplayModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => DriverSavedRecordsDisplayModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, -100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 50.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -79,7 +149,7 @@ class _DriverSavedRecordsDisplayWidgetState
             onPressed: () async {
               context.pop();
             },
-          ),
+          ).animateOnPageLoad(animationsMap['iconButtonOnPageLoadAnimation']!),
           title: Text(
             'Saved Recordings',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -88,7 +158,7 @@ class _DriverSavedRecordsDisplayWidgetState
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
           actions: [],
           centerTitle: true,
           elevation: 2.0,
@@ -408,7 +478,8 @@ class _DriverSavedRecordsDisplayWidgetState
                               ].divide(SizedBox(height: 16.0)),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation']!),
                       ),
                       Expanded(
                         child: Builder(
@@ -467,7 +538,8 @@ class _DriverSavedRecordsDisplayWidgetState
                               ),
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation']!),
                         ),
                       ),
                     ],

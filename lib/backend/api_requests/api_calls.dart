@@ -62,7 +62,13 @@ class GoogleAPICall {
           'https://maps.googleapis.com/maps/api/directions/json?origin=${originLat},${originLong}&destination=${destinationLat},${destinationLong}&departure_time=now&key=${apiKey}',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'origin_lat': originLat,
+        'origin_long': originLong,
+        'destination_lat': destinationLat,
+        'destination_long': destinationLong,
+        'api_key': apiKey,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -71,6 +77,21 @@ class GoogleAPICall {
       alwaysAllowBody: false,
     );
   }
+
+  static int? normalDuration(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.routes[:].legs[:].duration.value''',
+      ));
+  static int? durationInTraffic(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.routes[:].legs[:].duration_in_traffic.value''',
+      ));
+  static String? estimatedTravelTime(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.routes[:].legs[:].duration_in_traffic.text''',
+      ));
 }
 
 class ApiPagingParams {

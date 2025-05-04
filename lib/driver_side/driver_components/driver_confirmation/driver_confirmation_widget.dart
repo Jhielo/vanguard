@@ -45,7 +45,7 @@ class _DriverConfirmationWidgetState extends State<DriverConfirmationWidget> {
           color: Colors.transparent,
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
           child: Container(
             width: 300.0,
             height: 240.0,

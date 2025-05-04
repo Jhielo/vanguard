@@ -158,3 +158,38 @@ int? getData(
     return 0;
   }
 }
+
+String getTrafficStatus(
+  int duration,
+  int durationInTraffic,
+) {
+  double diff = durationInTraffic.toDouble() - duration.toDouble();
+  double percentChange = (diff / duration.toDouble()) * 100;
+
+  if (percentChange.abs() <= 5) {
+    // Within ±5% → Normal
+    return "Normal Traffic";
+  } else if (percentChange > 5) {
+    return "Heavy Traffic";
+  } else {
+    return "Light Traffic";
+  }
+}
+
+String isRushHour(DateTime time) {
+  final int hour = time.hour;
+
+  if (16 <= hour && hour <= 18) {
+    return "Rush hour. Earlier might be better?";
+  } else if (6 <= hour && hour <= 8) {
+    return "Rush hour. Later might be better?";
+  } else if (11 <= hour && hour <= 13) {
+    return "Rush hour. Earlier might be better?";
+  } else if (hour <= 4) {
+    return "The vans are not here yet, pick a later time.";
+  } else if (hour >= 20) {
+    return "The vans are no longer available, pick an earlier time.";
+  }
+
+  return "";
+}

@@ -26,7 +26,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  var hasButtonTriggered1 = false;
+  var hasButtonTriggered2 = false;
   final animationsMap = <String, AnimationInfo>{};
 
   @override
@@ -46,18 +47,152 @@ class _HomePageWidgetState extends State<HomePageWidget>
     });
 
     animationsMap.addAll({
-      'columnOnPageLoadAnimation': AnimationInfo(
+      'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          MoveEffect(
+          ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 0.0),
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 100.0),
             end: Offset(0.0, 0.0),
           ),
         ],
       ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 300.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 300.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(-40.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: false,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 325.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 325.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(-40.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnActionTriggerAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: false,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.5, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: false,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 350.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 350.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(-40.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnActionTriggerAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: false,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.5, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 375.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 375.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(-40.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 400.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 400.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(-40.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
+
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      animationsMap['buttonOnPageLoadAnimation1']!
+          .controller
+          .forward(from: 0.0);
+      animationsMap['buttonOnPageLoadAnimation2']!
+          .controller
+          .forward(from: 0.0);
     });
   }
 
@@ -105,7 +240,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           height: 200.0,
                           fit: BoxFit.fill,
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation']!),
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
@@ -124,9 +260,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation']!),
                       ].divide(SizedBox(height: 8.0)),
                     ),
+                    Divider(
+                      thickness: 2.0,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ).animateOnPageLoad(
+                        animationsMap['dividerOnPageLoadAnimation']!),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -173,7 +315,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ),
+                        )
+                            .animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation1']!)
+                            .animateOnActionTrigger(
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation1']!,
+                                hasBeenTriggered: hasButtonTriggered1),
                         FFButtonWidget(
                           onPressed: () async {
                             context.pushNamed(
@@ -216,7 +364,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ),
+                        )
+                            .animateOnPageLoad(
+                                animationsMap['buttonOnPageLoadAnimation2']!)
+                            .animateOnActionTrigger(
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation2']!,
+                                hasBeenTriggered: hasButtonTriggered2),
                         Opacity(
                           opacity: 0.0,
                           child: Container(
@@ -271,7 +425,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation3']!),
                         FFButtonWidget(
                           onPressed: () async {
                             await actions.exitApp();
@@ -305,14 +460,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation4']!),
                       ].divide(SizedBox(height: 16.0)),
                     ),
                   ].divide(SizedBox(height: 24.0)),
-                ).animateOnPageLoad(
-                    animationsMap['columnOnPageLoadAnimation']!),
+                ),
               ),
-            ),
+            ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
           ),
         ),
       ),
