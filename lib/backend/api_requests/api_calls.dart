@@ -14,12 +14,12 @@ class PredictVansCall {
     String? preferredDepTime = '',
     int? weekday,
     String? hour = '',
-    int? event,
+    String? date = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'PredictVans',
       apiUrl:
-          'https://vanguardthesis.pythonanywhere.com/route/${route}/pref/${preferredDepTime}/weekday/${weekday}/hour/${hour}/event/${event}',
+          'https://vanguardthesis.pythonanywhere.com/route/${route}/pref/${preferredDepTime}/weekday/${weekday}/hour/${hour}/date/${date}',
       callType: ApiCallType.GET,
       headers: {},
       params: {
@@ -27,7 +27,7 @@ class PredictVansCall {
         'preferred_dep_time': preferredDepTime,
         'weekday': weekday,
         'hour': hour,
-        'event': event,
+        'date': date,
       },
       returnBody: true,
       encodeBodyUtf8: false,

@@ -153,7 +153,7 @@ int? getData(
   if (isHour) {
     return datetime.hour;
   } else if (isWeekday) {
-    return datetime.weekday;
+    return datetime.weekday - 1;
   } else {
     return 0;
   }

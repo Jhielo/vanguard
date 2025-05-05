@@ -311,7 +311,7 @@ class _PassengerScheduleScreenWidgetState
                       options: ['Sorsogon - Legazpi', 'Legazpi - Sorsogon\n'],
                       onChanged: (val) async {
                         safeSetState(() => _model.dropDownValue = val);
-                        FFAppState().route = 'sorsogon-legazpi';
+                        FFAppState().route = _model.dropDownValue!;
                         FFAppState().isRouteChosen = true;
                         safeSetState(() {});
                       },
@@ -668,8 +668,6 @@ class _PassengerScheduleScreenWidgetState
                             var _shouldSetState = false;
                             if (FFAppState().isRouteChosen) {
                               _model.apiResult1ts = await PredictVansCall.call(
-                                event: functions.getData(false,
-                                    FFAppState().preferredTravelDate!, false),
                                 weekday: functions.getData(false,
                                     FFAppState().preferredTravelDate!, true),
                                 preferredDepTime: functions.getTime(
@@ -684,6 +682,8 @@ class _PassengerScheduleScreenWidgetState
                                         FFAppState().preferredTravelDate!,
                                         false)
                                     .toString(),
+                                date: functions.getTime(
+                                    FFAppState().preferredTravelDate!, true),
                               );
 
                               _shouldSetState = true;
